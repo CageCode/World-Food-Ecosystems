@@ -238,10 +238,7 @@ Answer D. In Javascript, lists start with the index 0, thus the 4th index number
 In this practical, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
 
 
-But now that you know the basics, let's explore its [functionalities](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html)
-
-
-
+But now that you know the basics, let's explore its functionalities and continue to exercise 2.
 
 
 <nav>
