@@ -5,7 +5,7 @@ In this practical we will be exploring the datasets and functionalities of Googl
 ### Exercise 1: loading the biome map of the world and exploring its values
 
 Now that we know more or less how it looks, let's use it. 
-If at any point your lost on the basic JavaScript commands, go [back](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html)
+If at any point your lost on the basic JavaScript commands, go [back](https://cagecode.github.io/WFE-practicals/practical1/intro.html)
 
 > Starting to build the script: exploring the Biome map 
 
@@ -24,7 +24,7 @@ print(biomes);
 Save the file (e.g. name it 'BiomePlotting') and run it. 
 
 
-> 🔍 Recap 4. You should see some basic information about the image *printed* in the console: how many bands does this Image have? (tip: try clicking on the Image name in the console) <br />
+> 🔍 <strong>Recap 4</strong>. You should see some basic information about the image *printed* in the console: how many bands does this Image have? (tip: try clicking on the Image name in the console) <br />
 > <br />
 > a) 1. <br />
 > b) 5. <br />
@@ -73,6 +73,14 @@ Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 <iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UQVZPTzZROU1CTVFXUzVVREdKUlNUNlgzOS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
 
+> 🔍 **Recap 5**. Why is the minimum set at 1, and the maximum at 32? (hint: check the properties)? <br />
+
+<br />
+<details>
+<summary><strong>Answer Recap 5</strong>.</summary>
+
+</details>
+<br />
 
 
 
