@@ -10,6 +10,7 @@ Before we begin, it's important to know that there are two types of questions yo
 
 <span style="color:red">There is some background available for this practicum (introduction provided in class). You can access the presentation [here](https://raw.githubusercontent.com/liesjacobs/World-Food-and-Ecosystems/gh-pages/practical1/WFE_pract1_light.pdf)</span> 
 
+<br />
 
 ## Step 1: exploring the interface
 
@@ -27,6 +28,7 @@ Your screen should look like this:
 ***
 
 <br />
+
 ## Step 2: exploring the code
 The Google Earth Engine interface, as you see it above, runs on JavaScript. It might seem scary to be confronted with a new (and at times cryptic) language, but no worries: we'll go step by step. 
 
@@ -42,6 +44,7 @@ Try to copy-paste some of these commands to your code editor in google earth and
 ---
 
 <br />
+
 ### Commenting lines
 
 ```javascript
@@ -53,6 +56,7 @@ and end with a star and a forward slash. */
 ```
 
 <br />
+
 ### Defining variables
 
 Variables are used to store objects and are defined using the keyword **var**.
@@ -93,6 +97,7 @@ var test2 = 'I feel complete!';   //this is very okay
 ```
 
 <br />
+
 ### Passing function parameters : 
 
 Function parameters are included between parenthesis. 
@@ -103,6 +108,7 @@ print('This string will print in the Console tab.');
 ```
 
 <br />
+
 ### Building a vector or list with multple items: 
 
 a list is built using [] brackets. 
@@ -125,6 +131,7 @@ print(myList[1]);
 ![1 iJhMo_FJ6ka70UU1t_h1eQ](https://user-images.githubusercontent.com/89069805/131823648-e8b56e95-6d58-426d-b5c0-3cf7c786eb1d.png)
 
 <br />
+
 ### Using dictionaries
 ```javascript
 
@@ -139,6 +146,7 @@ print(myDict.color);
 ```
 
 <br />
+
 ### Functions
 
 Functions can be defined as a way to reuse code and make it easier to read.
