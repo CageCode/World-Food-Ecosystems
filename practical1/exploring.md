@@ -34,11 +34,9 @@ Save the file (e.g. name it 'BiomePlotting') and run it.
 <br />
 <details>
 <summary>Answer Recap 4.</summary>
-**Answer A**. There is only one band available. This indicates that the Biome map consists of a single raster layer, meaning there are no multiple bands present. In contrast, for other types of data, such as average temperature per month, you would typically expect to see 12 bands—one raster layer for each month.
+Answer A. There is only one band available. This indicates that the Biome map consists of a single raster layer, meaning there are no multiple bands present. In contrast, for other types of data, such as average temperature per month, you would typically expect to see 12 bands — one raster layer for each month.
 </details>
-
-<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNEw1SkZCMDNKOUpINlBUMTFOUUU3OEM1WS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
-
+<br />
 
 ***
 
