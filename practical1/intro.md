@@ -178,8 +178,11 @@ myHelloFunction('world')
       return 'Hello ' + string + '!'; <br />
     }; <br />
     print(myHelloFunction('world')); <br />
-
---> what is the input that the function needs?
+<br />
+  --> what is the input that the function needs?
+  - [ ] Option A
+  - [ ] Option B
+  - [ ] Option C
 
 <br />
 <details>
