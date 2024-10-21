@@ -112,6 +112,17 @@ It’s time to explore the Biome map and answer the first few questions on Canva
 
 <br />
 
+> 📝 **Question 2**. What does the dominant pixel value from question 1 stand for? 
+> <br />
+> (hint: look up the legend by browing to the dataset in the earth engine catalogue)
+
+<br />
+
+> 📝 **Question 3**.  
+> <br />
+> 
+
+<br />
 
 Now that you know the basic functionalities of the GUI (Graphical User Interface), let's try an actual application. Continue with step 3!
 
