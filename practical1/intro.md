@@ -181,7 +181,7 @@ var myHelloFunction = function(string) {
 print(myHelloFunction('world'));
 ```
 
-> 🔍 Recap 1. What is the input required by the function above? <br />
+> 🔍 **Recap 1**. What is the input required by the function above? <br />
 > <br />
 > a) A variable named `string` that contains numbers. <br />
 > b) Any combination of letters. <br />
@@ -201,7 +201,7 @@ Check the following code
 myVariable = abcdefg
 ```
 
-> 🔍 Recap 2. In this command, what are potential issues? <br />
+> 🔍 **Recap 2**. In this command, what are potential issues? <br />
 > <br />
 > a) `;` is missing at the end of line. <br />
 > b) variables need to be announced by `var` in the beginning. <br />
@@ -220,7 +220,7 @@ Examine the code below:
 var myList = ['world','food','and', 'ecosystems'];
 ```
 
-> 🔍 Recap 3. Which result will you get with `print(myList[4]);` <br />
+> 🔍 **Recap 3**. Which result will you get with `print(myList[4]);` <br />
 > <br />
 > a) The word `and`. <br />
 > b) The word `ecosystems`. <br />
