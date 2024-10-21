@@ -247,9 +247,9 @@ But now that you know the basics, let's explore its [functionalities](https://li
 <nav>
   <ul>
     <li><strong>Practical 1: exercise 1</strong></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+    <li><a href="https://cagecode.github.io/WFE-practicals/practical1/exploring.html">Practical 1: exercise 2</a></li>
+    <li><a href="https://cagecode.github.io/WFE-practicals/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
+    <li><a href="https://cagecode.github.io/WFE-practicals/"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
 
