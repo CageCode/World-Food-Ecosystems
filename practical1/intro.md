@@ -167,6 +167,18 @@ myHelloFunction('world')
 
 
 
+> 🔍 Recap 1. In this function
+var myHelloFunction = function(string) {
+  return 'Hello ' + string + '!';
+};
+print(myHelloFunction('world'));
+--> what is the input that the function needs?
+
+<br />
+<details>
+<summary>Answer Q2.</summary>
+Depending on your LP problem, numerous types of variables can be of interest. In the case of this forest preservation task some examples can be: The number of trees in a grid cell (quantity), the number of endangered species present (quality), the (geo)diversity in the abiotic environment, the cost of protecting the 1km<sup>2</sup>, the distance to disturbances such as roads, the nutrient & water availability etc.
+</details>
 
 
 ***
