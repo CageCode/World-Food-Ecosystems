@@ -170,24 +170,28 @@ myHelloFunction('world')
 
 <iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNFFWT0NHTEhFUU8wTkgwUFoxOUFUR1dDVS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
+🔍 Recap questions:
 
+Check the following function
+```javascript
+var myHelloFunction = function(string) {
+  return 'Hello ' + string + '!';
+};
+print(myHelloFunction('world'));
+```
 
+> 🔍 Recap 1. What is the input required by the function above? <br />
+> <br />
+> a) A variable named `string` that contains numbers.  
+> b) Any combination of letters.  
+> c) The function `myHelloFunction`.  
+> d) All of the above options (_a_, _b_, and _c_) are correct.  
 
-> - 🔍 Recap 1. In this function <br />
-    var myHelloFunction = function(string) { <br />
-      return 'Hello ' + string + '!'; <br />
-    }; <br />
-    print(myHelloFunction('world')); <br />
-<br />
-  --> what is the input that the function needs?
-  - [ ] Option A
-  - [ ] Option B
-  - [ ] Option C
 
 <br />
 <details>
-<summary>Answer Q2.</summary>
-Depending on your LP problem, numerous types of variables can be of interest. In the case of this forest preservation task some examples can be: The number of trees in a grid cell (quantity), the number of endangered species present (quality), the (geo)diversity in the abiotic environment, the cost of protecting the 1km<sup>2</sup>, the distance to disturbances such as roads, the nutrient & water availability etc.
+<summary>Answer Recap 1.</summary>
+Answer B. The function only takes a string - which is a sequence of letters - as an input. These letters might be stored in a variable, but the input needs to be a text in order for the code to work.
 </details>
 
 
