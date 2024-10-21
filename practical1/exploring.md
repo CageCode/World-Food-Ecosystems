@@ -105,7 +105,8 @@ The inspector shows the value of the raster cell for the visualized map. You are
 
 It’s time to explore the Biome map and answer the first few questions on Canvas. You can find these questions in the quiz associated with this practical.
 
-> 📝 **Question 1**.You have used the OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01 dataset to make a biome map of the world. What is the dominant pixel value in the Netherlands? <br />
+> 📝 **Question 1**. You have used the OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01 dataset to make a biome map of the world.
+> What is the dominant pixel value in the Netherlands? <br />
 > (tip: click on some pixels in the Netherlands on the map and then check the value in the 'inspector' panel on the right)
 
 <br />
