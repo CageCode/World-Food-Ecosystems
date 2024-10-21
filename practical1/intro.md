@@ -1,8 +1,8 @@
 # Welcome to the first practical. 
 
-In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on [the starting page](https://liesjacobs.github.io/World-Food-and_Ecosystems/).
+In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on the starting page.
 
-There is some background available for this practicum (introduction provided in class). You can access the presentation [here](https://raw.githubusercontent.com/liesjacobs/World-Food-and-Ecosystems/gh-pages/practical1/WFE_pract1_light.pdf)
+<span style="color: red;">There is some background available for this practicum (introduction provided in class). You can access the presentation [here](https://raw.githubusercontent.com/liesjacobs/World-Food-and-Ecosystems/gh-pages/practical1/WFE_pract1_light.pdf)</span>
 
 
 ## Step 1: exploring the interface
