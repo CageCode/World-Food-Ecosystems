@@ -162,17 +162,7 @@ myHelloFunction('world')
 
 ## Quiz
 
-1. please open <a href="http://portal.office.com" target="_blank">the uva office login page</a> and login with your student account. 
-2. Now refresh this github page
-3. fill in the quiz below
-
-
-
-<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNFFWT0NHTEhFUU8wTkgwUFoxOUFUR1dDVS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
-
-🔍 Recap questions:
-
-Check the following function
+Inspect the following function
 ```javascript
 var myHelloFunction = function(string) {
   return 'Hello ' + string + '!';
@@ -194,6 +184,41 @@ print(myHelloFunction('world'));
 Answer B. The function only takes a string - which is a sequence of letters - as an input. These letters might be stored in a variable, but the input needs to be a text in order for the code to work.
 </details>
 
+Check the following code
+```javascript
+myVariable = abcdefg
+```
+
+> 🔍 Recap 2. In this command, what are potential issues? <br />
+> <br />
+> a) `;` is missing at the end of line 
+> b) variables need to be announced by `var` in the beginning
+> c) strings need 'quotation marks' to define them
+> d) All of the above options (_a_, _b_, and _c_) are correct.
+
+<br />
+<details>
+<summary>Answer Recap 2.</summary>
+Answer D. All of the answers are correct.
+</details>
+
+Examine the code below:
+```javascript
+var myList = ['world','food','and', 'ecosystems'];
+```
+
+> 🔍 Recap 3. Which result will you get with `print(myList[4]);` <br />
+> <br />
+> a) The word `and`.
+> b) The word `ecosystems`.
+> c) The word `world`.
+> d) You will get no result.
+
+<br />
+<details>
+<summary>Answer Recap 3.</summary>
+Answer D. In Javascript, lists start with the index 0, thus the 4th index number will be the fifth entry, which does not exist.
+</details>
 
 ***
 
