@@ -190,7 +190,7 @@ print(myHelloFunction('world'));
 
 <br />
 <details>
-<summary>Answer Recap 1.</summary>
+<summary>Answer Recap 1. (click on this to show/hide the answer)</summary>
 Answer B. The function only takes a string - which is a sequence of letters - as an input. These letters might be stored in a variable, but the input needs to be a text in order for the code to work.
 </details>
 
