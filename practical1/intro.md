@@ -7,7 +7,7 @@ In this practical we will be exploring the datasets and functionalities of Googl
 
 ## Step 1: exploring the interface
 
-Now that you have your account, you can surf to the [code editor](code.earthengine.google.com/).
+Now that you have your account, you can surf to the [code editor](https://code.earthengine.google.com/).
 Your screen should look like this:
 
 ![image](https://user-images.githubusercontent.com/89069805/129699267-c9c03178-f0b5-41be-83d9-96596d36e61c.png)
