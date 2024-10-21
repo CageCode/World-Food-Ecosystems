@@ -24,7 +24,7 @@ print(biomes);
 Save the file (e.g. name it 'BiomePlotting') and run it. 
 
 
-> 🔍 <strong>Recap 4</strong>. You should see some basic information about the image *printed* in the console: how many bands does this Image have? (tip: try clicking on the Image name in the console) <br />
+> 🔍 **Recap 4**. You should see some basic information about the image *printed* in the console: how many bands does this Image have? (tip: try clicking on the Image name in the console) <br />
 > <br />
 > a) 1. <br />
 > b) 5. <br />
@@ -77,7 +77,7 @@ Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 
 <br />
 <details>
-<summary><strong>Answer Recap 5</strong>.</summary>
+<summary>Answer Recap 5.</summary>
 If you look in the properties, you will see 20 different classes. However, underneath 'biome_type_class_values' you will see that the data ranges from 1 (index 0) to 32 (index 19).
 </details>
 <br />
@@ -86,7 +86,7 @@ If you look in the properties, you will see 20 different classes. However, under
 
 <br />
 <details>
-<summary><strong>Answer Recap 6</strong>.</summary>
+<summary>Answer Recap 6.</summary>
 The palette colors the different biome types, of which there are 20.
 </details>
 <br />
@@ -95,7 +95,7 @@ The palette colors the different biome types, of which there are 20.
 
 <br />
 <details>
-<summary><strong>Answer Recap 7</strong>.</summary>
+<summary>Answer Recap 7.</summary>
 The inspector shows the value of the raster cell for the visualized map. You are thus 'inspecting' the raster.
 </details>
 <br />
