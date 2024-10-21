@@ -4,9 +4,9 @@ In this practical we will be exploring the datasets and functionalities of Googl
 
 Before we begin, it's important to know that there are two types of questions you'll encounter during the practicals.
 
-1. 🔍 *Recap questions*: These are practice questions, marked by the magnifying glass icon, and are not graded. The answers are provided below each question. However, please make sure to think carefully about these questions before checking the answer—this will help you learn more effectively.
+1. 🔍 **Recap questions**: These are practice questions, marked by the magnifying glass icon, and are not graded. The answers are provided below each question. However, please make sure to think carefully about these questions before checking the answer—this will help you learn more effectively.
 
-2. 📝 *Graded questions*: These questions are graded and align with the quizzes on Canvas.
+2. 📝 **Graded questions**: These questions are graded and align with the quizzes on Canvas. When you encounter one of these questions, please provide your answer in Canvas.
 
 <span style="color:red">There is some background available for this practicum (introduction provided in class). You can access the presentation [here](https://raw.githubusercontent.com/liesjacobs/World-Food-and-Ecosystems/gh-pages/practical1/WFE_pract1_light.pdf)</span> 
 
