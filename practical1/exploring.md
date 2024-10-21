@@ -1,5 +1,5 @@
 ## Step 2: exploring the functionalities
-In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on [the starting page](https://liesjacobs.github.io/World_Food-and_Ecosystems/)
+In this practical we will be exploring the datasets and functionalities of Google Earth Engine.
 
 
 ### Exercise 1: loading the biome map of the world and exploring its values
