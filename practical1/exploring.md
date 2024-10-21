@@ -1,4 +1,4 @@
-## Step 3: exploring the functionalities
+## Step 2: exploring the functionalities
 In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on [the starting page](https://liesjacobs.github.io/World_Food-and_Ecosystems/)
 
 
@@ -23,6 +23,19 @@ print(biomes);
 
 Save the file (e.g. name it 'BiomePlotting') and run it. 
 
+
+> 🔍 Recap 4. You should see some basic information about the image *printed* in the console: how many bands does this Image have? (tip: try clicking on the Image name in the console) <br />
+> <br />
+> a) 1. <br />
+> b) 5. <br />
+> c) 8. <br />
+> d) 16. <br />
+
+<br />
+<details>
+<summary>Answer Recap 4.</summary>
+**Answer A**. There is only one band available. This indicates that the Biome map consists of a single raster layer, meaning there are no multiple bands present. In contrast, for other types of data, such as average temperature per month, you would typically expect to see 12 bands—one raster layer for each month.
+</details>
 
 <iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNEw1SkZCMDNKOUpINlBUMTFOUUU3OEM1WS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
