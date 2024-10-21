@@ -100,8 +100,15 @@ The inspector shows the value of the raster cell for the visualized map. You are
 
 #### TIP: for each of the functions, there is a documentation provided by earth-engine: https://developers.google.com/earth-engine/apidocs
 
+***
+<br />
 
+It’s time to explore the Biome map and answer the first few questions on Canvas. You can find these questions in the quiz associated with this practical.
 
+> 📝 **Question 1**.You have used the OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01 dataset to make a biome map of the world. What is the dominant pixel value in the Netherlands? <br />
+> (tip: click on some pixels in the Netherlands on the map and then check the value in the 'inspector' panel on the right)
+
+<br />
 
 
 Now that you know the basic functionalities of the GUI (Graphical User Interface), let's try an actual application. Continue with step 3!
