@@ -26,6 +26,7 @@ Your screen should look like this:
 
 ***
 
+<br />
 ## Step 2: exploring the code
 The Google Earth Engine interface, as you see it above, runs on JavaScript. It might seem scary to be confronted with a new (and at times cryptic) language, but no worries: we'll go step by step. 
 
@@ -40,6 +41,7 @@ Try to copy-paste some of these commands to your code editor in google earth and
 
 ---
 
+<br />
 ### Commenting lines
 
 ```javascript
@@ -50,7 +52,7 @@ Try to copy-paste some of these commands to your code editor in google earth and
 and end with a star and a forward slash. */
 ```
 
-
+<br />
 ### Defining variables
 
 Variables are used to store objects and are defined using the keyword **var**.
@@ -68,7 +70,7 @@ print(theAnswer)
 
 ```
 
-
+<br />
 ### Defining string objects
 
 String objects start and end with a single quote
@@ -89,7 +91,7 @@ var test = 'I feel incomplete...' //this is wrong
 var test2 = 'I feel complete!';   //this is very okay
 ```
 
-
+<br />
 ### Passing function parameters : 
 
 Function parameters are included between parenthesis. 
@@ -99,7 +101,7 @@ Function parameters are included between parenthesis.
 print('This string will print in the Console tab.');
 ```
 
-
+<br />
 ### Building a vector or list with multple items: 
 
 a list is built using [] brackets. 
@@ -121,7 +123,7 @@ print(myList[1]);
 
 ![1 iJhMo_FJ6ka70UU1t_h1eQ](https://user-images.githubusercontent.com/89069805/131823648-e8b56e95-6d58-426d-b5c0-3cf7c786eb1d.png)
 
-
+<br />
 ### Using dictionaries
 ```javascript
 
@@ -135,7 +137,7 @@ print(myDict['color']);
 print(myDict.color);
 ```
 
-
+<br />
 ### Functions
 
 Functions can be defined as a way to reuse code and make it easier to read.
@@ -172,8 +174,8 @@ print(myHelloFunction('world'));
 
 > 🔍 Recap 1. What is the input required by the function above? <br />
 > <br />
-> a) A variable named `string` that contains numbers. <br />  
-> b) Any combination of letters. <br />  
+> a) A variable named `string` that contains numbers.
+> b) Any combination of letters.
 > c) The function `myHelloFunction`. <br /> 
 > d) All of the above options (_a_, _b_, and _c_) are correct. <br /> 
 
