@@ -71,6 +71,7 @@ print(theAnswer)
 ```
 
 <br />
+
 ### Defining string objects
 
 String objects start and end with a single quote
@@ -174,8 +175,8 @@ print(myHelloFunction('world'));
 
 > 🔍 Recap 1. What is the input required by the function above? <br />
 > <br />
-> a) A variable named `string` that contains numbers.
-> b) Any combination of letters.
+> a) A variable named `string` that contains numbers. <br />
+> b) Any combination of letters. <br />
 > c) The function `myHelloFunction`. <br /> 
 > d) All of the above options (_a_, _b_, and _c_) are correct. <br /> 
 
