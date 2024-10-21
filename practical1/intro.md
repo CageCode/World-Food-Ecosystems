@@ -172,10 +172,10 @@ print(myHelloFunction('world'));
 
 > 🔍 Recap 1. What is the input required by the function above? <br />
 > <br />
-> a) A variable named `string` that contains numbers.  
-> b) Any combination of letters.  
-> c) The function `myHelloFunction`.  
-> d) All of the above options (_a_, _b_, and _c_) are correct.  
+> a) A variable named `string` that contains numbers. <br />  
+> b) Any combination of letters. <br />  
+> c) The function `myHelloFunction`. <br /> 
+> d) All of the above options (_a_, _b_, and _c_) are correct. <br /> 
 
 
 <br />
@@ -183,6 +183,7 @@ print(myHelloFunction('world'));
 <summary>Answer Recap 1. (click on this to show/hide the answer)</summary>
 Answer B. The function only takes a string - which is a sequence of letters - as an input. These letters might be stored in a variable, but the input needs to be a text in order for the code to work.
 </details>
+<br />
 
 Check the following code
 ```javascript
@@ -191,16 +192,17 @@ myVariable = abcdefg
 
 > 🔍 Recap 2. In this command, what are potential issues? <br />
 > <br />
-> a) `;` is missing at the end of line 
-> b) variables need to be announced by `var` in the beginning
-> c) strings need 'quotation marks' to define them
-> d) All of the above options (_a_, _b_, and _c_) are correct.
+> a) `;` is missing at the end of line. <br />
+> b) variables need to be announced by `var` in the beginning. <br />
+> c) strings need 'quotation marks' to define them. <br />
+> d) All of the above options (_a_, _b_, and _c_) are correct. <br />
 
 <br />
 <details>
 <summary>Answer Recap 2.</summary>
 Answer D. All of the answers are correct.
 </details>
+<br />
 
 Examine the code below:
 ```javascript
@@ -209,10 +211,10 @@ var myList = ['world','food','and', 'ecosystems'];
 
 > 🔍 Recap 3. Which result will you get with `print(myList[4]);` <br />
 > <br />
-> a) The word `and`.
-> b) The word `ecosystems`.
-> c) The word `world`.
-> d) You will get no result.
+> a) The word `and`. <br />
+> b) The word `ecosystems`. <br />
+> c) The word `world`. <br />
+> d) You will get no result. <br />
 
 <br />
 <details>
