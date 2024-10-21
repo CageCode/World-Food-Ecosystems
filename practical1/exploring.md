@@ -78,17 +78,28 @@ Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 <br />
 <details>
 <summary><strong>Answer Recap 5</strong>.</summary>
-
+If you look in the properties, you will see 20 different classes. However, underneath 'biome_type_class_values' you will see that the data ranges from 1 (index 0) to 32 (index 19).
 </details>
 <br />
 
+> 🔍 **Recap 6**. What does the palette do? (hint: try changing some of the letters in these strings)? <br />
 
+<br />
+<details>
+<summary><strong>Answer Recap 6</strong>.</summary>
+The palette colors the different biome types, of which there are 20.
+</details>
+<br />
 
+> 🔍 **Recap 7**. Try clicking on the biome map in the visualisation of the bottom panel: what happens underneath the tab: 'Inspector'? <br />
 
+<br />
+<details>
+<summary><strong>Answer Recap 7</strong>.</summary>
+The inspector shows the value of the raster cell for the visualized map. You are thus 'inspecting' the raster.
+</details>
+<br />
 
-
-
- 
 
 #### TIP: for each of the functions, there is a documentation provided by earth-engine: https://developers.google.com/earth-engine/apidocs
 
@@ -96,15 +107,15 @@ Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 
 
 
-Now that you know the basic functionalities of the GUI, let's try an actual [application](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html). 
+Now that you know the basic functionalities of the GUI (Graphical User Interface), let's try an actual application. Continue with step 3!
 
 
 <nav>
   <ul>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
-    <li><strong>Practical 1: exercise 2</strong></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+    <li><a href="https://cagecode.github.io/WFE-practicals/practical1/intro.html">Practical 1: Step 1</a></li>
+    <li><strong>Practical 1: Step 2</strong></li>
+    <li><a href="https://cagecode.github.io/WFE-practicals/practical1/understandinggradients.html">Practical 1: Step 3</a></li>
+    <li><a href="https://cagecode.github.io/WFE-practicals/"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
 
