@@ -173,11 +173,11 @@ myHelloFunction('world')
 
 
 
-> 🔍 Recap 1. In this function
-var myHelloFunction = function(string) {
-  return 'Hello ' + string + '!';
-};
-print(myHelloFunction('world'));
+> - 🔍 Recap 1. In this function
+    var myHelloFunction = function(string) {
+      return 'Hello ' + string + '!';
+    };
+    print(myHelloFunction('world'));
 --> what is the input that the function needs?
 
 <br />
