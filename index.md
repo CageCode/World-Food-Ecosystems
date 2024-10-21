@@ -12,8 +12,14 @@ In preparation for the course, please install following software:
 3. Make a google earth engine account, by [signing up here](https://signup.earthengine.google.com/#!/) 
 
 ### You can find the instructions for practicals here: 
-[Practical 1](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html)
+[Practical 1](https://cagecode.github.io/WFE-practicals/practical1/intro.html)
 
-[Practical 2](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html)
+[Practical 2](https://cagecode.github.io/WFE-practicals/practical2/intro.html)
 
-[Practical 6](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html)
+[Practical 3](https://cagecode.github.io/WFE-practicals/practical3/intro.html)
+
+[Practical 4](https://cagecode.github.io/WFE-practicals/practical4/intro.html)
+
+[Practical 5](https://cagecode.github.io/WFE-practicals/practical5/intro.html)
+
+[Practical 6](https://cagecode.github.io/WFE-practicals/practical6/intro.html)
