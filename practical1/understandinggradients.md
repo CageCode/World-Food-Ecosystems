@@ -36,13 +36,16 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 - How will we describe the dimensions
 
 
-| building block  |  decision |
-|---|---|
-| Geographic scale |  Transect (line) |
-| temporal scale |  all data input should span same timespan |
-| Assumption | The different landcovers on such a short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
-| Dimensions | We'll use winter and summer temperature and yearly precipitation |
-| Dimension description | ERA5 for temperature, CHIRPS for precipitation, a local DEM for topography |
+<div align="center">
+  | building block  |  decision |
+  |---|---|
+  | Geographic scale |  Transect (line) |
+  | temporal scale |  all data input should span same timespan |
+  | Assumption | The different landcovers on such a short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
+  | Dimensions | We'll use winter and summer temperature and yearly precipitation |
+  | Dimension description | ERA5 for temperature, CHIRPS for precipitation, a local DEM for topography |
+</div>
+
 
 
 >TIP: If you are looking for data, or data types, you could use the search bar above to find datasets and even examples of code to import/plot/...
