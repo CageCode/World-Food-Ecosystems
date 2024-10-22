@@ -208,10 +208,9 @@ Your browser does not support the video tag.
 
 The question from the forms was: How can you use this graph to explain agricultural suitability along this transect?
 
-> 📝 **Question 4**. You have used the OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01 dataset to make a biome map of the world.
-> What is the dominant pixel value in the Netherlands? <br />
+> 📝 **Question 4**. The temperature data, whose mean temperature of January you have visualized on the map in GEE, have very large values: why is that? 
 > <br />
-> (tip: click on some pixels in the Netherlands on the map and then check the value in the 'inspector' panel on the right)
+> (tip: look at the source link given in the table on GitHub that describes the data)
 
 <br />
 
