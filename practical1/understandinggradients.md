@@ -205,8 +205,15 @@ Your browser does not support the video tag.
 
 
 ## **Congrats: you can now analyze multiple layers at the same time on the same graph: is the result what you expected**? 
-<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNUFRSFhMUjFINzJHR0NLRjlBSktRRlE2Vy4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
+The question from the forms was: How can you use this graph to explain agricultural suitability along this transect?
+
+> 📝 **Question 4**. You have used the OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01 dataset to make a biome map of the world.
+> What is the dominant pixel value in the Netherlands? <br />
+> <br />
+> (tip: click on some pixels in the Netherlands on the map and then check the value in the 'inspector' panel on the right)
+
+<br />
 
 <nav>
   <ul>
