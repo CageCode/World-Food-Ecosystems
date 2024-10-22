@@ -47,12 +47,10 @@ Now we can think about the building blocks of the analysis (see slide 45, course
 
 >TIP: If you are looking for data, or data types, you could use the search bar above to find datasets and even examples of code to import/plot/...
 
-<div align="center">
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/131996471-05d9d1b8-0a0f-4e1d-82da-d9cdc1ba0bd2.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-</div>
 
 
 
