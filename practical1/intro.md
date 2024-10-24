@@ -50,15 +50,15 @@ To access, explore and use Google Earth Engine, only a basic understanding of Ja
 Of course, although the building blocks are similar, the syntax can differ quite a bit. Some key tips and tricks for JavaScript are listed here (source: <a href="https://docs.google.com/document/d/1ZxRKMie8dfTvBmUNOO0TFMkd7ELGWf3WjX0JvESZdOE/edit" target="_blank">Earth Engine 101 Beginner's Curriculum</a>.)
 
 ---
-**NOTE**
-
-Try to copy-paste some of these commands to your code editor in google earth and run it: what happens?
+**NOTE**: Try to copy-paste some of these commands to your code editor in google earth and run it: what happens?
 
 ---
 
 <br />
 
 ### Commenting lines
+
+Just like using hashes in R, you can make comments in code using slashes in Javascript, see:
 
 ```javascript
 
@@ -72,7 +72,8 @@ and end with a star and a forward slash. */
 
 ### Defining variables
 
-Variables are used to store objects and are defined using the keyword **var**.
+Variables are used to store objects and are defined using the keyword **var**. You can store the number 42 in a variable named theAnswer for instance:
+
 ```javascript
 
 var theAnswer = 42;
@@ -91,7 +92,7 @@ print(theAnswer)
 
 ### Defining string objects
 
-String objects start and end with a single quote
+String objects (texts) start and end with a single quote:
 
 ```javascript
 var myVariable = 'I am a string';
@@ -100,8 +101,7 @@ var myVariable = 'I am a string';
 var myOtherVariable = "I am also a string";
 ```
 
-Statements should end in a semi-colon, or the editor complains.
-
+All statements should end in a semi-colon, or the editor complains.
 
 ```javascript
 
@@ -129,11 +129,11 @@ a list is built using [] brackets.
 ```javascript
 The zero index refers to the first item in a list*/
 var myList = ['eggplant','apple','wheat'];
-print(myList[0]); // would print 'eggplant' because JavaScript starts counting from 0 (and not from 1, like R)
+print(myList[0]); // would print 'eggplant' because JavaScript starts counting from 0
 ```
 
 
->Note that in R this is very similar, but slightly different as c() is used to construct lists, and R starts counting from 1 (not from zero): 
+>Note that in R this is very similar, but slightly different as c() is used to construct lists, and R starts counting from 1 (and not from zero): 
 
 ```r
 #making a list in R using c() instead of the [] used in javascript
@@ -154,7 +154,7 @@ var myDict = {'food':'bread', 'color':'red', 'number':42};
 // Square brackets can be used to access dictionary items by key.
 print(myDict['color']);
 
-//Or you can use the dot notation to get the same result.
+// Or you can use the dot notation to get the same result.
 print(myDict.color);
 ```
 
@@ -173,7 +173,7 @@ print(myHelloFunction('world'));
 
 ```
 
->Again, this looks very similar to what it would be in R
+> Again, this looks very similar to what it would be in R
 
 ```r
 myHelloFunction <- function(string) {
