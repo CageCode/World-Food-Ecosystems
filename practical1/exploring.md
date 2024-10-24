@@ -1,11 +1,13 @@
-## Step 2: exploring the functionalities
-In this practical we will be exploring the datasets and functionalities of Google Earth Engine.
+## Step 2: Exploring the functionalities
+Now we will explore the functionalities of Google Earth Engine, a cloud-based platform for spatial data analysis. It enables users to access, visualize, and analyze vast amounts of data, facilitating research on topics such as land cover change, climate monitoring and disaster response to name a few. In this course we use GEE to quickly access various datasources and inspect them easily.
 
+</br >
+</br >
 
-### Exercise 1: loading the biome map of the world and exploring its values
+### Step 2.1: Loading the biome map of the world
 
-Now that we know more or less how it looks, let's use it. 
-If at any point your lost on the basic JavaScript commands, go [back](https://cagecode.github.io/WFE-practicals/practical1/intro.html)
+Now that we know more or less how GEE looks, let's use it. 
+If at any point your lost on the basic JavaScript commands, go [back](intro.html)
 
 > Starting to build the script: exploring the Biome map 
 
