@@ -1,6 +1,16 @@
-# Welcome to the first practical. 
+# Welcome to the World Food & Ecosystems practicals
+<br />
 
-In this practical we will be exploring the datasets and functionalities of Google Earth Engine. If all is well, you have created an account on earth engine by following the instructions on the starting page.
+In these practicals we will explore the intricate relationships between environmental factors, ecosystem dynamics, and agricultural practices. Utilizing advanced tools like Google Earth Engine and Rstudio, you'll analyze real-world data to uncover insights about global ecosystems and food production systems.
+
+In this first practical we will be exploring the datasets and functionalities of Google Earth Engine.
+
+- **Step 1: Introduction to JavaScript**: We will start by learning the basics of JavaScript, covering some coding examples to build a solid foundation for data analysis and visualization tasks.
+
+- **Step 2: Google Earth Engine (GEE) Overview**: Next, we will explore Google Earth Engine, a powerful platform for geospatial data analysis. You will use scripts to manipulate and visualize environmental data within GEE.
+
+- **Step 3: Ecosystem and Agricultural Analysis**: Finally, we'll apply our skills to investigate changes in ecosystems and agriculture over geographical gradients. This involves acquiring datasets, performing gradient analysis, and visualizing the results to understand environmental impacts.
+
 
 Before we begin, it's important to know that there are two types of questions you'll encounter during the practicals.
 
@@ -11,9 +21,11 @@ Before we begin, it's important to know that there are two types of questions yo
 <span style="color:red">There is some background available for this practicum (introduction provided in class). You can access the presentation [here](https://raw.githubusercontent.com/liesjacobs/World-Food-and-Ecosystems/gh-pages/practical1/WFE_pract1_light.pdf)</span> 
 
 <br />
+<br />
 
-## Step 1: exploring the interface
+## Step 1.1: exploring the interface
 
+If all is well, you have created an account on earth engine by following the instructions on the starting page.
 Now that you have your account, you can surf to the [code editor](https://code.earthengine.google.com/).
 Your screen should look like this:
 
@@ -29,7 +41,7 @@ Your screen should look like this:
 
 <br />
 
-## Step 2: exploring the code
+## Step 1.2: exploring the code
 The Google Earth Engine interface, as you see it above, runs on JavaScript. It might seem scary to be confronted with a new (and at times cryptic) language, but no worries: we'll go step by step. 
 
 To access, explore and use Google Earth Engine, only a basic understanding of JavaScript suffices. As we saw in class, the basic building blocks of writing code (in python, R, Javascript...) is (i) the identification of the necessary variables, (ii) the identification of the appropriate functions, (iii) understanding which input parameters these functions require. 
