@@ -3,7 +3,7 @@
 
 In these practicals we will explore the intricate relationships between environmental factors, ecosystem dynamics, and agricultural practices. Utilizing advanced tools like Google Earth Engine and Rstudio, you'll analyze real-world data to uncover insights about global ecosystems and food production systems.
 
-In this first practical we will be exploring the datasets and functionalities of Google Earth Engine.
+This first practical we will get acquinted with the functionalities of Google Earth Engine in three steps:
 
 - **Step 1: Introduction to JavaScript**: We will start by learning the basics of JavaScript, covering some coding examples to build a solid foundation for data analysis and visualization tasks.
 
@@ -11,6 +11,7 @@ In this first practical we will be exploring the datasets and functionalities of
 
 - **Step 3: Ecosystem and Agricultural Analysis**: Finally, we'll apply our skills to investigate changes in ecosystems and agriculture over geographical gradients. This involves acquiring datasets, performing gradient analysis, and visualizing the results to understand environmental impacts.
 
+<br />
 
 Before we begin, it's important to know that there are two types of questions you'll encounter during the practicals.
 
