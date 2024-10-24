@@ -261,8 +261,8 @@ But now that you know the basics, let's explore its functionalities and continue
   <ul>
     <li><strong>Practical 1: Step 1</strong></li>
     <li><a href="../exploring.html">Practical 1: Step 2</a></li>
-    <li><a href="https://cagecode.github.io/WFE-practicals/practical1/understandinggradients.html">Practical 1: Step 3</a></li>
-    <li><a href="https://cagecode.github.io/WFE-practicals/"><b>Back to Overview Page</b></a></li>
+    <li><a href="/understandinggradients.html">Practical 1: Step 3</a></li>
+    <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
 
