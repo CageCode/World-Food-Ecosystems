@@ -187,7 +187,7 @@ myHelloFunction('world')
 
 ## Quiz
 
-Let's review some of the JavaScript functionalities that you just learned. Can you correctly answer the following three questions?\
+Let's review some of the JavaScript functionalities that you just learned. Can you correctly answer the following three questions?
 
 _Inspect the following function_
 ```javascript
