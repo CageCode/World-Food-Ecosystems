@@ -11,7 +11,7 @@ In preparation for the course, please install following software:
 2. Make a google earth engine account, by [signing up here](https://signup.earthengine.google.com/#!/) 
 
 ### You can find the instructions for practicals here: 
-[Practical 1](../../practical1/intro.html)
+[Practical 1](/practical1/intro.html)
 
 [Practical 2](https://cagecode.github.io/WFE-practicals/practical2/intro.html)
 
