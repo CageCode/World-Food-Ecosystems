@@ -1,17 +1,16 @@
 ## Step 2: Exploring the functionalities
 Now we will explore the functionalities of Google Earth Engine, a cloud-based platform for spatial data analysis. It enables users to access, visualize, and analyze vast amounts of data, facilitating research on topics such as land cover change, climate monitoring and disaster response to name a few. In this course we use GEE to quickly access various datasources and inspect them easily.
 
+If at any point your lost on the basic JavaScript commands, go [back](intro.html)
 </br >
 </br >
 
 ### Step 2.1: Loading the biome map of the world
 
-Now that we know more or less how GEE looks, let's use it. 
-If at any point your lost on the basic JavaScript commands, go [back](intro.html)
+First we will load a biome map of the world which represents different types of biomes across the world, showing zones with characteristic life forms and environmental conditions. Biomes are classified based on factors such as temperature, precipitation, and the dominant forms of life like vegetation. Examples include tropical rainforests, deserts, tundras, and savannas.
+The biome map that we will load using JavaScript comes in the form of a raster, which means it consists of pixels organized in a grid. Each pixel has the same spatial size and contains a value that represents some type of data. 
 
-> Starting to build the script: exploring the Biome map 
-
-Copy this piece of code in the 'script' panel of the earth engine GUI. 
+Copy the following piece of code in the 'script' panel of the earth engine GUI. 
 
 ```javascript
 
@@ -23,7 +22,7 @@ print(biomes);
 
 ```
 
-Save the file (e.g. name it 'BiomePlotting') and run it. 
+Save the script (e.g. name it 'BiomePlotting') and run it. 
 
 
 > 🔍 **Recap 4**. You should see some basic information about the image *printed* in the console: how many bands does this Image have? (tip: try clicking on the Image name in the console) <br />
@@ -43,11 +42,9 @@ Answer A. There is only one band available. This indicates that the Biome map co
 ***
 
 
-> Exercise 2: plotting the biome map on the baselayer map and discovering its values
+Now that we loaded the Biome map, you can plot the biome map on the baselayer of GEE and discovering its contents. The pixel values in this raster represent different biome categories. Each pixel's value corresponds to a specific biome type, and the names of these biome categories are stored within the metadata of the dataset. 
 
-
-Now that we know (more or less) which Map we have loaded (for more info, you can always search the searchbar on top of the GUI), let's plot the map: 
-
+Let's plot the map with the following code:
 
 ```javascript
 // First we need to define how we want to handle the visualisation: we need to *declare a variable* that describes how/what we want to plot. 
