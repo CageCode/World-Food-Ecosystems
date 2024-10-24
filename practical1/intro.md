@@ -259,9 +259,9 @@ But now that you know the basics, let's explore its functionalities and continue
 
 <nav>
   <ul>
-    <li><strong>Practical 1: Step 1</strong></li>
-    <li><a href="../exploring.html">Practical 1: Step 2</a></li>
-    <li><a href="/understandinggradients.html">Practical 1: Step 3</a></li>
+    <li><strong>Practical 1: Step 1: JavaScript</strong></li>
+    <li><a href="../exploring.html">Practical 1: Step 2: Google Earth Engine</a></li>
+    <li><a href="/understandinggradients.html">Practical 1: Step 3: Gradient Analysis</a></li>
     <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
