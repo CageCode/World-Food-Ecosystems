@@ -180,13 +180,16 @@ myHelloFunction <- function(string) {
 print(paste('Hello', string, '!'))}
 myHelloFunction('world')
 ```
-
+<br />
+<br />
 
 ***
 
 ## Quiz
 
-Inspect the following function
+Let's review some of the JavaScript functionalities that you just learned. Can you correctly answer the following three questions?\
+
+_Inspect the following function_
 ```javascript
 var myHelloFunction = function(string) {
   return 'Hello ' + string + '!';
