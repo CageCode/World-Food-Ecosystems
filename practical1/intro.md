@@ -9,7 +9,7 @@ This first practical we will get acquinted with the functionalities of Google Ea
 
 - **Step 2: Google Earth Engine (GEE) Overview**: Next, we will explore Google Earth Engine, a powerful platform for geospatial data analysis. You will use scripts to manipulate and visualize environmental data within GEE.
 
-- **Step 3: Ecosystem and Agricultural Analysis**: Finally, we'll apply our skills to investigate changes in ecosystems and agriculture over geographical gradients. This involves acquiring datasets, performing gradient analysis, and visualizing the results to understand environmental impacts.
+- **Step 3: Gradient Analysis**: Finally, we'll apply our skills to investigate changes in ecosystems and agriculture over geographical gradients. This involves acquiring datasets, perform a gradient analysis, and visualize the results to understand the relationship between plants and their environment.
 
 <br />
 
@@ -251,7 +251,7 @@ Answer D. In Javascript, lists start with the index 0, thus the 4th index number
 
 ***
 
-In this practical, you won't have to write code yourself: we'll simply adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
+In this practical you will mainly adjust existing pieces of code, to get into the modus operandus. If you want to learn more, [this source from the science park study group](https://scienceparkstudygroup.github.io/Intro-Google-Earth-Engine-lesson/) is an excellent starting point. 
 
 
 But now that you know the basics, let's explore its functionalities and continue to exercise 2.
@@ -260,7 +260,7 @@ But now that you know the basics, let's explore its functionalities and continue
 <nav>
   <ul>
     <li><strong>Practical 1: Step 1</strong></li>
-    <li><a href="https://cagecode.github.io/WFE-practicals/practical1/exploring.html">Practical 1: Step 2</a></li>
+    <li><a href="../exploring.html">Practical 1: Step 2</a></li>
     <li><a href="https://cagecode.github.io/WFE-practicals/practical1/understandinggradients.html">Practical 1: Step 3</a></li>
     <li><a href="https://cagecode.github.io/WFE-practicals/"><b>Back to Overview Page</b></a></li>
   </ul>
