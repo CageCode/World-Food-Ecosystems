@@ -137,6 +137,20 @@ print(latLonImg);
 //check in the console here on the right: the image has two bands: which ones?
 ```
 
+<br />
+
+> 🔍 **Recap 10**. What is the name of the first band in the Image latLonImg? And what is the name of the second one?
+
+<br />
+<details>
+<summary>Answer Recap 10.</summary>
+The first one is ..... and the second one is... You can check the ... to see this.
+</details>
+<br />
+
+
+
+
 <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9URTlUNTExMVhBOFBRRk9JRFI3MU5LS05GQy4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
 <br />
@@ -169,7 +183,7 @@ Map.addLayer(latLonImg,vizParams, 'longitude');
 
 <br />
 
-### > step 3.4: Define the spatial unit, and import the relevant layers
+### Step 3.4: Import the data
 
 Now we can search elevation, temperature and precipitation data on Google Earth Engine. You can easily search for data using the searchbar at the top in GEE or you can browse the entire catalog [here](https://developers.google.com/earth-engine/datasets/catalog). Here is an example of how to browse for data:
 
@@ -251,7 +265,7 @@ print(elevTransect); //Check what is inside this object: their seems to be 3 lis
 ***
 
 
-### > step 3: prepare the data for plotting on a graph
+### Step 3.4: Plot the gradients
 
 Now that we have an object that contains a list with the longitudes and the elevations, we can plot the elevations and the longitudes on one plot: 
 
