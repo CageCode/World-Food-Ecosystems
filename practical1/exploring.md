@@ -41,7 +41,7 @@ Answer A. There is only one band available. This indicates that the Biome map co
 
 ***
 
-# Visualization
+### Visualization
 
 Now that we loaded the Biome map, you can plot the biome map on the baselayer of GEE and discovering its contents. The pixel values in this raster represent different biome categories. Each pixel's value corresponds to a specific biome type, and the names of these biome categories are stored within the metadata of the dataset. 
 
