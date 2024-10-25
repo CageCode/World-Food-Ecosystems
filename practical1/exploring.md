@@ -101,11 +101,9 @@ The inspector shows the value of the raster cell for the visualized map. You are
 </details>
 <br />
 
-
-
-***
 <br />
 
+***
 ### Graded Questions
 
 It’s time to explore the Biome map and answer the first few questions on Canvas. You can find these questions in the quiz associated with this practical.
