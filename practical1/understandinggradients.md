@@ -20,7 +20,34 @@ Your browser does not support the video tag.
 ### Step 3.1: What gradient?
 
 
+Gradient analysis is a method to examine how certain variables change across a spatial or environmental gradient. All species occur in a characteristic, limited range of habitats; and within their range, they tend to be most abundant around their particular environmental optimum. The composition of biotic communities thus changes along environmental gradients. Gradients do not necessarily have physical reality as continua in either space or time, but sometimes they do. In our case, the gradients that we will observe are visible over a physical distance, running over an East-West transect in Oregon, USA.
 
+Before we start investigating the gradients, it's important to consider the key factors for a geographical analysis. What factors would you consider when performing such an analysis?
+
+> 🔍 **Recap 8**. What would be relevant factors to consider performing a geographical analysis? <br />
+
+<br />
+<details>
+<summary>Answer Recap 8.</summary>
+There are many factors that one can think of, including the spatial extent, spatial resolution, any time components involved, the type of unit for measuring variables, and the cartographic unit used for mapping, et cetera.
+</details>
+<br />
+
+Since we are performing a *geographical* analysis, the concept of space plays an important role in our. First and foremost, we need to determine **spatial extent** of our variables of interest. For example: If you are analysing sea currents in the North Sea, but you focus on the Wadden Sea, then your spatial extent is off: you have zoomed in too much. On the other hand, if you research nutrient cycles in endemic flowers in the Dutch dunes and you use Europe as spatial extent, you have zoomed out too much.
+Similar to this, the **spatial resolution** determines the unit of spatial measurement of the variables. It 
+
+The dimension of the cells can be as large or as small as needed to represent the surface conveyed by the raster dataset and the features within the surface, such as a square kilometer, square foot, or even square centimeter. The cell size determines how coarse or fine the patterns or features in the raster will appear. The smaller the cell size, the smoother or more detailed the raster will be. However, the greater the number of cells, the longer it will take to process, and it will increase the demand for storage space. If a cell size is too large, information may be lost or subtle patterns may be obscured. For example, if the cell size is larger than the width of a road, the road may not exist within the raster dataset. In the diagram below, you can see how this simple polygon feature will be represented by a raster dataset at various cell sizes.
+
+
+> 🔍 **Recap 9**. What would you consider the spatial resolution for flooding risk in the Netherlands? And what would be a fitting resolution for tree classification from satellite imagery?<br />
+
+<br />
+<details>
+<summary>Answer Recap 9.</summary>
+There are ma
+
+</details>
+<br />
 
 
 > step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects): the first time you make a script you'll be asked to enter your username and repository name
