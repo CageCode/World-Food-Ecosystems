@@ -60,7 +60,7 @@ A map of flooding risks in the Netherlands would probably represent the data wel
 
 ### Step 3.2: Geospatial Parameters
 
-The aforementioned factors are all types of geospatial parameters. It is good practice to list the geospatial parameters of interest with their respective units and descriptions that fit the scope of your analysis. This helps to figure out which data is appropriate to use and you'll be sure the analysis is performed accurately. Therefore, everytime you will see an analysis performed in these practicals, we will list the geospatial parameters of interest first. Today we will fill the table underneat, but in later practicals you should be able to figure this out yourself (you are expected to do this yourself for your project later in the course).
+The aforementioned factors are all types of geospatial parameters. It is good practice to list the geospatial parameters of interest with their respective units and descriptions that fit the scope of your analysis. This helps to figure out which data is appropriate to use and you'll be sure the analysis is performed accurately. Therefore, everytime you will see an analysis performed in these practicals, we will list the geospatial parameters of interest first. More-over, in these practicals we will typically already provide a completed version of the table you are expected to be able to fill in yourself for your own project, so that you have plenty of examples. The further we go ahead, the more '?' we introduce into the table: to fill them, you'll need to apply the principles you have learned thus far to address these gaps. 
 
 Now we can think about the different parameters - or building blocks if you will - of the analysis, this raises questions such as:
 - Which dimensions will we take into account (which processes will we consider)?
@@ -71,7 +71,7 @@ Now we can think about the different parameters - or building blocks if you will
 
 <br />
 
-The analysis of today that we will perform will focus on the gradient in land cover and agricultural practices which are driven by changes in temperature and precipitation. We will investigate this gradient over a transect in North-West USA. Thus the geospatial parameters that fit the scope of the analysis would be: 
+Our working hypothesis of today, is that the strong difference we see in vegetation and agricultural practices (check the video at the top of this page) are related to the gradients in elevation, temperature & precipitation. We will investigate this gradient over a transect in North-West USA. Thus the geospatial parameters that fit the scope of the analysis would be: 
 
 <br />
 
@@ -80,8 +80,8 @@ The analysis of today that we will perform will focus on the gradient in land co
 | Spatial extent | North-West USA |
 | Temporal extent | We are performing a static analysis (so not over a period of time), yet keep in mind that the data does come from a certain moment in time, which should span the same timespan |
 | Cartographic unit |  Transect (line) |
-| Dimensions | We'll use winter and summer temperature and yearly precipitation |
-| Dimension description | ERA5 for temperature, CHIRPS for precipitation, a local DEM for topography (<- these are possible data sources you can use for the mentioned dimensions, but there are more out there) |
+| Dimensions | We'll consider elevation, temperature and precipitation |
+| Dimension description | elevation: the SRTM DEM at 90m cellsize, temperature: long term averages extracted from worldclim at ca. 900m cellsize, precipitation: ? (<- these are possible data sources you can use for the mentioned dimensions, but there are more out there) |
 | Temporal resolution | We are looking at landscapes, climate data would be appropriate (>30 year averages) |
 | Spatial resolution | We are looking at landscapes, thus a resolution on the order of kilometers would be suitable |
 | Hypothesis | The different landcovers on such a relative short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
@@ -97,28 +97,14 @@ The analysis of today that we will perform will focus on the gradient in land co
 
 Let's see if we can draw a nice transect. First make a new Script in Google Earth engine, and give it an appropriate name: *Prac1_Gradient_Analysis*. The first time you make a script you'll be asked to enter your username and repository name.
 
+<br />
 
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/131994092-5ed947ec-1aa9-4277-bfa1-db014ac2458f.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-
-
-<video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/131996471-05d9d1b8-0a0f-4e1d-82da-d9cdc1ba0bd2.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-
-
-
-
-***
-
-> step 2: Define the spatial unit, and import the relevant layers
-
-
+<br />
 
 The spatial unit in our case is a 'Line': we can define this using the function ee.Geometry.LineString, which just needs the beginning and end coordinates as (LONG,LAT) pairs. 
 
@@ -126,150 +112,277 @@ Next, we can plot the transect on the map.
 
 ```javascript
 // defining the variable 'transect' as the gradient we want to investigate:  
-var endpoint = [-118.821944, 46.527222];  
-var startpoint = [-123.416667, 46.783333];
+var endpoint = [-120, 44.65];  
+var startpoint = [-124, 44.65];
+Map.setCenter(-122, 44.65, 8); 
 var transect = ee.Geometry.LineString([endpoint, startpoint]);
 Map.addLayer(transect, {color: 'FF0000'}, 'transect'); //Map is the name GEE gives to the lower panel that shows 'the map':-)
 ```
 
+<br />
 
+Now, eventually, for points along the transect we want to see how elevation, temperature and precipitation changes when going from left to right on the transect. This means: we are working towards a plot where we have longitude on the X-axis and elevation/precipitation/temperature on the y-axis. 
 
-Now, we can import the Image(collections) we need and filter them
+One of the easiest ways to do this, is to first create an Image with several bands: one for longitude (or latitude, if you want to investigate a vertical gradient), one for elevation, one band for yearly temperature, and one band for yearly precipitation. 
+
+Once we have this image, we can collect the various variables (longitude, elevation, temperature...) along the transect with the ee.Reducer.toList() function that is explained on [this page](https://developers.google.com/earth-engine/guides/charts_array).
+
+But first things first, let's make this Image with the different bands. 
+
+<br />
 
 ```javascript
-// Daily mean 2m air temperature
-var era5_2mt = ee.ImageCollection('ECMWF/ERA5/DAILY')
-                   .select('mean_2m_air_temperature')
-                   .filter(ee.Filter.date('2013-12-21', '2014-09-23'));
-print(era5_2mt);
-    
-//import elevation:
-var elevation = ee.Image('USGS/NED');  // elevation is here simply one image (so no image collection) because it only contains 1 acquisition (unlike landsat imagery)
+//To create a raster with longitudes and latitudes, we can use the following function: 
+var latLonImg = ee.Image.pixelLonLat();
+//you can check this by printing the newly created dataset to the console: 
+print(latLonImg); 
+//check in the console here on the right: the image has two bands: which ones?
+```
 
-// let's add precipitation ass well (mm/pentad, or mm/5days), similar as temperature
-var chirps = ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD"); //rainfall (from the chirps dataset) is available every 5 days: so it is an image collection
-var chirpsprecip = chirps.filterBounds(transect)  //again, we filter for location: only the transect
-    .select(['precipitation'], ['previp'])   //again, we select only the band of interest (precipitation) and we give it our own name
-    .set('system:time_start', chirps.get('system:time_start')); //this is a line that defines the startdate of the image collection
-    
+<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9URTlUNTExMVhBOFBRRk9JRFI3MU5LS05GQy4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+<br />
+
+If you want to know exactly what a certain function does, you can either google it, or consult it on the platform itself this way: 
+
+
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/179742254-e5a09908-89c3-426c-9c7c-9d79af16d7a1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<br />
+
+```javascript
+//let's Map one of those two: 
+var vizParams = {
+  bands: ['longitude'],
+  min: -180,
+  max: 180,
+  palette: ['00FFFF', '0000FF'],
+  opacity: 0.5
+};
+
+Map.addLayer(latLonImg,vizParams, 'longitude');
+
+```
+
+<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UQUdGVzVXUUtKQVZVNkRXWDFRWUw3NzJCWS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+<br />
+
+### > step 3.4: Define the spatial unit, and import the relevant layers
+
+Now we can search elevation, temperature and precipitation data on Google Earth Engine. You can easily search for data using the searchbar at the top in GEE or you can browse the entire catalog [here](https://developers.google.com/earth-engine/datasets/catalog). Here is an example of how to browse for data:
+
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131996471-05d9d1b8-0a0f-4e1d-82da-d9cdc1ba0bd2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<br />
+
+To load elevation and climate data into GEE, we can use the following resources:
+
+| Dataset      | Type | Source     |Access point     |
+| :---        |    :---    |          :---  |         :---  |
+| SRTM DEM 90 meters  | Raster       | ? |https://developers.google.com/earth-engine/datasets/catalog/CGIAR_SRTM90_V4|
+| WORLDCLIM   | Raster        | ?      | https://developers.google.com/earth-engine/datasets/catalog/WORLDCLIM_V1_MONTHLY?hl=en     |
+
+<br />
+
+Use the links above to find out if you can use the WORLDCLIM climate data can be used for precipitation as well, and what the source is of the SRTM DEM: 
+
+<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UN0pRTEE0TkpJT0dDVFgwMllNVEZKQlpDTS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+
+***
+
+<br />
+
+
+Now that we know what is inside of this new image, we can continue: we will import a thematic layer (e.g. the elevation) and add the longitude and latitude bands to that image: this allows us to have, for each long-lat combination a band value (e.g. for temperature or elevation or ...)
+
+```javascript
+// Import a digital surface model
+var elevImg =ee.Image("CGIAR/SRTM90_V4");
+//What is in the image (which are the bands, how many bands are there?)-->
+print(elevImg);
+
+```
+hmmm, we only need the elevation, which band is that? Again, to find information about the datasets, you can use the search bar above: 
+
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/179746069-76558d59-a5bd-44a4-95ff-83070baced21.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+```javascript
+// let's now select the band we want and add the latlon bands to it: 
+var elevation = elevImg.select('elevation');
+var elevationlatlon = elevation.addBands(latLonImg);
+// does it now have the bands you are interested in? 
+print(elevationlatlon); // how many bands are there now?
+
+//let's also add this image to the map below: let's plot the band  elevation
+var vizParams2 = {
+  bands: ['elevation'],
+  min: 0,
+  max: 1800,
+  palette: ['00FFFF', '0000FF'],
+  opacity: 0.5
+};
+Map.addLayer(elevationlatlon,vizParams2, 'elevation');
+```
+
+GREAT! now we have an image which already has the coordinates as pixel values and the elevation, meaning we can try to attempt to use ee.Reducer.to.List and plot the elevation changes according to longitude changes along the profile: 
+
+```javascript
+// Reduce elevation and coordinate bands by transect line; get a dictionary with
+// band names as keys, pixel values as lists.
+var elevTransect = elevationlatlon.reduceRegion({
+  reducer: ee.Reducer.toList(),
+  geometry: transect,
+  scale: 1000,  //we use a scale (or a resolution) of 1000m, this seems weird when we have a DEM of 90m, but we do this because of the resolution of the other datasets (e.g. temperature) we will also use. 
+});
+print(elevTransect); //Check what is inside this object: their seems to be 3 lists, which ones, and does this make sense to you? 
+     
 ```
 
 
 ***
 
 
-> step 3: prepare the data for plotting on a graph
+### > step 3: prepare the data for plotting on a graph
 
-Now that we have all the image(collections), we can 'reduce' the data, so that we have the winter and summer temperature along the transect, the total precipitation and the topography, and we can combine all this data into one *new image*. 
+Now that we have an object that contains a list with the longitudes and the elevations, we can plot the elevations and the longitudes on one plot: 
 
-```javascript
-//selecting a year worth of data for CHIRPS and sum all the data (so total yearly precipitation)
-var chirpsprecipselect = chirpsprecip.filterDate('2013-12-21', '2014-12-21') //we filter on a range of dates
-                          .reduce(ee.Reducer.sum()) //we reduce, by taking the sum
-                          .select([0], ['yearprec']); //we select the relevant band (the first band only, or that with index 0) and we give it a name
-                          
-// Calculate bands for seasonal temperatures and elevations; 
-// Calculate bands for seasonal temperatures and elevations; 
-var summer = era5_2mt.filterDate('2014-06-21', '2014-09-23')
-    .reduce(ee.Reducer.mean())
-    .select([0], ['summer']);
-var winter = era5_2mt.filterDate('2013-12-21', '2014-03-20')
-    .reduce(ee.Reducer.mean())
-    .select([0], ['winter']);
-
-//join all the data into one new image: 
-// we first make a list describing the distance from the startingpoint:
-var startingPoint = ee.FeatureCollection(ee.Geometry.Point(startpoint));
-var distance = startingPoint.distance(450000);
-//now we add all the bands to the distance list:
-var image = distance.addBands(elevation).addBands(winter).addBands(summer).addBands(chirpsprecipselect); //addBands is here a function, that takes the bands defined above as input
-
-```
-
-
-
-OK: now we have all ingredients to sort the information and plot it all in one chart 
-
-```javascript
-// Extract band values along the transect line: convert the image information into an array (list).
-var array = image.reduceRegion(ee.Reducer.toList(), transect, 1000)
-                 .toArray(image.bandNames());
-
-// Sort points along the transect by their distance from the starting point.
-var distances = array.slice(0, 0, 1);
-array = array.sort(distances);
-
-// Create arrays for plotting in a figure.
-var elevationAndTempAndPrecip = array.slice(0, 1);  // For the Y axis.
-// Project distance slice to create a 1-D array for x-axis values.
-var distance = array.slice(0, 0, 1).project([1]);
-
-
-```
-> step 3: prepare the data for plotting on a graph  (note: you do not need to be able to code this yourself)
 
 
 ```javascript
-// Generate and style the chart.
-var chart = ui.Chart.array.values(elevationAndTempAndPrecip, 1, distance)
-    .setChartType('LineChart')
-    .setSeriesNames(['Elevation', 'Winter 2014', 'Summer 2014', 'Precipitation 2014'])
-    .setOptions({
-      title: 'Elevation, temperatures and precipitation along transect',
-      vAxes: {
-        0: {
-          title: 'Average seasonal temperature '
-        },
-        1: {
-          title: 'Elevation (meters, blue) or precipitation (mm, Green)',
-          baselineColor: 'transparent'
-        }
-      },
-      hAxis: {
-        title: 'Distance from starting points (m)'
-      },
-      interpolateNulls: true,
-      pointSize: 0,
-      lineWidth: 1,
-      // Our chart has two Y axes: one for temperature and one for elevation/precip.
-      // Y axis, which we do here:
-      series: {
-        0: {targetAxisIndex: 1},
-        1: {targetAxisIndex: 0},
-        2: {targetAxisIndex: 0}, 
-        3: {targetAxisIndex: 1},
-      }
-    });
+// Get longitude and elevation value lists from the reduction dictionary.
+var lon = ee.List(elevTransect.get('longitude'));
+var elev = ee.List(elevTransect.get('elevation'));
 
+// Sort the longitude and elevation values by ascending longitude.
+var lonSort = lon.sort(lon);
+var elevSort = elev.sort(lon);
+
+// Define the chart and print it to the console.
+var chart = ui.Chart.array.values({array: elevSort, axis: 0, xLabels: lonSort})
+                .setOptions({
+                  title: 'Elevation Profile Across Longitude',
+                  hAxis: {
+                    title: 'Longitude',
+                    viewWindow: {min: -124.50, max: -120}, 
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  vAxis: {
+                    title: 'elevation(m)',
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  colors: ['1d6b99'],
+                  lineSize: 5,
+                  pointSize: 0,
+                  legend: {position: 'none'}
+                });
 print(chart);
-Map.setCenter(-121, 46, 7);
-Map.addLayer(elevation, {min: 4000, max: 0});
-Map.addLayer(transect, {color: 'FF0000'});
 
 ```
 
+*Note that you can click on the small arrow on the right upper corner of your graph to maximize the window and even download the data!
 
 
-*Note that you can click on the small arrow on the right upper corner of your graph to maximize the window
 
 
 
 
 <video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/131997467-23ba1c44-9af8-487b-a8f7-6c4409bdab17.mp4" type="video/mp4">
+  <source src="https://user-images.githubusercontent.com/89069805/179748619-4537869a-90f1-476b-a46c-23dd07a9500e.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
 
-## **Congrats: you can now analyze multiple layers at the same time on the same graph: is the result what you expected**? 
+***
+GREAT! Now that we have done this for an image (the image with the elevation band), let's try to do this for an ImageCollection: An image collection is a series of images bundles together, for example because they contain the same type of data but at different timesteps. An image collection for precipitation could for example consist of an image for each day, whereby each image contains the daily precipitation per pixel. Before you can analyze this, you will thus have to convert the collection to a single image (e.g. by summing all the values to get the total precipitation, or by averaging to get e.g. the average temperature). 
 
-The question from the forms was: How can you use this graph to explain agricultural suitability along this transect?
+This is exactly what we will do next. After the reduction of the ImageCollection to the image, the exercise is very similar to the one of elevation vs. longitude. 
 
-> 📝 **Question 4**. The temperature data, whose mean temperature of January you have visualized on the map in GEE, have very large values: why is that? 
-> <br />
-> (tip: look at the source link given in the table on GitHub that describes the data)
 
-<br />
+```javascript
+// we will use this dataset for the temperature (and perhaps also for precipitation?)
+var climatevar = ee.ImageCollection('WORLDCLIM/V1/MONTHLY');
+print(climatevar); // Ok this dataset contains several images with multiple bands representing monthly means: we'll need to select the right band and average them to get an annual mean: 
+var temperature = climatevar.select('tavg');
+print(temperature); // is there now only one band per image? YES
+// However, there are still 12 features (for the 12 months): select the first one and plot it on the map. Like this: 
+var tempjan = temperature.first();
+print(tempjan);
+var vizParams = {
+  min: -100,
+  max : 250,
+  palette: ['00FFFF', '0000FF'],
+  opacity: 0.5
+};
+Map.addLayer(tempjan, vizParams, 'mean temperature januari'); 
+// Now click on Amsterdam on the map: what is the average monthly value for this city as depicted in the inspector? can this be correct?
+// Why is this value so high? (tip: search in the searchbar for the worldclim temperature dataset and look in the band description )
+// now we can take the average temperature over all the months: 
+var average_T = temperature.reduce('mean').multiply(0.1); //why do we multiply with 0.1? (again, search in the searchbar for the worldclim temperature dataset)
+
+print(average_T);
+     
+```
+Right, now we have an actual image with the band we want: the exercise is now very similar to the one with elevation: 
+
+```javascript
+// Ok: now we can repeat the same exercise to get the values along the transect
+var average_T_withlatlon = average_T.addBands(latLonImg);
+print(average_T_withlatlon);
+
+// Reduce elevation and coordinate bands by transect line; get a dictionary with
+// band names as keys, pixel values as lists.
+var tempTransect = average_T_withlatlon.reduceRegion({
+  reducer: ee.Reducer.toList(),
+  geometry: transect,
+  scale: 1000, //why 1000? (tip: search the openlandmap dataset in the search bar above)
+});
+print(tempTransect); 
+
+
+// Get longitude and temperature value lists from the reduction dictionary.
+var lon = ee.List(tempTransect.get('longitude'));
+var temp = ee.List(tempTransect.get('tavg_mean'));
+
+// Sort the longitude and elevation values by ascending longitude.
+var lonSort = lon.sort(lon);
+var tempSort = temp.sort(lon);
+
+// Define the chart and print it to the console.
+var chart = ui.Chart.array.values({array: tempSort, axis: 0, xLabels: lonSort})
+                .setOptions({
+                  title: 'Temperature Profile Across Longitude',
+                  hAxis: {
+                    title: 'Longitude',
+                    viewWindow: {min: -124.50, max: -120},
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  vAxis: {
+                    title: 'temperature (C)',
+                    titleTextStyle: {italic: false, bold: true}
+                  },
+                  colors: ['1d6b99'],
+                  lineSize: 5,
+                  pointSize: 0,
+                  legend: {position: 'none'}
+                });
+print(chart);
+
+```
+
+## **Congrats: you are now able to reduce an image collection to an image and make nice plots: can you do the same for precipitation? **
+
+
 
 <nav>
   <ul>
