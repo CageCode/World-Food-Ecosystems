@@ -91,6 +91,9 @@ The analysis of today that we will perform will focus on the gradient in land co
 
 ***
 
+<br />
+<br />
+
 ### Step 3.3: Drawing the transect
 
 Let's see if we can draw a nice transect. First make a new Script in Google Earth engine, and give it an appropriate name: *Prac1_Gradient_Analysis*. The first time you make a script you'll be asked to enter your username and repository name.
