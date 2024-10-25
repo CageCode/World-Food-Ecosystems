@@ -132,10 +132,10 @@ Now that you know the basic functionalities of the GUI (Graphical User Interface
 
 <nav>
   <ul>
-    <li><a href="https://cagecode.github.io/WFE-practicals/practical1/intro.html">Practical 1: Step 1</a></li>
-    <li><strong>Practical 1: Step 2</strong></li>
-    <li><a href="https://cagecode.github.io/WFE-practicals/practical1/understandinggradients.html">Practical 1: Step 3</a></li>
-    <li><a href="https://cagecode.github.io/WFE-practicals/"><b>Back to Overview Page</b></a></li>
+    <li><a href="intro.html">Step 1: JavaScript</a></li>
+    <li><strong>Step 2: Google Earth Engine</strong></li>
+    <li><a href="understandinggradients.html">Step 3: Gradient Analysis</a></li>
+    <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
 
