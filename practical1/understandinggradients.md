@@ -1,7 +1,7 @@
 ## Step 3: Understanding the Gradient: how process influences form
 
 In this exercise we will analyze data from the Earth Engine to gain insight in a real-life question: 
-How can we explain the remarkable gradient in land cover and related agricultural practices along the West-Coast of the USA (see video below)
+- How can we explain the remarkable gradient in land cover and related agricultural practices along the West-Coast of the USA (see video below)
 
 
 <video style="width:100%" controls>
@@ -15,7 +15,7 @@ Your browser does not support the video tag.
 >WARNING: the amount of code below might be overwhelming, but don't worry: it is not the intention to be able to reproduce this from memory. The goal here is to understand what GEE can do and grasp the general working of the code below. 
 ***
 
-</br >
+<br />
 
 ### Step 3.1: What gradient?
 
@@ -34,30 +34,56 @@ There are many factors that one can think of, including the spatial extent, spat
 <br />
 
 Since we are performing a *geographical* analysis, the concept of space plays an important role in our. First and foremost, we need to determine **spatial extent** of our variables of interest. For example: If you are analysing sea currents in the North Sea, but you focus on the Wadden Sea, then your spatial extent is off: you have zoomed in too much. On the other hand, if you research nutrient cycles in endemic flowers in the Dutch dunes and you use Europe as spatial extent, you have zoomed out too much.
-Similar to this, the **spatial resolution** determines the unit of spatial measurement of the variables. It 
-
-The dimension of the cells can be as large or as small as needed to represent the surface conveyed by the raster dataset and the features within the surface, such as a square kilometer, square foot, or even square centimeter. The cell size determines how coarse or fine the patterns or features in the raster will appear. The smaller the cell size, the smoother or more detailed the raster will be. However, the greater the number of cells, the longer it will take to process, and it will increase the demand for storage space. If a cell size is too large, information may be lost or subtle patterns may be obscured. For example, if the cell size is larger than the width of a road, the road may not exist within the raster dataset. In the diagram below, you can see how this simple polygon feature will be represented by a raster dataset at various cell sizes.
+Similar to this, the **spatial resolution** determines the unit of spatial measurement of the variables. It is the level of detail of the data, which can be in kilometers, meters or even centimeters for example. The dimension of the spatial resolution should be as large or as small as needed to represent the data accurately and show the features of interest. For a raster dataset, the spatial resolution is the dimension of the raster cells (pixels) also called the cell size. The cell size determines how coarse or fine the patterns or features in the raster will appear. The smaller the cell size, the smoother or more detailed the raster will be. However, the greater the number of cells, the longer it will take to process, and it will increase the demand for storage space. If a cell size is too large, information may be lost or subtle patterns may be obscured. For example, if the cell size is larger than the width of a road, the road may not exist within the raster dataset. In the diagram below, you can see how this simple polygon feature will be represented by a raster dataset at various cell sizes.
 
 <div align="center">
   <img src="Spatial_Resolution.jpg" alt="Spatial Resolution" >
   <br />
-  <em>Figure 2. Overview of the purchasing costs of each square kilometer of forest</em>
+  <em>Figure 1. Same from on different spatial resolutions</em>
 </div>
 
-> 🔍 **Recap 9**. What would you consider the spatial resolution for flooding risk in the Netherlands? And what would be a fitting resolution for tree classification from satellite imagery?<br />
+> 🔍 **Recap 9**. What would you consider the spatial resolution for a map of flooding risks in the Netherlands? And what would be a fitting resolution for tree classification from satellite imagery?<br />
 
 <br />
 <details>
 <summary>Answer Recap 9.</summary>
-There are ma
+A map of flooding risks in the Netherlands would probably represent the data well in kilometers. Tree classification might vary depending on the species, but since the average tree crown spans several meters, so a tree classification from satellite imagery should probably be in square meters or less.
 
 </details>
 <br />
 
+***
+
+### Step 3.2: Geospatial Parameters
+
+The aforementioned factors are all types of geospatial parameters. It is good practice to list the geospatial parameters of interest with their respective units and descriptions that fit the scope of your analysis. This helps to figure out which data is appropriate to use and you'll be sure the analysis is performed accurately. Therefore, everytime you will see an analysis performed in these practicals, we will list the geospatial parameters of interest first. Today we will fill the table underneat, but in later practicals you should be able to figure this out yourself (you are expected to do this yourself for your project later in the course).
+
+Now we can think about the different parameters - or building blocks if you will - of the analysis, this raises questions such as:
+- Which dimensions will we take into account (which processes will we consider)?
+- How will we describe these dimensions?
+- What spatial scale & extent is appropriate?
+- What temporal scale & extent is fitting here?
+- Do we have any hypotheses or assumptions about the analysis?
+
+The analysis of today that we will perform will focus on the gradient in land cover and agricultural practices which are driven by changes in temperature and precipitation.  
+
+| Parameter  |  Value |
+|---|---|
+| Spatial extent | North-West USA |
+| Temporal extent | We are performing a static analysis (so not over a period of time), yet keep in mind that the data does come from a certain moment in time, which should span the same timespan |
+| Cartographic unit |  Transect (line) |
+| Dimensions | We'll use winter and summer temperature and yearly precipitation |
+| Dimension description | ERA5 for temperature, CHIRPS for precipitation, a local DEM for topography (<- these are possible data sources you can use for the mentioned dimensions, but there are more out there) |
+| Temporal resolution | We are looking at landscapes, climate data would be appropriate (>30 year averages) |
+| Spatial resolution | We are looking at landscapes, thus a resolution on the order of kilometers would be suitable |
+| Hypothesis | The different landcovers on such a relative short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
+
+
+
+>TIP: If you are looking for data, or data types, you could use the search bar above to find datasets and even examples of code to import/plot/...
+
 
 > step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects): the first time you make a script you'll be asked to enter your username and repository name
-
-
 
 
 <video style="width:100%" controls>
@@ -66,25 +92,6 @@ Your browser does not support the video tag.
 </video>
 
 
-
-Now we can think about the building blocks of the analysis (see slide 45, course 1): 
-- what Geographic scale – spatial unit is appropriate
-- what is the temporal scale we will work on
-- What are the boundary conditions or assumptions
-- Which dimensions will we take into account (which processes will we consider)
-- How will we describe the dimensions
-
-
-| building block  |  decision |
-|---|---|
-| Geographic scale |  Transect (line) |
-| temporal scale |  all data input should span same timespan |
-| Assumption | The different landcovers on such a short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
-| Dimensions | We'll use winter and summer temperature and yearly precipitation |
-| Dimension description | ERA5 for temperature, CHIRPS for precipitation, a local DEM for topography |
-
-
->TIP: If you are looking for data, or data types, you could use the search bar above to find datasets and even examples of code to import/plot/...
 
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/131996471-05d9d1b8-0a0f-4e1d-82da-d9cdc1ba0bd2.mp4" type="video/mp4">
