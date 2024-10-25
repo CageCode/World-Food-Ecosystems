@@ -92,7 +92,6 @@ The analysis of today that we will perform will focus on the gradient in land co
 ***
 
 <br />
-<br />
 
 ### Step 3.3: Drawing the transect
 
