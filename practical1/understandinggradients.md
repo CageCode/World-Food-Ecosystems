@@ -1,7 +1,7 @@
 ## Step 3: Understanding the Gradient: how process influences form
 
-In this exercise we will actually *use* data from earth engine to gain insight in a real-life question: 
-How can we explain the remarkable gradient in land cover (and related agricultural practices) along the West-Coast of the USA (see video below)
+In this exercise we will analyze data from the Earth Engine to gain insight in a real-life question: 
+How can we explain the remarkable gradient in land cover and related agricultural practices along the West-Coast of the USA (see video below)
 
 
 <video style="width:100%" controls>
@@ -12,7 +12,14 @@ Your browser does not support the video tag.
 
 
 
->WARNING: the codes below can look scary, but no worries: it is not the intention to be able to reproduce this: the goal here is to understand what GEE can do, and how to broad strokes of the code below works. 
+>WARNING: the amount of code below might be overwhelming, but don't worry: it is not the intention to be able to reproduce this from memory. The goal here is to understand what GEE can do and grasp the general working of the code below. 
+***
+
+</br >
+
+### Step 3.1: What gradient?
+
+
 
 
 
@@ -215,9 +222,9 @@ The question from the forms was: How can you use this graph to explain agricultu
 
 <nav>
   <ul>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 3</a></li>
-      <li><strong>Practical 1: exercise 3</strong></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+    <li><a href="intro.html">Step 1: JavaScript</a></li>
+    <li><a href="exploring.html">Step 2: Google Earth Engine</a></li>
+      <li><strong>Step 3: Gradient Analysis</strong></li>
+    <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
