@@ -39,8 +39,11 @@ Similar to this, the **spatial resolution** determines the unit of spatial measu
 <div align="center">
   <img src="Spatial_Resolution.jpg" alt="Spatial Resolution" >
   <br />
-  <em>Figure 1. Same from on different spatial resolutions</em>
+  <em>Figure 1. Same shape on different spatial 
+    resolutions of a raster</em>
 </div>
+
+<br />
 
 > 🔍 **Recap 9**. What would you consider the spatial resolution for a map of flooding risks in the Netherlands? And what would be a fitting resolution for tree classification from satellite imagery?<br />
 
