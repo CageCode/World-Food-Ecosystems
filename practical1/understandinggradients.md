@@ -112,9 +112,9 @@ Next, we can plot the transect on the map.
 
 ```javascript
 // defining the variable 'transect' as the gradient we want to investigate:  
-var endpoint = [-120, 44.65];  
-var startpoint = [-124, 44.65];
-Map.setCenter(-122, 44.65, 8); 
+var endpoint = [-121, 45.1];  
+var startpoint = [-124, 45.1];
+Map.setCenter(-122, 45.1, 8); 
 var transect = ee.Geometry.LineString([endpoint, startpoint]);
 Map.addLayer(transect, {color: 'FF0000'}, 'transect'); //Map is the name GEE gives to the lower panel that shows 'the map':-)
 ```
@@ -243,7 +243,7 @@ GREAT! now we have an image which already has the coordinates as pixel values an
 var elevTransect = elevationlatlon.reduceRegion({
   reducer: ee.Reducer.toList(),
   geometry: transect,
-  scale: 1000,  //we use a scale (or a resolution) of 1000m, this seems weird when we have a DEM of 90m, but we do this because of the resolution of the other datasets (e.g. temperature) we will also use. 
+  scale: 1000,  //we use a scale (or a resolution) of 1000m, this seems weird when we have a DEM of 90m, but we do this because the resolution of the other datasets (e.g. temperature) is way less detailed. You are often restricted by the resolution of the layer lowest quality.
 });
 print(elevTransect); //Check what is inside this object: their seems to be 3 lists, which ones, and does this make sense to you? 
      
