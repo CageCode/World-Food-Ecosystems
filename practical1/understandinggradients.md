@@ -38,6 +38,11 @@ Similar to this, the **spatial resolution** determines the unit of spatial measu
 
 The dimension of the cells can be as large or as small as needed to represent the surface conveyed by the raster dataset and the features within the surface, such as a square kilometer, square foot, or even square centimeter. The cell size determines how coarse or fine the patterns or features in the raster will appear. The smaller the cell size, the smoother or more detailed the raster will be. However, the greater the number of cells, the longer it will take to process, and it will increase the demand for storage space. If a cell size is too large, information may be lost or subtle patterns may be obscured. For example, if the cell size is larger than the width of a road, the road may not exist within the raster dataset. In the diagram below, you can see how this simple polygon feature will be represented by a raster dataset at various cell sizes.
 
+<div align="center">
+  <img src="Spatial_Resolution.jpg" alt="Spatial Resolution" >
+  <br />
+  <em>Figure 2. Overview of the purchasing costs of each square kilometer of forest</em>
+</div>
 
 > 🔍 **Recap 9**. What would you consider the spatial resolution for flooding risk in the Netherlands? And what would be a fitting resolution for tree classification from satellite imagery?<br />
 
