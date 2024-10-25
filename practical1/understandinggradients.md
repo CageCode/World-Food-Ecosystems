@@ -65,7 +65,11 @@ Now we can think about the different parameters - or building blocks if you will
 - What temporal scale & extent is fitting here?
 - Do we have any hypotheses or assumptions about the analysis?
 
-The analysis of today that we will perform will focus on the gradient in land cover and agricultural practices which are driven by changes in temperature and precipitation.  
+<br />
+
+The analysis of today that we will perform will focus on the gradient in land cover and agricultural practices which are driven by changes in temperature and precipitation. We will investigate this gradient over a transect in North-West USA. Thus the geospatial parameters that fit the scope of the analysis would be: 
+
+<br />
 
 | Parameter  |  Value |
 |---|---|
@@ -79,11 +83,13 @@ The analysis of today that we will perform will focus on the gradient in land co
 | Hypothesis | The different landcovers on such a relative short transect are due to either a steep temperature gradient, or a steep precipitation gradient, either can be induced by the topographic barrier |
 
 
+> TIP: If you are looking for data, or data types, you could use the search bar on the top of GEE to find datasets and even examples of code to import or plot these datasets!
 
->TIP: If you are looking for data, or data types, you could use the search bar above to find datasets and even examples of code to import/plot/...
+***
 
+### Step 3.3: Drawing the transect
 
-> step 1: make a new Script in Earth engine, and give it an appropriate name (e.g. transects): the first time you make a script you'll be asked to enter your username and repository name
+Let's see if we can draw a nice transect. First make a new Script in Google Earth engine, and give it an appropriate name: *Prac1_Gradient_Analysis*. The first time you make a script you'll be asked to enter your username and repository name.
 
 
 <video style="width:100%" controls>
