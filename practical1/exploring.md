@@ -70,6 +70,10 @@ Map.addLayer(biomes, visualization, "Potential distribution of biomes");
 
 <br />
 
+#### TIP: for each of the functions, there is a documentation provided by earth-engine: https://developers.google.com/earth-engine/apidocs
+
+Let's understand the code above through the following questions. 
+
 > 🔍 **Recap 5**. Why is the minimum set at 1, and the maximum at 32? (hint: check the properties)? <br />
 
 <br />
@@ -98,10 +102,11 @@ The inspector shows the value of the raster cell for the visualized map. You are
 <br />
 
 
-#### TIP: for each of the functions, there is a documentation provided by earth-engine: https://developers.google.com/earth-engine/apidocs
 
 ***
 <br />
+
+### Graded Questions
 
 It’s time to explore the Biome map and answer the first few questions on Canvas. You can find these questions in the quiz associated with this practical.
 
