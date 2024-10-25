@@ -148,13 +148,6 @@ The first one is ..... and the second one is... You can check the ... to see thi
 </details>
 <br />
 
-
-
-
-<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9URTlUNTExMVhBOFBRRk9JRFI3MU5LS05GQy4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
-
-<br />
-
 If you want to know exactly what a certain function does, you can either google it, or consult it on the platform itself this way: 
 
 
@@ -179,13 +172,15 @@ Map.addLayer(latLonImg,vizParams, 'longitude');
 
 ```
 
-<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UQUdGVzVXUUtKQVZVNkRXWDFRWUw3NzJCWS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+***
 
 <br />
 
 ### Step 3.4: Import the data
 
 Now we can search elevation, temperature and precipitation data on Google Earth Engine. You can easily search for data using the searchbar at the top in GEE or you can browse the entire catalog [here](https://developers.google.com/earth-engine/datasets/catalog). Here is an example of how to browse for data:
+
+<br />
 
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/131996471-05d9d1b8-0a0f-4e1d-82da-d9cdc1ba0bd2.mp4" type="video/mp4">
@@ -198,20 +193,30 @@ To load elevation and climate data into GEE, we can use the following resources:
 
 | Dataset      | Type | Source     |Access point     |
 | :---        |    :---    |          :---  |         :---  |
-| SRTM DEM 90 meters  | Raster       | ? |https://developers.google.com/earth-engine/datasets/catalog/CGIAR_SRTM90_V4|
 | WORLDCLIM   | Raster        | ?      | https://developers.google.com/earth-engine/datasets/catalog/WORLDCLIM_V1_MONTHLY?hl=en     |
+| SRTM DEM 90 meters  | Raster       | ? | https://developers.google.com/earth-engine/datasets/catalog/CGIAR_SRTM90_V4 |
+
 
 <br />
 
-Use the links above to find out if you can use the WORLDCLIM climate data can be used for precipitation as well, and what the source is of the SRTM DEM: 
+Use the links above to find out what the source is of the SRTM DEM:
 
-<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UN0pRTEE0TkpJT0dDVFgwMllNVEZKQlpDTS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+> 🔍 **Recap 11**. What is the source of the SRTM DEM? 
 
+<br />
+<details>
+<summary>Answer Recap 11.</summary>
+The source is NASA/CGIAR, the dataset is released by NASA and subsequently post-processed to create a seamless map.
+</details>
+<br />
 
 ***
 
 <br />
 
+### Step 3.5: Add Longitude & Latitude
+
+<br />
 
 Now that we know what is inside of this new image, we can continue: we will import a thematic layer (e.g. the elevation) and add the longitude and latitude bands to that image: this allows us to have, for each long-lat combination a band value (e.g. for temperature or elevation or ...)
 
@@ -222,12 +227,17 @@ var elevImg =ee.Image("CGIAR/SRTM90_V4");
 print(elevImg);
 
 ```
+
+<br />
+
 hmmm, we only need the elevation, which band is that? Again, to find information about the datasets, you can use the search bar above: 
 
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/179746069-76558d59-a5bd-44a4-95ff-83070baced21.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+<br />
 
 ```javascript
 // let's now select the band we want and add the latlon bands to it: 
@@ -247,6 +257,8 @@ var vizParams2 = {
 Map.addLayer(elevationlatlon,vizParams2, 'elevation');
 ```
 
+<br />
+
 GREAT! now we have an image which already has the coordinates as pixel values and the elevation, meaning we can try to attempt to use ee.Reducer.to.List and plot the elevation changes according to longitude changes along the profile: 
 
 ```javascript
@@ -264,11 +276,11 @@ print(elevTransect); //Check what is inside this object: their seems to be 3 lis
 
 ***
 
+<br />
 
-### Step 3.4: Plot the gradients
+### Step 3.6: Plot the gradients
 
 Now that we have an object that contains a list with the longitudes and the elevations, we can plot the elevations and the longitudes on one plot: 
-
 
 
 ```javascript
@@ -302,12 +314,9 @@ print(chart);
 
 ```
 
+<br />
+
 *Note that you can click on the small arrow on the right upper corner of your graph to maximize the window and even download the data!
-
-
-
-
-
 
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/179748619-4537869a-90f1-476b-a46c-23dd07a9500e.mp4" type="video/mp4">
