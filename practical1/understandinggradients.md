@@ -69,8 +69,6 @@ Now we can think about the different parameters - or building blocks if you will
 - What temporal scale & extent is fitting here?
 - Do we have any hypotheses or assumptions about the analysis?
 
-<br />
-
 Our working hypothesis of today, is that the strong difference we see in vegetation and agricultural practices (check the video at the top of this page) are related to the gradients in elevation, temperature & precipitation. We will investigate this gradient over a transect in North-West USA. Thus the geospatial parameters that fit the scope of the analysis would be: 
 
 <br />
@@ -106,13 +104,13 @@ Your browser does not support the video tag.
 
 <br />
 
-The spatial unit in our case is a 'Line': we can define this using the function ee.Geometry.LineString, which just needs the beginning and end coordinates as (LONG,LAT) pairs. 
+The spatial unit in our case is a 'Line': we can define this using the function `ee.Geometry.LineString`, which just needs the beginning and end coordinates as (LONG,LAT) pairs. 
 
 Next, we can plot the transect on the map. 
 
 ```javascript
 // defining the variable 'transect' as the gradient we want to investigate:  
-var endpoint = [-121, 45.1];  
+var endpoint = [-121, 45.1];    // The first input here is the longitude and the second one the latitude
 var startpoint = [-124, 45.1];
 Map.setCenter(-122, 45.1, 8); 
 var transect = ee.Geometry.LineString([endpoint, startpoint]);
@@ -121,11 +119,11 @@ Map.addLayer(transect, {color: 'FF0000'}, 'transect'); //Map is the name GEE giv
 
 <br />
 
-Now, eventually, for points along the transect we want to see how elevation, temperature and precipitation changes when going from left to right on the transect. This means: we are working towards a plot where we have longitude on the X-axis and elevation/precipitation/temperature on the y-axis. 
+Now, eventually, for points along the transect we want to see how elevation, temperature and precipitation changes when going from left to right on the transect. This means: we are working towards a plot where we have longitude on the X-axis and elevation / precipitation / temperature on the y-axis. 
 
 One of the easiest ways to do this, is to first create an Image with several bands: one for longitude (or latitude, if you want to investigate a vertical gradient), one for elevation, one band for yearly temperature, and one band for yearly precipitation. 
 
-Once we have this image, we can collect the various variables (longitude, elevation, temperature...) along the transect with the ee.Reducer.toList() function that is explained on [this page](https://developers.google.com/earth-engine/guides/charts_array).
+Once we have this image, we can collect the various variables (longitude, elevation, temperature...) along the transect with the `ee.Reducer.toList()` function that is explained on [this page](https://developers.google.com/earth-engine/guides/charts_array).
 
 But first things first, let's make this Image with the different bands. 
 
