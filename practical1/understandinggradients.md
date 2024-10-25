@@ -354,6 +354,9 @@ var average_T = temperature.reduce('mean').multiply(0.1); //why do we multiply w
 print(average_T);
      
 ```
+
+<br />
+
 Right, now we have an actual image with the band we want: the exercise is now very similar to the one with elevation: 
 
 ```javascript
@@ -401,7 +404,12 @@ print(chart);
 
 ```
 
-## **Congrats: you are now able to reduce an image collection to an image and make nice plots: can you do the same for precipitation? **
+<br />
+
+### Step 3.7: Do it yourself
+
+
+**Congrats: you are now able to reduce an image collection to an image and make nice plots: can you do the same for precipitation? **
 
 
 
