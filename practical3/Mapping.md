@@ -1,89 +1,66 @@
-# Step 3: Mapping and geo-processing
+# Step 3: Extracting information from GEE
 
 
->Let's start off easy, and build a map of the raccoon sightings in Belgium: 
->>Load all the data in QGIS: the video below shows how you can make a map of the vector data you collected:
+>First thing to do is to import the shapefile with the lake sampling points as an asset. You have done this in a previous practical, but if [you forgot how to do this, click here](https://liesjacobs.github.io/worldfoodecosystems2023/practical2/intro.html)
 
+Import the data in your script (much like you did [here](https://liesjacobs.github.io/worldfoodecosystems2023/practical2/intro.html)), rename the variable and give it a logical name (e.g. 'lakes') and add the layer to the map. 
 
-<video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/132331875-35103196-e929-4c60-99fe-9b05740ba3c8.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+In my code, the line that visualizes the data looks like this: 
+```javascript
+Map.addLayer(lakes,{'color':'purple','opacity':0.5}, "lakes");
+```
 
-If your scalebar shows weird (low) numbers: this is probably because the units are still in the units of the project (so degrees): if you click on the scalebar, on the right you'll see a dropdown menu where you can change the desired units to e.g. km. 
+Now, let's extract the mean water deficit for the first epoch, and the biome classification, this for each point. We have done this before, so below are some clues for the code which - based on your work last week - you should be able to adjust to make it work. 
 
+```javascript
+// load the image collection of TERRACLIMATE, and filter the correct dates
+var dataset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
+                  .filter(ee.Filter.date('1980-01-01', '1990-01-01'));
+// from the image collection, select the band containing the deficit information.
+var deficit = ?.select(?);
+print(deficit); //this is still an image collection, so we'll need to reduce it and take the mean (so that we have one mean layer instead of all the monthly layers in the collection
+//let's calculate the monthly mean deficit over the first epoch
+var meandeficit = ?.mean();
+var deficitVis = {
+  min: 0,
+  max: 1500.0,
+  palette: ['blue', "green", 'red'],
+};
+// plot the mean deficit map:
+Map.addLayer(?, ?, 'deficit');
 
->Next step in QGIS is to use the grids we made earlier and summarize the data per grid. Each of these things can be achieved through a different function in QGIS
->>How many raccoon sightings? --> *Count points per polygon*
+/// now we extract the values for deficit for each of the points. This is very similar to what we did in practical 5
 
->>Average topographic diversity? -->*Zonal statistics*
+var lakes_deficit80s = meandeficit.reduceRegions(lakes, ee.Reducer.mean( ),4638.3); // the 4638 is the resolution of the layer of terraclimate (see also in the catalogue)
+Export.table.toDrive({
+  collection: lakes_deficit80s,
+  description:'lakes_deficit80s',
+  fileFormat: 'CSV'
+}); //we write the elevation values per camera location to a csv --> download this csv file
 
+```
+>Now, do the same for the Biome map: extract the values of the biome class for each point. 
 
->>total river length per polygon grid cell? -->*Sum of line length*
+This is similar to the water deficit, with the exception that the OpenLand Biome map is already an image and that you don't have to take the mean, but the mode (the most common pixel value) and that the resolution of the openland biome map is 1000m. Also export this csv file. 
 
-The videos below show you how you can implement these different functions: 
+### You now have two csv files in your google drive: one containing the information on the deficit in the 80s, one containing information on the biomes can be imported in R
 
-### Count points per polygon
+We now go back to R to do the [data analysis](https://liesjacobs.github.io/worldfoodecosystems2023/practical3/Analysis.html)
 
-
-<video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/138072650-241cfcec-7a5a-4b1f-9bd6-3a84c9efabfe.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-
-
-
-
-
-### Average topographic diversity 
-
-
-<video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/138072707-08825837-3a32-48b7-a6e3-ad8c3852daf2.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-
-
-
-
-
-
-### Sum of line length
-
-
-<video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/138072762-877dae88-0f75-4312-ab85-234c1380426d.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-
-
-
-
-
-***
-
-
-
-Note that this last video also demonstrates how to export the data as a csv. Note that for filenaming, it is a good idea to avoid points and spaces within the filename. This we do to make sure we can read the results of our processing in Rstudio, where we will do the [final analysis](https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/Analysis.html)
-
-<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UQ0o0Q1dNVEFRQUlZUk1ZSDJZR0NRRFE2TC4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
 
 <nav>
   <ul>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/intro.html">Practical 1: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/exploring.html">Practical 1: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/intro.html">Practical 2: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/QGIS.html">Practical 2: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical2/Rstudio.html">Practical 2: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/intro.html">Practical 6: Problem description</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/API.html">Practical 6: Data Collection</a></li>
-    <li><strong>Practical 6: Mapping and spatial processing</strong></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/practical3/Analysis.html">Practical 6: Analysis</a></li>
-    <li><a href="https://liesjacobs.github.io/World-Food-and-Ecosystems/"><b>Back to Overview Page</b></a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/intro.html">Practical 1: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/exploring.html">Practical 1: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/intro.html">Practical 5: exercise 1</a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/QGIS.html">Practical 5: exercise 2</a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/Rstudio.html">Practical 5: exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical3/intro.html">Practical 6: Problem description</a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical3/API.html">Practical 6: Exercise 1</a></li>
+    <li><strong>Practical 6: Exercise 2</strong></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical3/Analysis.html">Practical 6: Exercise 3</a></li>
+    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
