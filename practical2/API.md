@@ -53,16 +53,10 @@ Visually, do you conclude that most points have increased or decreased in their 
 
 <nav>
   <ul>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/intro.html">Practical 1: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/exploring.html">Practical 1: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/intro.html">Practical 5: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/QGIS.html">Practical 5: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/Rstudio.html">Practical 5: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical3/intro.html">Practical 6: Problem description</a></li>
-    <li><strong>Practical 6: Data Exploration</strong></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical3/Mapping.html">Practical 6: Exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical3/Analysis.html">Practical 6: Exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/"><b>Back to Overview Page</b></a></li>
+    <li><a href="intro.html">Step 1: Problem description</a></li>
+    <li><strong>Step 2: Data Exploration</strong></li>
+    <li><a href="Mapping.html">Practical 6: Exercise 2</a></li>
+    <li><a href="Analysis.html">Practical 6: Exercise 3</a></li>
+    <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
