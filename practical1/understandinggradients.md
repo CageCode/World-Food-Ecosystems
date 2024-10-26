@@ -191,7 +191,7 @@ To load elevation and climate data into GEE, we can use the following resources:
 
 | Dataset      | Type | Source     |Access point     |
 | :---        |    :---    |          :---  |         :---  |
-| WORLDCLIM   | Raster        | ?      | https://developers.google.com/earth-engine/datasets/catalog/WORLDCLIM_V1_MONTHLY?hl=en     |
+| WORLDCLIM   | Raster        | University of California, Berkeley     | https://developers.google.com/earth-engine/datasets/catalog/WORLDCLIM_V1_MONTHLY?hl=en     |
 | SRTM DEM 90 meters  | Raster       | ? | https://developers.google.com/earth-engine/datasets/catalog/CGIAR_SRTM90_V4 |
 
 
@@ -398,14 +398,52 @@ print(chart);
 
 <br />
 
-Well done! You have succesfully retrieved the elevation and temperature data for the transect at a 1 kilometer resolution. This makes it possible to see the relationship between the two on a graph.
+Well done! You have succesfully retrieved the elevation and temperature data for the transect at a 1 kilometer resolution. This makes it possible to see the relationship between the two on a graph. Are you able to answer the following question about the code you just evaluated? Can you do the same for the precipitation?
 
-### Step 3.7: Do it yourself
+<br />
+
+> 📝 **Question 4**. The temperature data, whose mean temperature of January you have visualized on the map in GEE, have very large values: why is that? 
+> <br />
+> tip: look at the source link given in the table on GitHub that describes the data
+
+<br />
+
+> 📝 **Question 5**. Given the code earlier, you should now have the ability to build a plot showing how Precipitation changes across Longitude.
+> <br />
+> Copy the code that you used to create the temperature plot, then change the code so that it extracts the precipitation.
+> Build this plot using the transect you have used in the practical.
+> Make the figure complete by adding a title and labels for the axis.
+> Indicate the coast range, willamette valley and western cascades on this precipitation profile based on information from the paper you read for this class.
+> Upload the final plot to the quiz.
+
+<br />
+
+### Step 3.6: Vegetation & gradients
+
+Let's see how the gradients in the abiotic nature correspond with the land cover in this area. Plot the biome map we made earlier on the same map, simply by copy-pasting what we already did before (this code is the same as in step 2):
+
+```javascript
+var dataset = ee.Image("OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01");
+var visualization = {
+  bands: ['biome_type'],
+  min: 1.0,
+  max: 32.0,
+  palette: [
+    "1c5510","659208","ae7d20","000065","bbcb35","009a18",
+    "caffca","55eb49","65b2ff","0020ca","8ea228","ff9adf",
+    "baff35","ffba9a","ffba35","f7ffca","e7e718","798649",
+    "65ff9a","d29e96",
+  ]
+};
+Map.addLayer(dataset, visualization, "Potential distribution of biomes");
+```
+
+You can manually investigate the relationship between the precipitation / elevation / temperature plots and the biomes, or you can try to extract the biome values from the plot as well (are you able to adjust the code to do this for the biome map?)
 
 
 **Congrats: you are now able to reduce an image collection to an image and make nice plots: can you do the same for precipitation? **
 
-The temperature data, whose mean temperature of January you have visualized on the map in GEE, have very large values: why is that? (tip: look at the source link given in the table on GitHub that describes the data)
+
 
 
 <nav>
