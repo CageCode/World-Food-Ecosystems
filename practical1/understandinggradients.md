@@ -410,6 +410,7 @@ Well done! You have succesfully retrieved the elevation and temperature data for
 
 > 📝 **Question 5**. Given the code earlier, you should now have the ability to build a plot showing how Precipitation changes across Longitude.
 > <br />
+> <br />
 > Copy the code that you used to create the temperature plot, then change the code so that it extracts the precipitation.
 > Build this plot using the transect you have used in the practical.
 > Make the figure complete by adding a title and labels for the axis.
@@ -438,13 +439,30 @@ var visualization = {
 Map.addLayer(dataset, visualization, "Potential distribution of biomes");
 ```
 
-You can manually investigate the relationship between the precipitation / elevation / temperature plots and the biomes, or you can try to extract the biome values from the plot as well (are you able to adjust the code to do this for the biome map?)
+You can manually investigate the relationship between the precipitation / elevation / temperature plots and the biomes, or you can try to extract the biome values from the plot as well (are you able to adjust the code to do this for the biome map?). 
 
 
-**Congrats: you are now able to reduce an image collection to an image and make nice plots: can you do the same for precipitation? **
+<br />
 
+> 📝 **Question 5**. Moving from West to East, what is the (roughly) the order of biomes as proposed by Hengl et al along this transect?
 
+> 📝 **Question 6**. Make an elevation profile of the Willamette Valley from West to East (with in the y-axis the elevation), indicate where to find:
+> <br />
+> (a) Agricultural crops
+> (b) Pastures and vineyards
+> (c) Forests. 
+> <br />
+> To do this, perform the following steps:
+> <br />
+> Change the transect to mainly cover Willamette Valley.
+> Create the elevation plot.
+> Make the figure complete by adding a title and labels for the axis.
+> Indicate where to mainly find the three different types of land use in this figure.
+> Upload the final figure to this quiz.
 
+<br />
+
+### End of practical 1
 
 <nav>
   <ul>
