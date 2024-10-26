@@ -1,4 +1,4 @@
-# Welcome to the 5th practical. 
+# Welcome to the 3rd practical. 
 
 In this practical we will be using a combination of Google Earth Engine and R to understand biodiversity patterns. It is essential that you found your way trough the [first practical](https://liesjacobs.github.io/worldfoodecosystems2023/practical1/intro.html) as these practical sessions intentionally have an increasing complexity. 
 
