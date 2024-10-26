@@ -1,4 +1,4 @@
-# Welcome to the last practical. 
+# Welcome to the 2nd practical. 
 
 
 In the previous practical, you have gained familiarity with Google Earth Engine and JavaScript code. 
