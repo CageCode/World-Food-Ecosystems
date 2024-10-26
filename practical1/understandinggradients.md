@@ -127,8 +127,6 @@ Once we have this image, we can collect the various variables (longitude, elevat
 
 But first things first, let's make this Image with the different bands. 
 
-<br />
-
 ```javascript
 //To create a raster with longitudes and latitudes, we can use the following function: 
 var latLonImg = ee.Image.pixelLonLat();
@@ -144,7 +142,7 @@ print(latLonImg);
 <br />
 <details>
 <summary>Answer Recap 10.</summary>
-The first one is ..... and the second one is... You can check the ... to see this.
+The first one is longitude and the second one is latitude. You can check the Console > Image > bands to see this.
 </details>
 <br />
 
@@ -208,13 +206,6 @@ Use the links above to find out what the source is of the SRTM DEM:
 <summary>Answer Recap 11.</summary>
 The source is NASA/CGIAR, the dataset is released by NASA and subsequently post-processed to create a seamless map.
 </details>
-<br />
-
-***
-
-<br />
-
-### Step 3.5: Add Longitude & Latitude
 
 <br />
 
@@ -278,7 +269,7 @@ print(elevTransect); //Check what is inside this object: their seems to be 3 lis
 
 <br />
 
-### Step 3.6: Plot the gradients
+### Step 3.5: Plot the gradients
 
 Now that we have an object that contains a list with the longitudes and the elevations, we can plot the elevations and the longitudes on one plot: 
 
@@ -323,6 +314,7 @@ print(chart);
 Your browser does not support the video tag.
 </video>
 
+<br />
 
 ***
 GREAT! Now that we have done this for an image (the image with the elevation band), let's try to do this for an ImageCollection: An image collection is a series of images bundles together, for example because they contain the same type of data but at different timesteps. An image collection for precipitation could for example consist of an image for each day, whereby each image contains the daily precipitation per pixel. Before you can analyze this, you will thus have to convert the collection to a single image (e.g. by summing all the values to get the total precipitation, or by averaging to get e.g. the average temperature). 
@@ -406,11 +398,14 @@ print(chart);
 
 <br />
 
+Well done! You have succesfully retrieved the elevation and temperature data for the transect at a 1 kilometer resolution. This makes it possible to see the relationship between the two on a graph.
+
 ### Step 3.7: Do it yourself
 
 
 **Congrats: you are now able to reduce an image collection to an image and make nice plots: can you do the same for precipitation? **
 
+The temperature data, whose mean temperature of January you have visualized on the map in GEE, have very large values: why is that? (tip: look at the source link given in the table on GitHub that describes the data)
 
 
 <nav>
