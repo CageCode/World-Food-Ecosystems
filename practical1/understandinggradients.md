@@ -444,9 +444,9 @@ You can manually investigate the relationship between the precipitation / elevat
 
 <br />
 
-> 📝 **Question 5**. Moving from West to East, what is the (roughly) the order of biomes as proposed by Hengl et al along this transect?
+> 📝 **Question 6**. Moving from West to East, what is the (roughly) the order of biomes as proposed by Hengl et al along this transect?
 
-> 📝 **Question 6**. Make an elevation profile of the Willamette Valley from West to East (with in the y-axis the elevation), indicate where to find: <br />
+> 📝 **Question 7**. Make an elevation profile of the Willamette Valley from West to East (with in the y-axis the elevation), indicate where to find: <br />
 > <br />
 > (a) Agricultural crops <br />
 > (b) Pastures and vineyards <br />
