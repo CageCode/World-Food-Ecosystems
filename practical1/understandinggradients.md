@@ -411,11 +411,11 @@ Well done! You have succesfully retrieved the elevation and temperature data for
 > 📝 **Question 5**. Given the code earlier, you should now have the ability to build a plot showing how Precipitation changes across Longitude.
 > <br />
 > <br />
-> Copy the code that you used to create the temperature plot, then change the code so that it extracts the precipitation. <br />
-> Build this plot using the transect you have used in the practical. <br />
-> Make the figure complete by adding a title and labels for the axis. <br />
-> Indicate the coast range, willamette valley and western cascades on this precipitation profile based on information from the paper you read for this class. <br />
-> Upload the final plot to the quiz. <br />
+> • Copy the code that you used to create the temperature plot, then change the code so that it extracts the precipitation. <br />
+> • Build this plot using the transect you have used in the practical. <br />
+> • Make the figure complete by adding a title and labels for the axis. <br />
+> • Indicate the coast range, willamette valley and western cascades on this precipitation profile based on information from the paper you read for this class. <br />
+> • Upload the final plot to the quiz. <br />
 
 <br />
 
@@ -454,11 +454,11 @@ You can manually investigate the relationship between the precipitation / elevat
 > <br />
 > To do this, perform the following steps: <br />
 > <br />
-> Change the transect to mainly cover Willamette Valley. <br />
-> Create the elevation plot. <br />
-> Make the figure complete by adding a title and labels for the axis. <br />
-> Indicate where to mainly find the three different types of land use in this figure. <br />
-> Upload the final figure to this quiz. <br />
+> • Change the transect to mainly cover Willamette Valley. <br />
+> • Create the elevation plot. <br />
+> • Make the figure complete by adding a title and labels for the axis. <br />
+> • Indicate where to mainly find the three different types of land use in this figure. <br />
+> • Upload the final figure to this quiz. <br />
 
 <br />
 
