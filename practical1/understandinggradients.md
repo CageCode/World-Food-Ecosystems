@@ -111,7 +111,7 @@ Next, we can plot the transect on the map.
 ```javascript
 // defining the variable 'transect' as the gradient we want to investigate:  
 var endpoint = [-121, 45.1];    // The first input here is the longitude and the second one the latitude
-var startpoint = [-124, 45.1];
+var startpoint = [-123.8, 45.1];
 Map.setCenter(-122, 45.1, 8); 
 var transect = ee.Geometry.LineString([endpoint, startpoint]);
 Map.addLayer(transect, {color: 'FF0000'}, 'transect'); //Map is the name GEE gives to the lower panel that shows 'the map':-)
@@ -250,7 +250,7 @@ Map.addLayer(elevationlatlon,vizParams2, 'elevation');
 
 <br />
 
-GREAT! now we have an image which already has the coordinates as pixel values and the elevation, meaning we can try to attempt to use ee.Reducer.to.List and plot the elevation changes according to longitude changes along the profile: 
+Good job! now we have an image which already has the coordinates as pixel values and the elevation, meaning we can try to attempt to use ee.Reducer.to.List and plot the elevation changes according to longitude changes along the profile: 
 
 ```javascript
 // Reduce elevation and coordinate bands by transect line; get a dictionary with
