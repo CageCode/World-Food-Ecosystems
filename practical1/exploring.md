@@ -10,7 +10,7 @@ If at any point your lost on the basic JavaScript commands, go [back](intro.html
 First we will load a biome map of the world which represents different types of biomes across the world, showing zones with characteristic life forms and environmental conditions. Biomes are classified based on factors such as temperature, precipitation, and the dominant forms of life like vegetation. Examples include tropical rainforests, deserts, tundras, and savannas.
 The biome map that we will load using JavaScript comes in the form of a raster, which means it consists of pixels organized in a grid. Each pixel has the same spatial size and contains a value that represents some type of data. 
 
-Copy the following piece of code in the 'script' panel of the earth engine GUI. 
+Copy the following piece of code in the 'script' panel of google earth engine. 
 
 ```javascript
 
