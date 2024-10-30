@@ -337,14 +337,23 @@ var vizParams = {
   palette: ['00FFFF', '0000FF'],
   opacity: 0.5
 };
-Map.addLayer(tempjan, vizParams, 'mean temperature januari'); 
+Map.addLayer(tempjan, vizParams, 'mean temperature januari');
+
 // Now click on Amsterdam on the map: what is the average monthly value for this city as depicted in the inspector? can this be correct?
 // Why is this value so high? (tip: search in the searchbar for the worldclim temperature dataset and look in the band description )
 // now we can take the average temperature over all the months: 
 var average_T = temperature.reduce('mean').multiply(0.1); //why do we multiply with 0.1? (again, search in the searchbar for the worldclim temperature dataset)
 
 print(average_T);
-     
+// Let's visualize the temperature on the map and see how it looks:
+var vizParams = {
+  min: 0,
+  max : 15,
+  palette: ['00FFFF', '0000FF'],
+  opacity: 0.5
+};
+Map.addLayer(average_T, vizParams, 'mean temperature');
+    
 ```
 
 <br />
@@ -402,7 +411,7 @@ Well done! You have succesfully retrieved the elevation and temperature data for
 
 <br />
 
-> 📝 **Question 4**. The temperature data, whose mean temperature of January you have visualized on the map in GEE, have very large values: why is that? 
+> 📝 **Question 4**. The temperature data, whose mean temperature (of January) you have visualized on the map in GEE, have very large values: why is that? 
 > <br />
 > tip: look at the source link given in the table on GitHub that describes the data
 
@@ -446,15 +455,22 @@ You can manually investigate the relationship between the precipitation / elevat
 
 > 📝 **Question 6**. Moving from West to East, what is the (roughly) the order of biomes as proposed by Hengl et al along this transect?
 
+<br />
+
+What i
+
+
+
+
 > 📝 **Question 7**. Make an elevation profile of the Willamette Valley from West to East (with in the y-axis the elevation), indicate where to find: <br />
 > <br />
 > (a) Agricultural crops <br />
-> (b) Pastures and vineyards <br />
-> (c) Forests. <br />
+> (b) Pastures <br />
+> (c) Forests <br />
 > <br />
 > To do this, perform the following steps: <br />
 > <br />
-> • Change the transect to mainly cover Willamette Valley. <br />
+> • Change the longitude of the transect to mainly cover Willamette Valley. <br />
 > • Create the elevation plot. <br />
 > • Make the figure complete by adding a title and labels for the axis. <br />
 > • Indicate where to mainly find the three different types of land use in this figure. <br />
