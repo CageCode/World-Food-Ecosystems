@@ -2,6 +2,7 @@
 Now we will explore the functionalities of Google Earth Engine, a cloud-based platform for spatial data analysis. It enables users to access, visualize, and analyze vast amounts of data, facilitating research on topics such as land cover change, climate monitoring and disaster response to name a few. In this course we use GEE to quickly access various datasources and inspect them easily.
 
 If at any point your lost on the basic JavaScript commands, go [back](intro.html)
+
 </br >
 </br >
 
