@@ -126,7 +126,7 @@ print('This string will print in the Console tab.');
 a list is built using [] brackets. 
 
 ```javascript
-The zero index refers to the first item in a list*/
+// The zero index refers to the first item in a list*
 var myList = ['eggplant','apple','wheat'];
 print(myList[0]); // would print 'eggplant' because JavaScript starts counting from 0
 ```
