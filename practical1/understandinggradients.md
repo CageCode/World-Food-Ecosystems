@@ -469,6 +469,8 @@ If you inspect the mean temperature and mean precipitation maps (which you made 
 You might answer that this is due to rain shadow, but that doesn't explain why it also rains on the leeward side of the Coast Ranges. In this case, the adiabatic processes causes the air to warm up when it descends into the valley, allowing for more moisture being stored in the air and thus less precipitation. As it ascends into the Western Cascades, adiabatic lift causes precipitation. Due to the height of the Cascades, the leeward side of this mountain range is causing quite a  rain shadow.
 </details>
 
+<br />
+
 <div align="center">
   <img src="Willamette_Valley.jpg" alt="Willamette Valley" >
   <br />
