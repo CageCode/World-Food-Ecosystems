@@ -352,7 +352,7 @@ var vizParams = {
   palette: ['00FFFF', '0000FF'],
   opacity: 0.5
 };
-Map.addLayer(average_T, vizParams, 'mean temperature');
+Map.addLayer(average_T, vizParams, 'yearly mean temperature');
     
 ```
 
@@ -423,7 +423,7 @@ Well done! You have succesfully retrieved the elevation and temperature data for
 > • Copy the code that you used to create the temperature plot, then change the code so that it extracts the precipitation. <br />
 > • Build this plot using the transect you have used in the practical. <br />
 > • Make the figure complete by adding a title and labels for the axis. <br />
-> • Indicate the coast range, willamette valley and western cascades on this precipitation profile based on information from the paper you read for this class. <br />
+> • Indicate the Coast Ranges, Willamette Valley and Western Cascades on this precipitation profile based on information from the paper you read for this class. <br />
 > • Upload the final plot to the quiz. <br />
 
 <br />
@@ -457,9 +457,21 @@ You can manually investigate the relationship between the precipitation / elevat
 
 <br />
 
-What i
+If you inspect the mean temperature and mean precipitation maps (which you made if you copied and adjusted the code for the temperature map, which you did at question 5), is that the biomes closely correspond to the patterns in the climate data. On the Western part of the Cascades, the temperature is quite similar, such that differences in the biomes can be explained by the difference in rainfall. Then high up in the mountains, rainfall might be quite similar as near the coast, but the Biomes differ due to temperature. Finally, the Easstern parts of the Cascades the temperatures are similar again as in the Valley, but almost receives no precipitation, allowing for a unique Biome here as well.
 
+> 🔍 **Recap 12**. Why does it rain less in the valley then in the Coast Ranges, even though the mean temperature is quite similar and the moist air comes from the ocean?
 
+<br />
+<details>
+<summary>Answer Recap 12.</summary>
+You might answer that this is due to rain shadow, but that doesn't explain why it also rains on the leeward side of the Coast Ranges. In this case, the adiabatic processes causes the air to warm up when it descends into the valley, allowing for more moisture being stored in the air and thus less precipitation. As it ascends into the Western Cascades, adiabatic lift causes precipitation. Due to the height of the Cascades, the leeward side of this mountain range is causing quite a  rain shadow.
+</details>
+
+<br />
+
+Now inspect the land use in Willamette Valley, according to Oetter et al (2001), this valley accounts for 50% of the 3.5 billion dollars in agricultural goods of Oregon - and that was in the early 2000's! Figure 7 on page 11 gives you an overview of the different types of land uses in the area. As you can see, the middle part of the Valley is used for crop production. As humans are able to manipulate their environment, our agricultural activities are less bound to the limitations in climate suitability. As explained in the last paragraph of the results, the hydrological network supplies for ample amounts of water to be used in irrigation. Also the fertile river plains allow for cost-effective agricultural activities on flat terrain. This is in contrast to the hilly areas, as described in the paper: *"Where foothills break the valley floor, the pasture/natural class dominates"*. Even though the temperature is quite similar and the precipitation might be even better, the land is less used for farming due to elevation differences and maybe other environmental conditions such as soil condition. However, would this area be in China, could you expect rice terraces on the slopes? - food for thought perhaps.
+
+<br />
 
 
 > 📝 **Question 7**. Make an elevation profile of the Willamette Valley from West to East (with in the y-axis the elevation), indicate where to find: <br />
@@ -467,6 +479,8 @@ What i
 > (a) Agricultural crops <br />
 > (b) Pastures <br />
 > (c) Forests <br />
+> <br />
+> Tip: check figure 7 in the paper by Oetter et al, 2001. It shows the land use in the area. <br />
 > <br />
 > To do this, perform the following steps: <br />
 > <br />
