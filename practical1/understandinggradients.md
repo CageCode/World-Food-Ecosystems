@@ -110,9 +110,9 @@ Next, we can plot the transect on the map.
 
 ```javascript
 // defining the variable 'transect' as the gradient we want to investigate:  
-var endpoint = [-121, 45.1];    // The first input here is the longitude and the second one the latitude
-var startpoint = [-123.8, 45.1];
-Map.setCenter(-122, 45.1, 8); 
+var endpoint = [-121, 44.7];    // The first input here is the longitude and the second one the latitude
+var startpoint = [-123.8, 44.7];
+Map.setCenter(-122, 44.7, 8); 
 var transect = ee.Geometry.LineString([endpoint, startpoint]);
 Map.addLayer(transect, {color: 'FF0000'}, 'transect'); //Map is the name GEE gives to the lower panel that shows 'the map':-)
 ```
