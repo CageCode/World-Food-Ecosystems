@@ -459,6 +459,8 @@ You can manually investigate the relationship between the precipitation / elevat
 
 If you inspect the mean temperature and mean precipitation maps (which you made if you copied and adjusted the code for the temperature map, which you did at question 5), is that the biomes closely correspond to the patterns in the climate data. On the Western part of the Cascades, the temperature is quite similar, such that differences in the biomes can be explained by the difference in rainfall. Then high up in the mountains, rainfall might be quite similar as near the coast, but the Biomes differ due to temperature. Finally, the Easstern parts of the Cascades the temperatures are similar again as in the Valley, but almost receives no precipitation, allowing for a unique Biome here as well.
 
+<br />
+
 > 🔍 **Recap 12**. Why does it rain less in the valley then in the Coast Ranges, even though the mean temperature is quite similar and the moist air comes from the ocean?
 
 <br />
@@ -466,6 +468,12 @@ If you inspect the mean temperature and mean precipitation maps (which you made 
 <summary>Answer Recap 12.</summary>
 You might answer that this is due to rain shadow, but that doesn't explain why it also rains on the leeward side of the Coast Ranges. In this case, the adiabatic processes causes the air to warm up when it descends into the valley, allowing for more moisture being stored in the air and thus less precipitation. As it ascends into the Western Cascades, adiabatic lift causes precipitation. Due to the height of the Cascades, the leeward side of this mountain range is causing quite a  rain shadow.
 </details>
+
+<div align="center">
+  <img src="Willamette_Valley.jpg" alt="Willamette Valley" >
+  <br />
+  <em>Figure 2. Willamette Valley with the Western Cascades in the background</em>
+</div>
 
 <br />
 
