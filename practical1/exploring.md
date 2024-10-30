@@ -3,8 +3,8 @@ Now we will explore the functionalities of Google Earth Engine, a cloud-based pl
 
 If at any point your lost on the basic JavaScript commands, go [back](intro.html)
 
-</br >
-</br >
+<br />
+<br />
 
 ### Step 2.1: Loading the biome map of the world
 
