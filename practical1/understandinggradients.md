@@ -457,7 +457,7 @@ You can manually investigate the relationship between the precipitation / elevat
 
 <br />
 
-If you inspect the mean temperature and mean precipitation maps (which you made if you copied and adjusted the code for the temperature map, which you did at question 5), is that the biomes closely correspond to the patterns in the climate data. On the Western part of the Cascades, the temperature is quite similar, such that differences in the biomes can be explained by the difference in rainfall. Then high up in the mountains, rainfall might be quite similar as near the coast, but the Biomes differ due to temperature. Finally, the Easstern parts of the Cascades the temperatures are similar again as in the Valley, but almost receives no precipitation, allowing for a unique Biome here as well.
+If you inspect the mean temperature and mean precipitation maps (which you made if you copied and adjusted the code for the temperature map, which you did at question 5), is that the biomes closely correspond to the patterns in the climate data. On the Western part of the Cascades, the temperature is quite similar, such that differences in the biomes can be explained by the difference in rainfall. Then high up in the mountains, rainfall might be quite similar as near the coast, but the Biomes differ due to temperature. Finally, the Eastern parts of the Cascades the temperatures are similar again as in the Valley, but almost receives no precipitation, allowing for a unique Biome here as well.
 
 <br />
 
