@@ -121,9 +121,12 @@ It’s time to explore the Biome map and answer the first few questions on Canva
 
 <br />
 
-> 📝 **Question 3**.  
+> 📝 **Question 3**. This biome map shows... (tip: check the paper by Hengl et al attached in this module)
 > <br />
-> 
+> • The actual vegetation
+> • The vegetation under the scenario of no climate change
+> • The vegetation if there would be no urbanisation/human infrastructure
+> • The vegetation if there would be no human interventions
 
 <br />
 
