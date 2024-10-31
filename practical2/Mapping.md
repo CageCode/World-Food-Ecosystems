@@ -20,13 +20,52 @@ Rename the variable by clicking on the name *table* and give it a logical name (
 Map.addLayer(lakes,{'color':'purple','opacity':0.5}, "lakes");
 ```
 
+> 🔍 **Review 3**. In which country are most measurements taken?
+
+<br />
+<details>
+<summary>Answer Review 3.</summary>
+Most of the data is located within the United States of America.
+</details>
 ***
 
 <br />
 
-Now, let's extract the mean water deficit for the first epoch, and the biome classification, this for each point. We have done this before, so below are some clues for the code which - based on your work last week - you should be able to adjust to make it work. 
+### Visualizing data
+
+As we have defined earlier, we want to see if the salinity is related to precipitation and temperature. But this time we are using the BIO Variables V1 data for precipitation and temperature. The following code will load the Bioclim dataset and visualize the precipitation.
 
 ```javascript
+// load the image collection of WorldCLIM
+var bioclim = ee.Image("WORLDCLIM/V1/BIO")
+print(bioclim);
+
+// from the image collection, select the band containing the deficit information.
+var prec = bioclim.select('bio12');
+print(prec); 
+var precVIS = {
+  min: 0,
+  max: 3000.0,
+  palette: ['red', 'green', "blue"],
+};
+// plot the mean deficit map:
+Map.addLayer(prec, precVIS, 'precbioclim');
+```
+
+We also want to load en visualize the temperature data, copy and change the code above in order to retrieve and plot the temperature data.
+
+> 🔍 **Review 4**. Which band contains the temperature data in the WorldCLIM/BIO dataset?
+
+<br />
+<details>
+<summary>Answer Review 4.</summary>
+Search for the WorldCLIM/bio dataset in GEE and click on bands. We want to use the annual temperature. Make sure you don't forget to check the scale.
+</details>
+***
+
+<br />
+
+
 // load the image collection of TERRACLIMATE, and filter the correct dates
 var dataset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
                   .filter(ee.Filter.date('1980-01-01', '1990-01-01'));
@@ -53,6 +92,10 @@ Export.table.toDrive({
 }); //we write the elevation values per camera location to a csv --> download this csv file
 
 ```
+
+Now, let's extract the mean water deficit for the first epoch, and the biome classification, this for each point. In the previous practical we have extracted data to a transect, which is a line. , so below are some clues for the code which - based on your work last week - you should be able to adjust to make it work. 
+
+
 >Now, do the same for the Biome map: extract the values of the biome class for each point. 
 
 This is similar to the water deficit, with the exception that the OpenLand Biome map is already an image and that you don't have to take the mean, but the mode (the most common pixel value) and that the resolution of the openland biome map is 1000m. Also export this csv file. 
