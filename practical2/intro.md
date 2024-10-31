@@ -51,7 +51,7 @@ Now that we have defined the problem and indicated the geospatial paramters, we 
 
 | Dataset      | Type | Source     |Access point     |
 | :---        |    :---    |          :---  |         :---  |
-| EC sampling points    | Vector:points       | Thorslund et al. 2020  | [here](https://doi.pangaea.de/10.1594/PANGAEA.913939?format=html#download)  |
+| EC sampling points    | Points (vector)      | Thorslund et al. 2020  | [here](https://doi.pangaea.de/10.1594/PANGAEA.913939?format=html#download)  |
 | TerraClimate, water deficit  | Raster        | derived from the TerraClimate Collection   |Google Earth Engine Catalogue    |
 | Biome map| Raster       | OpenLand potential Biomes     |Google Earth Engine Catalogue|
 
