@@ -1,5 +1,13 @@
 # Step 3: Extracting information from GEE
 
+Let us see where the measurements of the salinity are taken on earth. To achieve that, we need to load in the points data. This data is located in the .zip file that you have downloaded and probably contains extensions that you are not familiar with, but which allow GEE (and other GIS-software) to process the data. In order to get the data in GEE, perform the following steps:
+
+> Click on the *Assets* tab in the top-left corner of Google Earth Engine
+> Click on the red box called *New*
+> Select *Shape files* under Table Upload
+> Press on *Select* under Source Files
+> Select the five *lakes* files (the .cpg, .dbf, .prj, .shp, .shx -files), you can select multiple files by clicking each of them while holding the control-key (cntrl on keyboard) at the same time.
+> Click on *Upload*, the points will be uploaded to GEE, this might take a while.
 
 >First thing to do is to import the shapefile with the lake sampling points as an asset. You have done this in a previous practical, but if [you forgot how to do this, click here](https://liesjacobs.github.io/worldfoodecosystems2023/practical2/intro.html)
 
