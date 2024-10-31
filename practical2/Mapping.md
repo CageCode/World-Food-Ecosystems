@@ -2,17 +2,17 @@
 
 Let us see where the measurements of the salinity are taken on earth. To achieve that, we need to load in the points data. This data is located in the .zip file that you have downloaded and probably contains extensions that you are not familiar with, but which allow GEE (and other GIS-software) to process the data. In order to get the data in GEE, perform the following steps:
 
-> Click on the *Assets* tab in the top-left corner of Google Earth Engine <br />
-> Click on the red box called *New* <br />
-> Select *Shape files* under Table Upload <br />
-> Press on *Select* under Source Files <br />
-> Select the five *lakes* files (the .cpg, .dbf, .prj, .shp, .shx -files), you can select multiple files by clicking each of them while holding the control-key (cntrl on keyboard) at the same time <br />
-> Click on *Upload*, the points will be uploaded to GEE, this might take a while <br />
+> • Click on the *Assets* tab in the top-left corner of Google Earth Engine <br />
+> • Click on the red box called *New* <br />
+> • Select *Shape files* under Table Upload <br />
+> • Press on *Select* under Source Files <br />
+> • Select the five *lakes* files (the .cpg, .dbf, .prj, .shp, .shx -files), you can select multiple files by clicking each of them while holding the control-key (cntrl on keyboard) at the same time <br />
+> • Click on *Upload*, the points will be uploaded to GEE, this might take a while <br />
 > ... <br />
-> Now click on the *Tasks* tab in the top-**right** corner of GEE <br />
-> When it is loaded, you will see it the Point data is in the ingest-table, open it <br />
-> Scroll down, click on *View Asset* and press *Import* <br />
-> Good job! The point data is now in GEE at the top of your script <br />
+> • Now click on the *Tasks* tab in the top-**right** corner of GEE <br />
+> • When it is loaded, you will see it the Point data is in the ingest-table, open it <br />
+> • Scroll down, click on *View Asset* and press *Import* <br />
+> • Good job! The point data is now in GEE at the top of your script <br />
 
 Rename the variable by clicking on the name *table* and give it a logical name (we will use 'lakes' in the script). Now we can visualize the layer - the point data - to the map with the following code: 
 
