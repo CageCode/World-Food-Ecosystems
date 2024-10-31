@@ -27,6 +27,7 @@ Map.addLayer(lakes,{'color':'purple','opacity':0.5}, "lakes");
 <summary>Answer Review 3.</summary>
 Most of the data is located within the United States of America.
 </details>
+
 ***
 
 <br />
@@ -52,6 +53,8 @@ var precVIS = {
 Map.addLayer(prec, precVIS, 'precbioclim');
 ```
 
+<br />
+
 We also want to load en visualize the temperature data, copy and change the code above in order to retrieve and plot the temperature data.
 
 > 🔍 **Review 4**. Which band contains the temperature data in the WorldCLIM/BIO dataset?
@@ -61,57 +64,63 @@ We also want to load en visualize the temperature data, copy and change the code
 <summary>Answer Review 4.</summary>
 Search for the WorldCLIM/bio dataset in GEE and click on bands. We want to use the annual temperature. Make sure you don't forget to check the scale.
 </details>
-***
 
 <br />
 
+After you loaded the temperature data, let's extract the mean water deficit for the first epoch, and the biome classification, this for each point. In the previous practical we have extracted data to a transect, which is a line. The following code will extract it for the point data: Lakes. We then save the data to a csv (comma-seperated value file) and upload it to Google Drive, from where we can download it and analyze it with Rstudio.
 
-// load the image collection of TERRACLIMATE, and filter the correct dates
-var dataset = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
-                  .filter(ee.Filter.date('1980-01-01', '1990-01-01'));
-// from the image collection, select the band containing the deficit information.
-var deficit = ?.select(?);
-print(deficit); //this is still an image collection, so we'll need to reduce it and take the mean (so that we have one mean layer instead of all the monthly layers in the collection
-//let's calculate the monthly mean deficit over the first epoch
-var meandeficit = ?.mean();
-var deficitVis = {
-  min: 0,
-  max: 1500.0,
-  palette: ['blue', "green", 'red'],
-};
-// plot the mean deficit map:
-Map.addLayer(?, ?, 'deficit');
+```javascript
+var lakes_temp80s = temp.reduceRegions(lakes, ee.Reducer.mean( ),927);
+// the 927 is the resolution of the layer of terraclimate (see also in the catalogue)
 
-/// now we extract the values for deficit for each of the points. This is very similar to what we did in practical 5
-
-var lakes_deficit80s = meandeficit.reduceRegions(lakes, ee.Reducer.mean( ),4638.3); // the 4638 is the resolution of the layer of terraclimate (see also in the catalogue)
 Export.table.toDrive({
-  collection: lakes_deficit80s,
-  description:'lakes_deficit80s',
+  collection: lakes_temp80s,
+  description:'lakes_temp80s',
   fileFormat: 'CSV'
-}); //we write the elevation values per camera location to a csv --> download this csv file
-
+}); 
 ```
 
-Now, let's extract the mean water deficit for the first epoch, and the biome classification, this for each point. In the previous practical we have extracted data to a transect, which is a line. , so below are some clues for the code which - based on your work last week - you should be able to adjust to make it work. 
+<br />
 
+You will see that the csv-files are now ready to be uploaded to your Google Drive when you press on the *tasks* tab in the top-right corner of GEE. Press RUN and then RUN again to get the data in your Google Drive account, this might take a while. When it is ready, open your google drive and find the data there, did it work?
+Now perform the same steps for the precipitation data. Copy the code above and change it in order to process the precipitation data, upload that one to Google Drive as well. Last but not least, use the following code to 
 
->Now, do the same for the Biome map: extract the values of the biome class for each point. 
+```javascript
+// and finally we extract the biomes
+var biomes = ee.Image("OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01")
 
-This is similar to the water deficit, with the exception that the OpenLand Biome map is already an image and that you don't have to take the mean, but the mode (the most common pixel value) and that the resolution of the openland biome map is 1000m. Also export this csv file. 
+var lakes_biomes80s = biomes.reduceRegions(lakes, ee.Reducer.median( ),1000); // why median here?
+Export.table.toDrive({
+  collection: lakes_biomes80s,
+  description:'lakes_biomes80s',
+  fileFormat: 'CSV'
+});
+```
 
-### You now have two csv files in your google drive: one containing the information on the deficit in the 80s, one containing information on the biomes can be imported in R
+<br />
 
-We now go back to R to do the [data analysis](https://liesjacobs.github.io/worldfoodecosystems2023/practical3/Analysis.html)
+> 🔍 **Review 4**. Why do we use median in the reduce function to extract the biomes?
+
+<br />
+<details>
+<summary>Answer Review 4.</summary>
+Because the biome map consists of classes and do not represent a continuous scale such as temperature or precipitation.
+</details>
+
+<br />
+
+### You now have three csv files in your google drive: two containing the climate information on temperature and precipitation and one containing information on the biomes, all can be imported in R
+
+If you uploaded all the data to your Google Drive and downloaded it from there to your laptop, you can continue. We now go back to Rstudio to do the [data analysis](Analysis.html)
 
 
 
 <nav>
   <ul>
     <li><a href="intro.html">Step 1: Problem description</a></li>
-    <li><a href="API.html">Practical 6: Exercise 1</a></li>
-    <li><strong>Practical 6: Exercise 2</strong></li>
-    <li><a href="Analysis.html">Practical 6: Exercise 3</a></li>
+    <li><a href="API.html">Step 2: Exploring</a></li>
+    <li><strong>Step 3: Mapping</strong></li>
+    <li><a href="Analysis.html">Step 4: Data analysis</a></li>
     <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
