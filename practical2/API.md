@@ -56,9 +56,10 @@ This is probably not the directory you want (the directory where you stored your
 So we need to change this using the command setwd() - setting the working directory:
 
 ```r
-# Set your working directory to your WFE folder were you also put the downloaded data
-# In my case this is: 
-setwd("C:/Users/dkooij/WFE/PRACT2") # note that R requires forward slashes in your path name
+# Set your working directory to your WFE folder were you also
+# put the downloaded data. In my case this is: 
+setwd("C:/Users/dkooij/WFE/PRACT2")
+# note that R requires forward slashes in your path name
 
 # check if it worked: 
 getwd()
@@ -82,11 +83,6 @@ The original database might take a while to load. The lakesaverage.csv should lo
 The original database contains all the measurements for every timestep for every lake, quite some data!
 </details>
 <br />
-
-```r
-#let's check out this 'DIFF' column
-difference<- boxplot(lakesaverage$DIFF, outline = F)
-```
 
 ***
 
