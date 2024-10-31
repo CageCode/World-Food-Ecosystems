@@ -7,9 +7,9 @@ In the folder you downloaded on the previous page there are 3 types of files:
 - "lakesaverage.csv": this file thus contains only those points which have sufficient measurements in both epochs. First, we calculated for each station the average EC in each year: those stations which have at least 5 years of measurements in both epochs are considered: for those stations, the average over the two epochs was calculated: do you see in which columns these values now appear? What is the DIFF column? 
 - "lakes.cpg,dbf,prj,shp,shx": this is the shapefile that basically contains the information of lakesaverage.csv but now in a spatial data object. 
 
+<br />
 
 
->Unzip the folder you just [downloaded](https://canvas.uva.nl/courses/32040/modules/items/1502508) and open both csv files in R and start a new R script. If you are not sure on how to do that: consult the previous practical [here](https://liesjacobs.github.io/worldfoodecosystems2023/practical2/Rstudio.html)
 
 The original database might take a while to load (why?). The lakesaverage.csv should load quickly. 
 
