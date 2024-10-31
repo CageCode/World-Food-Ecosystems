@@ -8,7 +8,7 @@ Today we are going to focus on abiotic factors and how plants adapt to their env
 
 ## Step 1: The case-study
 
-The case we are investigating today is the salinization of fresh water lakes. Recently, a global dataset of surface water salinity - with measurements between 1980 and 2019 - was published [here](https://www.nature.com/articles/s41467-021-24281-8). The paper reports on the dataset and how it was established. In this practical we will analyze the dataset to answer following questions: 
+The case we are investigating today is the salinization of fresh water lakes. In recent year, a global dataset of surface water salinity - with measurements between 1980 and 2019 - was published [here](https://www.nature.com/articles/s41467-021-24281-8). The paper reports on the dataset and how it was established. In this practical we will analyze the dataset to answer following questions: 
 - has salinity - as measured by the electrical conductivity (EC) increased or descreased in global freshwater lakes? 
 - Is salinity of the water linked to rainfall deficits? 
 - Are increases/decreases in salinity different across different biomes? 
@@ -16,8 +16,34 @@ The case we are investigating today is the salinization of fresh water lakes. Re
 
 ### Problem simplification
 
-Much like all problems, we'll need to simplify and define this one as well: 
+How would you go about to perform such an analysis? :
+- Which dimensions will we take into account (which processes will we consider)?
+- How will we describe these dimensions?
+- What spatial scale & extent is appropriate?
+- What temporal scale & extent is fitting here?
+- Do we have any hypotheses or assumptions about the analysis?
 
+<br />
+
+| Parameter  |  Value |
+|---|---|
+| Spatial extent | Global |
+| Temporal extent | We will compare averages over 1980-1990 with averages over 2005-2015 |
+| Cartographic unit |  Point data |
+| Dimensions | We focus on (i) a quanitified rainfall deficit and (ii) the biome map |
+| Dimension description | the Terraclimate dataset (Climate water deficit band) and the OpenLand Biome map |
+| Temporal resolution | Only measurement stations that have >5y of measurement in both epochs are considered |
+| Spatial resolution | Both the climate data (WorldClim) as the biome map has a resolution of 1 sq. km.  |
+| Assumption | We assume that water deficits (low precipitation with high evaporation) [for example here](https://www.sciencedirect.com/science/article/pii/S0048969721054802) is linked to higher salinity  |
+
+
+
+
+
+
+
+
+Much like all problems, we'll need to simplify and define this one as well: 
 
 | Building block  |  Decision |
 |---|---|
