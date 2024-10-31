@@ -86,8 +86,9 @@ The original database contains all the measurements for every timestep for every
 difference<- boxplot(lakesaverage$DIFF, outline = F)
 ```
 
-
 ***
+
+<br />
 
 Now, let's do a first check: how well are the EC values in the second epoch (2005-2015) associated with those in the first epoch (1980-1990)?  
 
@@ -106,11 +107,11 @@ Because of the two outliers, it's a bit difficult to see what goes on with the m
 If you don't know how to do this by heart, google is your best friend. I found e.g. [this resource](https://statisticsglobe.com/set-axis-limits-in-r)
 
 
-> 🔍 **Review 1**. Visually, do you conclude that most points have increased or decreased in their EC content? Does this confirm what you saw in the boxplot? 
+> 🔍 **Review 2**. Visually, do you conclude that most points have increased or decreased in their EC content? Does this confirm what you saw in the boxplot? 
 
 <br />
 <details>
-<summary>Answer Review 1.</summary>
+<summary>Answer Review 2.</summary>
 
 </details>
 <br />
@@ -124,8 +125,8 @@ If you don't know how to do this by heart, google is your best friend. I found e
   <ul>
     <li><a href="intro.html">Step 1: Problem description</a></li>
     <li><strong>Step 2: Data Exploration</strong></li>
-    <li><a href="Mapping.html">Practical 6: Exercise 2</a></li>
-    <li><a href="Analysis.html">Practical 6: Exercise 3</a></li>
+    <li><a href="Mapping.html">Step 3: </a></li>
+    <li><a href="Analysis.html">Step 4: </a></li>
     <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
