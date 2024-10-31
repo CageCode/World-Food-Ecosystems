@@ -70,9 +70,16 @@ View(ndvi)
 
 <br />
 
-The original database might take a while to load (why?). The lakesaverage.csv should load quickly. 
+The original database might take a while to load. The lakesaverage.csv should load quickly. 
 
-> Step1: exploring the data: 
+> 🔍 **Review 1**. Why does it take a while to load the original database? 
+
+<br />
+<details>
+<summary>Answer Review 1.</summary>
+The original database contains all the measurements for every timestep for every lake, quite some data!
+</details>
+<br />
 
 ```r
 #let's check out this 'DIFF' column
