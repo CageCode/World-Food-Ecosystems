@@ -45,7 +45,8 @@ Now let's code ourselves: let's first import the data. Therefore, we need to put
 # this is the file where we will list the commands needed for the analysis
 # using a hashtag = comments 
 
-# first let's see in which directory R is working now, using the command getwd() - which stands for 'get working directory': 
+# first let's see in which directory R is working now, using the command getwd()
+# This stands for 'get working directory': 
 getwd()
 ```
 
@@ -55,7 +56,8 @@ This is probably not the directory you want (the directory where you stored your
 So we need to change this using the command setwd() - setting the working directory:
 
 ```r
-# set your working directory to your WFE folder were you also put the downloaded data, in my case this is: 
+# Set your working directory to your WFE folder were you also put the downloaded data
+# In my case this is: 
 setwd("C:/Users/dkooij/WFE/PRACT2") # note that R requires forward slashes in your path name
 
 # check if it worked: 
