@@ -61,7 +61,7 @@ Now that we have defined the problem and indicated the geospatial paramters, we 
 
 The datasets by Thorslund et al. are very large and need to be pre-processed as we want to compare data from 1980-1990 to that from 2005-2015 for those stations for which an average can be reliably calculated. 
 
-To make this exercise feasible, this preprocessing has already been done: the aggregated csv file and its conversion into a shapefile as well as the original file can be found [here](https://canvas.uva.nl/courses/32040/modules/items/1502508). 
+To make this exercise feasible, this preprocessing has already been done: the aggregated csv file and its conversion into a shapefile as well as the original file can be found [here](EC_lakes.zip). 
 
 **Now we are ready for the [next step](API.html): we'll first explore the original and the pre-processed data in R**
 
