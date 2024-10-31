@@ -113,6 +113,7 @@ Because the biome map consists of classes and do not represent a continuous scal
 
 If you uploaded all the data to your Google Drive and downloaded it from there to your laptop, you can continue. We now go back to Rstudio to do the [data analysis](Analysis.html)
 
+<br />
 
 
 <nav>
