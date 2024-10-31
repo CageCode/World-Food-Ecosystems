@@ -40,27 +40,12 @@ If you have an answer on these questions, you can simplify and define the resear
 | Spatial resolution | Both the climate data (WorldClim) as the biome map have a resolution of 1 sq. km.  |
 | Assumption | We assume that water deficits (low precipitation with high evaporation) [for example here](https://www.sciencedirect.com/science/article/pii/S0048969721054802) is linked to higher salinity  |
 
-
-
-
-
-
-
-
-Much like all problems, we'll need to simplify and define this one as well: 
-
-| Building block  |  Decision |
-|---|---|
-| Geographic scale |  Points: measurement points of salinity in the database. Each seperate point is considered to be a location (regardless if two points are taken in the same water body) |
-| temporal scale |  We will compare averages over 1980-1990 with averages over 2005-2015: only stations that have >5y of measurement in both epochs are considered|
-| Assumption | We assume that water deficits (low precipitation with high evaporation) [for example here](https://www.sciencedirect.com/science/article/pii/S0048969721054802) is linked to higher salinity  |
-| Dimensions | we focus on (i) a quanitified rainfall deficit and (ii) the biome map|
-| Dimension description | The Terraclimate dataset (Climate water deficit band) and the OpenLand Biome map |
+<br />
 
 
 ### Data description
 
-Now that we have described the problem, we can describe the data we'll use
+Now that we have defined the problem and indicated the geospatial paramters, we can describe the data we'll use:
 
 | Dataset      | Type | Source     |Access point     |
 | :---        |    :---    |          :---  |         :---  |
@@ -69,6 +54,8 @@ Now that we have described the problem, we can describe the data we'll use
 | Biome map| Raster       | OpenLand potential Biomes     |Google Earth Engine Catalogue|
 
 ***
+
+<br />
 
 The datasets by Thorslund et al. are very large and need to be pre-processed as we want to compare data from 1980-1990 to that from 2005-2015 for those stations for which an average can be reliably calculated. 
 
