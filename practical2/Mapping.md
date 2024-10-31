@@ -20,6 +20,8 @@ Rename the variable by clicking on the name *table* and give it a logical name (
 Map.addLayer(lakes,{'color':'purple','opacity':0.5}, "lakes");
 ```
 
+***
+
 <br />
 
 Now, let's extract the mean water deficit for the first epoch, and the biome classification, this for each point. We have done this before, so below are some clues for the code which - based on your work last week - you should be able to adjust to make it work. 
