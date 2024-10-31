@@ -104,7 +104,10 @@ legend(x = 2, y=1000, legend = c("diagonal line"), col=c("red"), lty=1)
 
 Because of the two outliers, it's a bit difficult to see what goes on with the majority of the points... 
 
-### Build the same plot, but now limit the x and y axis to '2500', give the axis appropriate names and adjust the legend so that it still falls within the plot. Personalize this graph by adding a title with your name and load this graph to the canvas quiz.
+> 📝 **Question 1**. Build the same plot, but now limit the x and y axis to '2500', give the axis appropriate names and adjust the legend so that it still falls within the plot. Personalize this graph by adding a title with your name and load this graph to the canvas quiz.
+
+<br />
+
 
 If you don't know how to do this by heart, google is your best friend. I found e.g. [this resource](https://statisticsglobe.com/set-axis-limits-in-r)
 
@@ -120,7 +123,7 @@ If you don't know how to do this by heart, google is your best friend. I found e
 
 
 
-**OK, now on to the GEE processing: let's extract data on water deficit and the biomes for each point [in the next exercise](Mapping.html)
+OK, now on to the GEE processing: let's extract data on water deficit and the biomes for each point [in the next exercise](Mapping.html)
 
 
 <nav>
