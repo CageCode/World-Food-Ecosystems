@@ -16,7 +16,7 @@ The case we are investigating today is the salinization of fresh water lakes. In
 
 ### Problem simplification
 
-How would you go about to perform such an analysis? :
+How would you go about to perform such an analysis? Keep in mind the questions that we asked in the first practical:
 - Which dimensions will we take into account (which processes will we consider)?
 - How will we describe these dimensions?
 - What spatial scale & extent is appropriate?
@@ -25,15 +25,19 @@ How would you go about to perform such an analysis? :
 
 <br />
 
+If you have an answer on these questions, you can simplify and define the research question and determine the geospatial parameters: 
+
+<br />
+
 | Parameter  |  Value |
 |---|---|
 | Spatial extent | Global |
 | Temporal extent | We will compare averages over 1980-1990 with averages over 2005-2015 |
-| Cartographic unit |  Point data |
+| Cartographic unit |  Point data (measurement points of salinity in the database. Each seperate point is considered to be a location (regardless if two points are taken in the same water body) |
 | Dimensions | We focus on (i) a quanitified rainfall deficit and (ii) the biome map |
 | Dimension description | the Terraclimate dataset (Climate water deficit band) and the OpenLand Biome map |
 | Temporal resolution | Only measurement stations that have >5y of measurement in both epochs are considered |
-| Spatial resolution | Both the climate data (WorldClim) as the biome map has a resolution of 1 sq. km.  |
+| Spatial resolution | Both the climate data (WorldClim) as the biome map have a resolution of 1 sq. km.  |
 | Assumption | We assume that water deficits (low precipitation with high evaporation) [for example here](https://www.sciencedirect.com/science/article/pii/S0048969721054802) is linked to higher salinity  |
 
 
