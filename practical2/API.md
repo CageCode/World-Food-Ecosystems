@@ -10,15 +10,68 @@ In the folder you downloaded on the previous page there are 3 types of files:
 <br />
 
 
+Let's explore this data in Rstudio first. Find Rstudio on your computer and open the program. 
+It might be some time ago since you last used Rstudio, so if all goes well, it should look something like this: 
+
+![Rstudio_Home](https://user-images.githubusercontent.com/89069805/131488428-fe3591d5-2cd0-4107-8dd1-84b4aafe883b.png)
+
+With on the left the console (where you execute single commands), on the top right a panel where you can see the variables in the 'environment'. In the bottom right you can see the plots you make, but also e.g. the packages that are installed, or the help function. 
+
+
+### Importing the data and building a script
+
+The first thing you need to do is build an empty R file where you will later put the commands you'll use for analysis. 
+
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131489386-bf1b4aee-c1bc-42d3-a1fa-afc8397c0b7e.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+We can add simple code, as illustrated in the video below 
+
+<video style="width:100%" controls>
+  <source src="https://user-images.githubusercontent.com/89069805/131489891-e0210044-50ad-4361-9fea-1b8e095dbbc7.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+Now let's code ourselves: let's first import the data. Therefore, we need to put the data on a place R can work with it.
+
+```r
+# this is the file where we will list the commands needed for the analysis
+# using a hashtag = comments 
+
+# first let's see in which directory R is working now, using the command getwd() - which stands for 'get working directory': 
+getwd()
+```
+
+<br />
+
+This is probably not the directory you want (the directory where you stored your csv files). 
+So we need to change this using the command setwd() - setting the working directory:
+
+```r
+# set your working directory to your WFE folder were you also put the downloaded data, in my case this is: 
+setwd("C:/Users/dkooij/WFE/PRACT2") # note that R requires forward slashes in your path name
+
+# check if it worked: 
+getwd()
+
+# let's now import the data, starting with the ndvi dataset: 
+ndvi<-read.csv("camera_ndvi.csv")
+
+#check out the dataset: which two columns are of interest to us? 
+View(ndvi)
+```
+
+<br />
 
 The original database might take a while to load (why?). The lakesaverage.csv should load quickly. 
 
->Step1: exploring the data: 
+> Step1: exploring the data: 
 
 ```r
 #let's check out this 'DIFF' column
 difference<- boxplot(lakesaverage$DIFF, outline = F)
-
 ```
 
 
@@ -27,16 +80,15 @@ difference<- boxplot(lakesaverage$DIFF, outline = F)
 Now, let's do a first check: how well are the EC values in the second epoch associated with those in the first epoch?  
 
 ```r
-plot(?, ?) #give the axis correct names
+plot(lakesaverage$EC19801990, lakesaverage$EC20052015) # give the axis correct names
 
 #theoretically, if no change occurs, they should more or less lie on the 1:1 line (the diagonal): let's plot this: 
 abline(a=0, b=1,col="red")
 legend(x = 2, y=1000, legend = c("diagonal line"), col=c("red"), lty=1)
-
-
-
 ```
+
 Because of the two outliers, it's a bit difficult to see what goes on with the majority of the points... 
+
 ### Build the same plot, but now limit the x and y axis to '2500', give the axis appropriate names and adjust the legend so that it still falls within the plot. Personalize this graph by adding a title with your name and load this graph to the canvas quiz.
 
 If you don't know how to do this by heart, google is your best friend. I found e.g. [this resource](https://statisticsglobe.com/set-axis-limits-in-r)
