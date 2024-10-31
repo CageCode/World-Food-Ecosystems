@@ -8,17 +8,18 @@ In the folder you downloaded on the previous page there are 3 types of files:
 - "lakes.cpg,dbf,prj,shp,shx": this is the shapefile that basically contains the information of lakesaverage.csv but now in a spatial data object. 
 
 <br />
+<br />
 
+### Importing the data and building a script
 
 Let's explore this data in Rstudio first. Find Rstudio on your computer and open the program. 
 It might be some time ago since you last used Rstudio, so if all goes well, it should look something like this: 
 
 ![Rstudio_Home](https://user-images.githubusercontent.com/89069805/131488428-fe3591d5-2cd0-4107-8dd1-84b4aafe883b.png)
 
+<br />
+
 With on the left the console (where you execute single commands), on the top right a panel where you can see the variables in the 'environment'. In the bottom right you can see the plots you make, but also e.g. the packages that are installed, or the help function. 
-
-
-### Importing the data and building a script
 
 The first thing you need to do is build an empty R file where you will later put the commands you'll use for analysis. 
 
@@ -27,12 +28,16 @@ The first thing you need to do is build an empty R file where you will later put
 Your browser does not support the video tag.
 </video>
 
+<br />
+
 We can add simple code, as illustrated in the video below 
 
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/131489891-e0210044-50ad-4361-9fea-1b8e095dbbc7.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+<br />
 
 Now let's code ourselves: let's first import the data. Therefore, we need to put the data on a place R can work with it.
 
@@ -77,7 +82,7 @@ difference<- boxplot(lakesaverage$DIFF, outline = F)
 
 ***
 
-Now, let's do a first check: how well are the EC values in the second epoch associated with those in the first epoch?  
+Now, let's do a first check: how well are the EC values in the second epoch (2005-2015) associated with those in the first epoch (1980-1990)?  
 
 ```r
 plot(lakesaverage$EC19801990, lakesaverage$EC20052015) # give the axis correct names
@@ -94,13 +99,18 @@ Because of the two outliers, it's a bit difficult to see what goes on with the m
 If you don't know how to do this by heart, google is your best friend. I found e.g. [this resource](https://statisticsglobe.com/set-axis-limits-in-r)
 
 
-Visually, do you conclude that most points have increased or decreased in their EC content? Does this confirm what you saw in the boxplot? 
+> 🔍 **Review 1**. Visually, do you conclude that most points have increased or decreased in their EC content? Does this confirm what you saw in the boxplot? 
+
+<br />
+<details>
+<summary>Answer Review 1.</summary>
+
+</details>
+<br />
 
 
 
-
-
-**OK, now on to the GEE processing: let's extract data on water deficit and the biomes for each point [in the next exercise](https://liesjacobs.github.io/worldfoodecosystems2023/practical3/Mapping.html)
+**OK, now on to the GEE processing: let's extract data on water deficit and the biomes for each point [in the next exercise](Mapping.html)
 
 
 <nav>
