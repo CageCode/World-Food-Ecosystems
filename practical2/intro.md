@@ -14,6 +14,8 @@ The case we are investigating today is the salinization of fresh water lakes. In
 - Are increases/decreases in salinity different across different biomes? 
 - Which local drivers can influence salinity trends? 
 
+<br />
+
 ### Problem simplification
 
 How would you go about to perform such an analysis? Keep in mind the questions that we asked in the first practical:
