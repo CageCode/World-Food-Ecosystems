@@ -89,7 +89,7 @@ Now perform the same steps for the precipitation data. Copy the code above and c
 // and finally we extract the biomes
 var biomes = ee.Image("OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01")
 
-var lakes_biomes = biomes.reduceRegions(lakes, ee.Reducer.meode( ),1000); // why mode here?
+var lakes_biomes = biomes.reduceRegions(lakes, ee.Reducer.mode( ),1000); // why mode here?
 Export.table.toDrive({
   collection: lakes_biomes,
   description:'lakes_biomes',
