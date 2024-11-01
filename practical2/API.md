@@ -65,10 +65,10 @@ setwd("C:/Users/dkooij/WFE/PRACT2")
 getwd()
 
 # let's now import the data, starting with the ndvi dataset: 
-ndvi<-read.csv("camera_ndvi.csv")
+lakesaverage <- read.csv("lakesaverage.csv")
 
 #check out the dataset: which two columns are of interest to us? 
-View(ndvi)
+View(lakesaverage)
 ```
 
 <br />
@@ -98,9 +98,9 @@ abline(a=0, b=1,col="red")
 legend(x = 2, y=1000, legend = c("diagonal line"), col=c("red"), lty=1)
 ```
 
-Because of the two outliers, it's a bit difficult to see what goes on with the majority of the points... 
+Because of the two outliers and the legend covering the data, it's a bit difficult to see what goes on with the majority of the points... 
 
-> 📝 **Question 1**. Build the same plot, but now limit the x and y axis to '2500', give the axis appropriate names and adjust the legend so that it still falls within the plot. Personalize this graph by adding a title with your name and load this graph to the canvas quiz.
+> 📝 **Question 1**. Build the same plot, but now limit the x and y axis to '2500', give the axis appropriate names (what is the unit?) and adjust the legend so that it still falls within the plot. Personalize this graph by adding a title with your name and load this graph to the canvas quiz.
 
 <br />
 
@@ -108,12 +108,12 @@ Because of the two outliers, it's a bit difficult to see what goes on with the m
 If you don't know how to do this by heart, google is your best friend. I found e.g. [this resource](https://statisticsglobe.com/set-axis-limits-in-r)
 
 
-> 🔍 **Review 2**. Visually, do you conclude that most points have increased or decreased in their EC content? Does this confirm what you saw in the boxplot? 
+> 🔍 **Review 2**. Visually, do you conclude that most points have increased or decreased in their EC content?
 
 <br />
 <details>
 <summary>Answer Review 2.</summary>
-
+As you can see in the plot, most lakes increased in EC values between ~1980 and ~2015
 </details>
 <br />
 
