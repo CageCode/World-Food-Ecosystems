@@ -10,7 +10,7 @@ Today we are going to focus on abiotic factors and how plants adapt to their env
 
 The case we are investigating today is the salinization of fresh water lakes. In recent year, a global dataset of surface water salinity - with measurements between 1980 and 2019 - was published [here](https://www.nature.com/articles/s41467-021-24281-8). The paper reports on the dataset and how it was established. In this practical we will analyze the dataset to answer following questions: 
 - has salinity - as measured by the electrical conductivity (EC) increased or descreased in global freshwater lakes? 
-- Is salinity of the water linked to rainfall deficits? 
+- Is salinity of the water linked to rainfall and temperature? 
 - Are increases/decreases in salinity different across different biomes? 
 - Which local drivers can influence salinity trends? 
 
@@ -37,10 +37,10 @@ If you have an answer on these questions, you can simplify and define the resear
 | Temporal extent | We will compare averages over 1980-1990 with averages over 2005-2015 |
 | Cartographic unit |  Point data (measurement points of salinity in the database. Each seperate point is considered to be a location (regardless if two points are taken in the same water body) |
 | Dimensions | We focus on (i) a quanitified rainfall deficit and (ii) the biome map |
-| Dimension description | the Terraclimate dataset (Climate water deficit band) and the OpenLand Biome map |
+| Dimension description | the WorldCLIM dataset (precipitation and temperature) and the OpenLand Biome map |
 | Temporal resolution | Only measurement stations that have >5y of measurement in both epochs are considered |
 | Spatial resolution | Both the climate data (WorldClim) as the biome map have a resolution of 1 sq. km.  |
-| Assumption | We assume that water deficits (low precipitation with high evaporation) [for example here](https://www.sciencedirect.com/science/article/pii/S0048969721054802) is linked to higher salinity  |
+| Assumption / Hypothesis | ? |
 
 <br />
 
@@ -52,7 +52,7 @@ Now that we have defined the problem and indicated the geospatial paramters, we 
 | Dataset      | Type | Source     |Access point     |
 | :---        |    :---    |          :---  |         :---  |
 | EC sampling points    | Points (vector)      | Thorslund et al. 2020  | [here](https://doi.pangaea.de/10.1594/PANGAEA.913939?format=html#download)  |
-| TerraClimate, water deficit  | Raster        | derived from the TerraClimate Collection   |Google Earth Engine Catalogue    |
+| WorldCLIM  | Raster        | ?  |Google Earth Engine Catalogue    |
 | Biome map| Raster       | OpenLand potential Biomes     |Google Earth Engine Catalogue|
 
 ***
