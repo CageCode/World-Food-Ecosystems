@@ -5,6 +5,7 @@ In the previous practical, you have gained familiarity with Google Earth Engine 
 
 Today we are going to focus on abiotic factors and how plants adapt to their environment, taking salinization as an example.
 
+<br />
 
 ## Step 1: The case-study
 
