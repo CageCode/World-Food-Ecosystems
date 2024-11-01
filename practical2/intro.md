@@ -71,9 +71,9 @@ To make this exercise feasible, this preprocessing has already been done: the ag
 <nav>
   <ul>
     <li><strong>Step 1: Describing the problem</strong></li>
-    <li><a href="API.html">Step 2: Exercise 1</a></li>
-    <li><a href="Mapping.html">Step 3: Exercise 2</a></li>
-    <li><a href="Analysis.html">Step 4: Exercise 3</a></li>
+    <li><a href="API.html">Step 2: Exploration</a></li>
+    <li><a href="Mapping.html">Step 3: Mapping</a></li>
+    <li><a href="Analysis.html">Step 4: Data Analysis</a></li>
     <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
