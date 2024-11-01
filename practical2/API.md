@@ -126,8 +126,8 @@ OK, now on to the GEE processing: let's extract data on water deficit and the bi
   <ul>
     <li><a href="intro.html">Step 1: Problem description</a></li>
     <li><strong>Step 2: Data Exploration</strong></li>
-    <li><a href="Mapping.html">Step 3: </a></li>
-    <li><a href="Analysis.html">Step 4: </a></li>
+    <li><a href="Mapping.html">Step 3: Mapping</a></li>
+    <li><a href="Analysis.html">Step 4: Data Analysis</a></li>
     <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
