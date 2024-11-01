@@ -17,7 +17,7 @@ Now we can plot the data and ask ourselves the following question: what is the r
 
 ```r
 # Plot this graph, and adjust the labels of the axis
-plot(lakes_prec80s$EC19801990 ~ lakes_prec$mean)
+plot(lakes_prec$EC19801990 ~ lakes_prec$mean)
 ```
 
 <br />
