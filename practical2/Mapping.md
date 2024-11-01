@@ -89,7 +89,7 @@ Now perform the same steps for the precipitation data. Copy the code above and c
 // and finally we extract the biomes
 var biomes = ee.Image("OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01")
 
-var lakes_biomes = biomes.reduceRegions(lakes, ee.Reducer.median( ),1000); // why median here?
+var lakes_biomes = biomes.reduceRegions(lakes, ee.Reducer.meode( ),1000); // why mode here?
 Export.table.toDrive({
   collection: lakes_biomes,
   description:'lakes_biomes',
@@ -99,12 +99,12 @@ Export.table.toDrive({
 
 <br />
 
-> 🔍 **Review 4**. Why do we use median in the reduce function to extract the biomes?
+> 🔍 **Review 4**. Why do we use mode in the reduce function to extract the biomes?
 
 <br />
 <details>
 <summary>Answer Review 4.</summary>
-Because the biome map consists of classes and do not represent a continuous scale such as temperature or precipitation.
+Because the biome map consists of classes (for every pixel only 1) and do not represent a continuous scale such as temperature or precipitation.
 </details>
 
 <br />
