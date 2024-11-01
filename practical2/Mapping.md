@@ -70,12 +70,12 @@ Search for the WorldCLIM/bio dataset in GEE and click on bands. We want to use t
 After you loaded the temperature data, let's extract the mean water deficit for the first epoch, and the biome classification, this for each point. In the previous practical we have extracted data to a transect, which is a line. The following code will extract it for the point data: Lakes. We then save the data to a csv (comma-seperated value file) and upload it to Google Drive, from where we can download it and analyze it with Rstudio.
 
 ```javascript
-var lakes_temp80s = temp.reduceRegions(lakes, ee.Reducer.mean( ),927);
+var lakes_temp = temp.reduceRegions(lakes, ee.Reducer.mean( ),927);
 // the 927 is the resolution of the layer of terraclimate (see also in the catalogue)
 
 Export.table.toDrive({
-  collection: lakes_temp80s,
-  description:'lakes_temp80s',
+  collection: lakes_temp,
+  description:'lakes_temp',
   fileFormat: 'CSV'
 }); 
 ```
@@ -89,10 +89,10 @@ Now perform the same steps for the precipitation data. Copy the code above and c
 // and finally we extract the biomes
 var biomes = ee.Image("OpenLandMap/PNV/PNV_BIOME-TYPE_BIOME00K_C/v01")
 
-var lakes_biomes80s = biomes.reduceRegions(lakes, ee.Reducer.median( ),1000); // why median here?
+var lakes_biomes = biomes.reduceRegions(lakes, ee.Reducer.median( ),1000); // why median here?
 Export.table.toDrive({
-  collection: lakes_biomes80s,
-  description:'lakes_biomes80s',
+  collection: lakes_biomes,
+  description:'lakes_biomes',
   fileFormat: 'CSV'
 });
 ```
