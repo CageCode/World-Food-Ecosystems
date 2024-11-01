@@ -3,7 +3,7 @@
 
 In the previous practical, you have gained familiarity with Google Earth Engine and JavaScript code. 
 
-Today we are going to focus on abiotic factors and how plants adapt to their environment, taking salinization as an example.
+Today we are going to focus on abiotic factors, taking salinization as an example. How does salinity vary over gradients?
 
 <br />
 
