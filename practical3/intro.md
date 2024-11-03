@@ -6,10 +6,6 @@ In this practical we will be using a combination of Google Earth Engine and R to
 
 ## Step 1: Describing data
 
-### Software
-
-As mentioned on the [starting page](https://liesjacobs.github.io/worldfoodecosystems2023/), you'll need Rstudio and a working account for [code editor](https://code.earthengine.google.com/).
-
 <br />
 
 ### Problem setting
