@@ -52,6 +52,7 @@ And we'll use following data structures and sources:
 
 ### Accessing the data
 
+**Species Richness**
 We have processed the camera trap data, so that it is compiled into a shape-file that you can download from canvas: download the folder and unzip in your working directory. 
 
 Then you can load the shapefile into google earth engine so that you can do analysis with/on it: 
@@ -60,6 +61,8 @@ Then you can load the shapefile into google earth engine so that you can do anal
   <source src="https://user-images.githubusercontent.com/89069805/179978055-1c284a74-4951-41b8-83f5-b790c58c450c.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+<br />
 
 Now it needs a few minutes to load (you can check the progress in the right panel 'tasks'). 
 
@@ -71,10 +74,9 @@ Once it is finished, we can load it and visualize it on the map. We will also dr
 Your browser does not support the video tag.
 </video>
 
+<br />
 
-
-### **NDVI MAP**
-
+**NDVI-Map**
 The points are relatively close together, the NDVI datasets that are readily available in the Google Earth Catalogue have a rough spatial resolution (e.g. the based on [MODIS satellites has a 500m resolution](https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A1). 
 
 We will thus have to make it ourselves based on satellites with a better spatial resolution. One of the options is the LANDSAT 8 mission which collects spectral information in the red and near-infrared spectrum (the bands we need to calculate NDVI) at 30m resolution. All the information on this product is given [here](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2).
