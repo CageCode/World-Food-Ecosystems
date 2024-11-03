@@ -11,6 +11,7 @@ For example:
 Your browser does not support the video tag.
 </video>
 
+<br />
 
 
 ### Great: so now we can shift to Rstudio
@@ -26,6 +27,7 @@ We now have to do two things:
 1. Import the two dataset
 2. Build an R script to do some basic analysis 
 
+<br />
 
 ### Importing the data and building a script
 
@@ -36,12 +38,16 @@ The first thing you need to do is build an empty R file where you will later put
 Your browser does not support the video tag.
 </video>
 
+<br />
+
 We can add simple code, as illustrated in the video below 
 
 <video style="width:100%" controls>
   <source src="https://user-images.githubusercontent.com/89069805/131489891-e0210044-50ad-4361-9fea-1b8e095dbbc7.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+
+<br />
 
 Now let's code ourselves: let's first import the data. 
 
@@ -80,9 +86,12 @@ abline(regression_ndvi, col="red", lwd=2)
 
 ```
 
+<br />
+
 After the execution, you should get something like this: 
 ![ndviplot](https://user-images.githubusercontent.com/89069805/183605802-32e69e96-8cb2-4453-8422-e46762f9ce77.png)
 
+<br />
 
 ### If this works, let's do the final challenge of the day: repeat the above exercise, but now using the elevation data. 
 
@@ -112,6 +121,8 @@ abline(?, col="red", lwd=2)
 
 
 <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UMlJJNEpHNFo1Rk5BS1JBNk42NUtWTVlaWi4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+<br />
 
 <nav>
   <ul>
