@@ -22,8 +22,8 @@ With your newly acquired skills, perform the following steps:
 <br />
 
 
-> If you are stuck, make sure that you check again how you imported/visualized the DEM in the first practical, and that you understand everything you have done previously today. <br />
-> If you cannot find the answers there, feel free to ask. <br />
+> - If you are stuck, make sure that you check again how you imported/visualized the DEM in the first practical, and that you understand everything you have done previously today. <br />
+> - If you cannot find the answers there, feel free to ask your fellow students, search on Google or request some help from the teacher. <br />
 
 Once you also have the elevation, export the two tables to your google drive: 
 
