@@ -1,4 +1,4 @@
-# Exercise 3: exporting the attribute data and importing in Rstudio
+# Step 3: Analysing biodversity over elevation & NDVI
 
 So... we want to import the csv files we just made and downloaded in GEE to R, where we will do some basic data processing. 
 
@@ -87,7 +87,7 @@ After the execution, you should get something like this:
 ### If this works, let's do the final challenge of the day: repeat the above exercise, but now using the elevation data. 
 
 To start you on the right path, you can use the code below as a starting point. 
-A ? means you'll have to fill in the blank based on what you have learned above (so in analogy to the ndvi exercise) . 
+A *'?'* means you'll have to fill in the blank based on what you have learned above (so in analogy to the ndvi exercise) . 
 
 ```r
 
@@ -115,13 +115,10 @@ abline(?, col="red", lwd=2)
 
 <nav>
   <ul>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/intro.html">Practical 1: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/exploring.html">Practical 1: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/intro.html">Practical 5: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/QGIS.html">Practical 5: exercise 2</a></li>
-    <li><strong>Practical 5: exercise 3</strong></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/"><b>Back to Overview Page</b></a></li>
+    <li><a href="intro.html">Step 1: Problem Description</a></li>
+    <li><a href="QGIS.html">Step 2: Extracting Data</a></li>
+    <li><strong>Step 3: Data Analysis</strong></li>
+    <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
 
