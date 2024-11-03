@@ -2,30 +2,39 @@
 
 In this practical we will be using a combination of Google Earth Engine and R to understand biodiversity patterns. It is essential that you found your way trough the [first practical](https://liesjacobs.github.io/worldfoodecosystems2023/practical1/intro.html) as these practical sessions intentionally have an increasing complexity. 
 
-## Step 1: Required softwares and datasets: overview
+## Step 1: Describing data
 
-### **Softwares** 
+### Software
 
 As mentioned on the [starting page](https://liesjacobs.github.io/worldfoodecosystems2023/), you'll need Rstudio and a working account for [code editor](https://code.earthengine.google.com/).
+
+<br />
 
 ### Problem setting
 
 As introduced in class, we will use camera trap data: these are cameras where each time an animal passes, a picture is taken and AI is used to identify the animal. After some data cleaning and quality checks, the total amount of unique species (species richness) can be calculated for each camera (so each location). The question in this practical will be: for a dataset collected in Costa Rica: which gradients in species richness exist? 
 Based on what we saw in class, we assume here that if there are gradients, they might depend on NDVI. Additionally, because the dataset is acquired on the flanks of a volcano, we will also check the effect of elevation. 
 
-### **Datasets**
+<br />
+
+### Datasets
 
 This is an overview of the problem identification: 
 
-| building block  |  decision |
+| Parameter  |  Value |
 |---|---|
-| Geographic unit |  points  |
-| temporal scale |  2019(!)|
-| Assumption | Species richness depends on the amount of energy available. Here we will use NDVI as a proxy for net primary production. Additionally, we assume that richness decreases with temperature, and thus will decrease when elevations are higher |
+| Spatial extent | ? |
+| Temporal extent | ? |
+| Cartographic unit |  point data (camera trap observations)  |
 | Dimensions | We'll consider the elevation and NDVI
 | Dimension description | elevation: ? , temperature: NDVI: calculated from the LANDSAT 8 mission  |
+| Temporal resolution | Static, the observation data is simplified to 2019(!) |
+| Spatial resolution | ? |
+| Assumption / Hypothesis | Species richness depends on the amount of energy available. Here we will use NDVI as a proxy for net primary production. Additionally, we assume that richness decreases with temperature, and thus will decrease when elevations are higher |
 
-(!)In reality the data was collected intermittently since 2007 but for the purposes of this practical, the data are aggregated and strongly simplified. Dealing with the temporal dimension of this dataset and with the particularities of data cleaning for camera trapping lies beyond the scope of this course. We *assume*, for the purposes of this exercise, the data is suitable for analysis against a landsat image of the year 2019 (see later). 
+<br />
+
+(!) In reality the data was collected intermittently since 2007 but for the purposes of this practical, the data are aggregated and strongly simplified. Dealing with the temporal dimension of this dataset and with the particularities of data cleaning for camera trapping lies beyond the scope of this course. We *assume*, for the purposes of this exercise, the data is suitable for analysis against a landsat image of the year 2019 (see later). 
 
 
 And we'll use following data structures and sources:
@@ -39,9 +48,9 @@ And we'll use following data structures and sources:
 
 *** 
 
-## Step 2: accessing the data
+<br />
 
-### ** SPECIES RICHNESS**
+### Accessing the data
 
 We have processed the camera trap data, so that it is compiled into a shape-file that you can download from canvas: download the folder and unzip in your working directory. 
 
@@ -132,17 +141,14 @@ Export.table.toDrive({
 
 
 
-**Now we are ready for the [next step](https://liesjacobs.github.io/worldfoodecosystems2023/practical2/QGIS.html): extracting the elevation data for each point**
+**Now we are ready for the [next step](QGIS.html): extracting the elevation data for each point**
 
 <nav>
   <ul>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/intro.html">Practical 1: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/exploring.html">Practical 1: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
-    <li><strong>Practical 5: exercise 1</strong></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/QGIS.html">Practical 5: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/Rstudio.html">Practical 5: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/"><b>Back to Overview Page</b></a></li>
+    <li><strong>Step 1: Problem Description</strong></li>
+    <li><a href="QGIS.html">Step 2: Extracting Data</a></li>
+    <li><a href="Rstudio.html">Step 3: Data Analysis</a></li>
+    <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
 
