@@ -1,9 +1,10 @@
-# Exercise 2: extracting for the same point the elevation
+# Step 2: Extracting the elevation data
 
 This exercise is very similar to what we have done in the previous exercise (but easier): earlier today, you selected one image from an image collection, and then calculated the ndvi (this is also an image). After that you performed following lines: 
 
 ![Picture3](https://user-images.githubusercontent.com/89069805/179993101-c902ece6-2c3b-4efc-a3f7-23a1f486dfc1.png)
 
+<br />
 
 Now... in the previous practical, you have learned how to load a DEM (which will be an image). 
 To now extract elevation values for the points, you can use what you have learned today and in the previous course. 
@@ -18,7 +19,7 @@ If you're lost, try to follow these steps:
     - line 6: make a new variable where the elevation values are added to the table of points
     - line 7: export this new table, and also change its description
     
-
+<br />
 
 
 
@@ -34,22 +35,22 @@ Once you also have the elevation, export the two tables to your google drive:
 Your browser does not support the video tag.
 </video>
 
+<br />
+
 You can now find the .csv files in your google drive, and you can download them there. 
 
+<br />
 
-**
-Now, let's try to import this data into Rstudio and build a simple  [statistical regression](https://liesjacobs.github.io/worldfoodecosystems2023/practical2/Rstudio.html) to see if species richness is associated with elevation or NDVI
+Let's try to import this data into Rstudio and build a simple  [statistical regression](Rstudio.html) to see if species richness is associated with elevation or NDVI
 
 <nav>
   <ul>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/intro.html">Practical 1: exercise 1</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/exploring.html">Practical 1: exercise 2</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical1/understandinggradients.html">Practical 1: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/intro.html">Practical 5: exercise 1</a></li>
-    <li><strong>Practical 5: exercise 2</strong></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/practical2/Rstudio.html">Practical 5: exercise 3</a></li>
-    <li><a href="https://liesjacobs.github.io/worldfoodecosystems2023/"><b>Back to Overview Page</b></a></li>
+    <li><a href="intro.html">Step 1: Problem Description</strong></li>
+    <li><strong>Step 2: Extracting Data</strong></li>
+    <li><a href="Rstudio.html">Step 3: Data Analysis</a></li>
+    <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
+
 
 
