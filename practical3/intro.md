@@ -1,6 +1,8 @@
 # Welcome to the 3rd practical. 
 
-In this practical we will be using a combination of Google Earth Engine and R to understand biodiversity patterns. It is essential that you found your way trough the [first practical](https://liesjacobs.github.io/worldfoodecosystems2023/practical1/intro.html) as these practical sessions intentionally have an increasing complexity. 
+In this practical we will be using a combination of Google Earth Engine and R to understand biodiversity patterns. It is essential that you found your way trough the [earlier practicals](../) as these practical sessions intentionally have an increasing complexity. 
+
+<br />
 
 ## Step 1: Describing data
 
@@ -14,6 +16,8 @@ As mentioned on the [starting page](https://liesjacobs.github.io/worldfoodecosys
 
 As introduced in class, we will use camera trap data: these are cameras where each time an animal passes, a picture is taken and AI is used to identify the animal. After some data cleaning and quality checks, the total amount of unique species (species richness) can be calculated for each camera (so each location). The question in this practical will be: for a dataset collected in Costa Rica: which gradients in species richness exist? 
 Based on what we saw in class, we assume here that if there are gradients, they might depend on NDVI. Additionally, because the dataset is acquired on the flanks of a volcano, we will also check the effect of elevation. 
+
+***
 
 <br />
 
