@@ -6,10 +6,10 @@ This exercise is very similar to what we have done in the previous exercise (but
 
 <br />
 
-Now... in the previous practical, you have learned how to load a DEM (which will be an image). 
+In earlier practicals, you have learned how to load a DEM (which will be an image). 
 To now extract elevation values for the points, you can use what you have learned today and in the previous course. 
 
-If you're lost, try to follow these steps: 
+With your newly acquired skills, perform the following steps: 
 1. import the DEM like you have done in the first practical
 2. adjust the code above, but only the blue parts are necessary to adjust: 
     - line 1: here you should define the DEM image
@@ -22,10 +22,8 @@ If you're lost, try to follow these steps:
 <br />
 
 
-
---> If you are stuck, make sure that you check again how you imported/visualized the DEM in the first practical, and that you understand everything you have done previously today. 
-
---> If you cannot find the answers there, feel free to ask. 
+> If you are stuck, make sure that you check again how you imported/visualized the DEM in the first practical, and that you understand everything you have done previously today. <br />
+> If you cannot find the answers there, feel free to ask. <br />
 
 Once you also have the elevation, export the two tables to your google drive: 
 
