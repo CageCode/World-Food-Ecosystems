@@ -2,7 +2,6 @@
 
 In this practical we will be using a combination of Google Earth Engine and R to understand biodiversity patterns. It is essential that you found your way trough the [earlier practicals](../) as these practical sessions intentionally have an increasing complexity. 
 
-<br />
 
 Start by creating a new script in Google Earth Engine: Click on *NEW* at the top-left of GEE and choose *file*, give it an appropriate name like: *prac3_biodiversity*.
 
