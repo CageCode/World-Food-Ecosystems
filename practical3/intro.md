@@ -4,6 +4,10 @@ In this practical we will be using a combination of Google Earth Engine and R to
 
 <br />
 
+Start by creating a new script in Google Earth Engine: Click on *NEW* at the top-left of GEE and choose *file*, give it an appropriate name like: *prac3_biodiversity*.
+
+<br />
+
 ## Step 1: Describing data
 
 <br />
@@ -132,6 +136,28 @@ Export.table.toDrive({
 
 <br />
 
+> 🔍 **Review 1**. We have now used only one satellite acquisition to represent/calculate NDVI for the whole year. Based on what you know/find about the local climate, can you justify this? <br />
+
+<br />
+<details>
+<summary>Answer Review 1. (click on this to show/hide the answer)</summary>
+
+</details>
+<br />
+
+> 🔍 **Review 2**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use? <br />
+> <br />
+> a) MODIS <br />
+> b) SENTINEL-1 <br />
+> c) SENTINEL-2 <br /> 
+> d) All of the above options (_a_, _b_, and _c_) are correct. <br /> 
+
+<br />
+<details>
+<summary>Answer Review 2. (click on this to show/hide the answer)</summary>
+
+</details>
+<br />
 
 <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UNFUwM05BS0E2S0NVSVg2OTdJNDhZMk1CVy4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
 
