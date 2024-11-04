@@ -43,7 +43,7 @@ Let's try to import this data into Rstudio and build a simple  [statistical regr
 
 <nav>
   <ul>
-    <li><a href="intro.html">Step 1: Problem Description</strong></li>
+    <li><a href="intro.html">Step 1: Problem Description</a></li>
     <li><strong>Step 2: Extracting Data</strong></li>
     <li><a href="Rstudio.html">Step 3: Data Analysis</a></li>
     <li><a href="../"><b>Back to Overview Page</b></a></li>
