@@ -51,7 +51,7 @@ And we'll use following data structures and sources:
 ### Accessing the data
 
 **Species Richness:** <br />
-We have processed the camera trap data, so that it is compiled into a shape-file that you can download from canvas: download the folder and unzip in your working directory. 
+We have processed the camera trap data, so that it is compiled into a shape-file that you can download from canvas: download and unzip the file (CAMERAS.zip) in your working directory. 
 
 Then you can load the shapefile into google earth engine so that you can do analysis with/on it: 
 
@@ -75,7 +75,16 @@ Your browser does not support the video tag.
 <br />
 
 **NDVI-Map:** <br />
-The points are relatively close together, the NDVI datasets that are readily available in the Google Earth Catalogue have a rough spatial resolution (e.g. the based on [MODIS satellites has a 500m resolution](https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A1). 
+The camera traps are relatively close together, the NDVI datasets that are readily available in the Google Earth Catalogue have a rough spatial resolution (e.g. the based on [MODIS satellites has a 500m resolution](https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A1). 
+
+> 🔍 **Review 1**. Why would a readily available NDVI with a resolution of 500m be too rough? <br />
+
+<br />
+<details>
+<summary>Answer Review 1. (click on this to show/hide the answer)</summary>
+Because many camera traps would then fall within the same rastercell of the NDVI-map. This means there is a mismatch in scale, analyzing this data would give you the same NDVI value for different camera traps.
+</details>
+<br />
 
 We will thus have to make it ourselves based on satellites with a better spatial resolution. One of the options is the LANDSAT 8 mission which collects spectral information in the red and near-infrared spectrum (the bands we need to calculate NDVI) at 30m resolution. All the information on this product is given [here](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2).
 
@@ -135,16 +144,16 @@ Export.table.toDrive({
 
 <br />
 
-> 🔍 **Review 1**. We have now used only one satellite acquisition to represent/calculate NDVI for the whole year. Based on what you know/find about the local climate, can you justify this? <br />
+> 🔍 **Review 2**. We have now used only one satellite acquisition to represent/calculate NDVI for the whole year. Based on what you know/find about the local climate, can you justify this? <br />
 
 <br />
 <details>
-<summary>Answer Review 1. (click on this to show/hide the answer)</summary>
+<summary>Answer Review 2. (click on this to show/hide the answer)</summary>
 
 </details>
 <br />
 
-> 🔍 **Review 2**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use? <br />
+> 🔍 **Review 3**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use? <br />
 > <br />
 > a) MODIS <br />
 > b) SENTINEL-1 <br />
@@ -153,7 +162,7 @@ Export.table.toDrive({
 
 <br />
 <details>
-<summary>Answer Review 2. (click on this to show/hide the answer)</summary>
+<summary>Answer Review 3. (click on this to show/hide the answer)</summary>
 
 </details>
 
