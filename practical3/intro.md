@@ -20,9 +20,9 @@ Now think about the geospatial parameters, how would you go about analysing biod
 |---|---|
 | Spatial extent | ? |
 | Temporal extent | ? |
-| Cartographic unit |  point data (camera trap observations)  |
+| Cartographic unit |  Point data (camera trap observations)  |
 | Dimensions | We'll consider the elevation and NDVI
-| Dimension description | elevation: ? , temperature: NDVI: calculated from the LANDSAT 8 mission  |
+| Dimension description | Elevation: ? , temperature: NDVI: calculated from the LANDSAT 8 mission  |
 | Temporal resolution | Static, the observation data is simplified to 2019(!) |
 | Spatial resolution | ? |
 | Assumption / Hypothesis | Species richness depends on the amount of energy available. Here we will use NDVI as a proxy for net primary production. Additionally, we assume that richness decreases with temperature, and thus will decrease when elevations are higher |
