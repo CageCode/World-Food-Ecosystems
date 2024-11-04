@@ -72,6 +72,14 @@ Once it is finished, we can load it and visualize it on the map. We will also dr
 Your browser does not support the video tag.
 </video>
 
+> 📝 **Question 1**. The data we use of the camera traps is basically:
+> <br />
+> • Abundance data<br />
+> • Species richness data, without consideration of abundance <br />
+> • A weighted combination of abundance and species richness <br />
+
+***
+
 <br />
 
 **NDVI-Map:** <br />
@@ -144,27 +152,17 @@ Export.table.toDrive({
 
 <br />
 
-> 🔍 **Review 2**. We have now used only one satellite acquisition to represent/calculate NDVI for the whole year. Based on what you know/find about the local climate, can you justify this? <br />
+> 📝 **Question 2**. We have now used only one satellite acquisition to represent/calculate NDVI for the whole year. Based on what you know/find about the local climate, can you justify this? <br />
 
 <br />
-<details>
-<summary>Answer Review 2. (click on this to show/hide the answer)</summary>
 
-</details>
-<br />
-
-> 🔍 **Review 3**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use? <br />
+> 📝 **Question 3**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use? <br />
 > <br />
-> a) MODIS <br />
-> b) SENTINEL-1 <br />
-> c) SENTINEL-2 <br /> 
-> d) All of the above options (_a_, _b_, and _c_) are correct. <br /> 
+> • MODIS <br />
+> • SENTINEL-1 <br />
+> • SENTINEL-2 <br /> 
+> • All of the other options are correct <br /> 
 
-<br />
-<details>
-<summary>Answer Review 3. (click on this to show/hide the answer)</summary>
-
-</details>
 
 <br />
 <br />
