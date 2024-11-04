@@ -149,14 +149,33 @@ Export.table.toDrive({
 // after running this it should appear in your 'tasks' here to the right: click on 'run': after finalization it will appear in your google drive
 ```
 
+***
 
 <br />
 
-> 📝 **Question 2**. We have now used only one satellite acquisition to represent/calculate NDVI for the whole year. Based on what you know/find about the local climate, can you justify this? <br />
+### Starting the quiz
+
+Based on the previous code, by investigating the data and your knowledge from the lectures, please answer the following questions (on Canvas).
 
 <br />
 
-> 📝 **Question 3**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use? <br />
+> 📝 **Question 2**. Statement: The Landsat product we use as a proxy for vegetation has only one band: the NDVI.
+> <br />
+> • True <br />
+> • False <br />
+
+<br />
+
+> 📝 **Question 3**. How is the NDVI we use calculated? Which bands are used? Provide the formula indicating how it is calculated.
+
+<br />
+
+
+> 📝 **Question 4**. We have now used only one satellite acquisition to represent/calculate NDVI for the whole year. Based on what you know/find about the local climate, can you justify this? <br />
+
+<br />
+
+> 📝 **Question 5**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use? <br />
 > <br />
 > • MODIS <br />
 > • SENTINEL-1 <br />
