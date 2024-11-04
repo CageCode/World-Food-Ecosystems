@@ -93,7 +93,7 @@ After the execution, you should get something like this:
 
 <br />
 
-If you get the same plot, well done!
+If you get a similar plot (it is probably not exactly the same), well done!
 Let's warm up our own coding skills: repeat the above exercise, but now using the elevation data that you have gathered yourself. 
 
 To start you on the right path, you can use the code below as a starting point. 
@@ -135,11 +135,11 @@ abline(?, col="red", lwd=2)
 
 <br />
 
-> 📝 **Question 6**. What is the R-square value of the regression that regresses species richness with elevation? (round to 0.01)
+> 📝 **Question 7**. What is the R-square value of the regression that regresses species richness with elevation? (round to 0.01)
 
 <br />
 
-> 📝 **Question 6**. What is the R-square value of the regression that regresses species richness with elevation? (round to 0.01)
+> 📝 **Question 8**. 
 
 <br />
 
