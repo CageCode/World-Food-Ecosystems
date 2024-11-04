@@ -93,10 +93,11 @@ After the execution, you should get something like this:
 
 <br />
 
-### If this works, let's do the final challenge of the day: repeat the above exercise, but now using the elevation data. 
+If you get the same plot, well done!
+Let's warm up our own coding skills: repeat the above exercise, but now using the elevation data that you have gathered yourself. 
 
 To start you on the right path, you can use the code below as a starting point. 
-A *'?'* means you'll have to fill in the blank based on what you have learned above (so in analogy to the ndvi exercise) . 
+A *'?'* means you'll have to fill in the blank based on what you have learned above (so in analogy to the NDVI exercise) . 
 
 ```r
 
@@ -119,10 +120,29 @@ abline(?, col="red", lwd=2)
 
 ```
 
-
-<iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=zcrxoIxhA0S5RXb7PWh05Vl3_L7XnVBBlpWSqA8whj9UMlJJNEpHNFo1Rk5BS1JBNk42NUtWTVlaWi4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+***
 
 <br />
+
+### More Quizzz-Time!
+
+> 📝 **Question 6**. When looking at the two linear models: one with NDVI as a predictor for species richness and one with elevation as a predictor for species richness, which statement is correct?
+> <br />
+> • The model predicting species richness by NDVI is significant. <br />
+> • The model predicting species richness by elevantion is significant. <br />
+> • Both models are significant. <br />
+> • Neither model is significant. <br />
+
+<br />
+
+> 📝 **Question 6**. What is the R-square value of the regression that regresses species richness with elevation? (round to 0.01)
+
+<br />
+
+> 📝 **Question 6**. What is the R-square value of the regression that regresses species richness with elevation? (round to 0.01)
+
+<br />
+
 
 <nav>
   <ul>
