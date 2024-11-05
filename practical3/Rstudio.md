@@ -129,7 +129,7 @@ abline(?, col="red", lwd=2)
 > 📝 **Question 6**. When looking at the two linear models: one with NDVI as a predictor for species richness and one with elevation as a predictor for species richness, which statement is correct?
 > <br />
 > • The model predicting species richness by NDVI is significant. <br />
-> • The model predicting species richness by elevantion is significant. <br />
+> • The model predicting species richness by elevation is significant. <br />
 > • Both models are significant. <br />
 > • Neither model is significant. <br />
 
@@ -139,10 +139,19 @@ abline(?, col="red", lwd=2)
 
 <br />
 
-> 📝 **Question 8**. 
+> 📝 **Question 8**. The paper by Robinson et al. 2018 (in the canvas module 5) deals with Tree Diversity in the same study area. Which gradients/spatial patterns do they mention in their description of the study area which might influence (plant) biodiversity?
 
 <br />
 
+> 📝 **Question 9**. Robinson et al 2018 mention both the linear decrease of diversity with elevation, but also mention the possibility for a peak at mid-elevation. Throughout the paper, they give one actual reason and one reason stemming from poor sampling design: what are both these explanations for a linear decrease of diversity with elevation?
+What is their explanation for a mid-elevation peak of diversity?
+
+<br />
+
+> 📝 **Question 10**. Finally Robinson et al mention that slope angle might play a role in controlling diversity. Why do the authors argue are steeper slopes typically less diverse?
+
+<br />
+<br />
 
 <nav>
   <ul>
