@@ -1,6 +1,7 @@
 # Welcome to the 4th practical. 
 
-In this practical we will look at the amazing patterns and relationships between our abiotic and biotic world. We will use geodiversity as a composite measure for our abiotic world, which includes the variety of physical and chemical features of the Earth's surface. For our biotic world, we will focus on the richness and rarity of species, encompassing both the diversity and uniqueness of life forms present in an ecosystem.
+In this practical we will look at the amazing patterns and relationships between our abiotic and biotic world. We will use geodiversity as a composite measure for our abiotic world, which includes the variety of physical and chemical features of the Earth's surface. In addition, we will also take climate data into consideration during the analysis. For our biotic world, we will focus on the richness and rarity of species, encompassing both the diversity and uniqueness of life forms present in an ecosystem. The research question for this practical is:
+- How do global trends in biodiversity differ over abiotic gradients on a landscape level?
 
 Let's delve into the interactions between these two realms, start by creating a new script in Google Earth Engine: Click on *NEW* at the top-left of GEE and choose *file*, give it an appropriate name like: *prac4_geodiversity*.
 
@@ -12,7 +13,8 @@ Let's delve into the interactions between these two realms, start by creating a 
 
 ### Problem setting
 
-As introduced in class, we will use camera trap data: these are cameras where each time an animal passes, a picture is taken and AI is used to identify the animal. After some data cleaning and quality checks, the total amount of unique species (species richness) can be calculated for each camera (so each location). The question in this practical will be: for a dataset collected in Costa Rica: which gradients in species richness exist? Based on what we saw in class, we assume here that if there are gradients, they might depend on NDVI. Additionally, because the dataset is acquired on the flanks of a volcano, we will also check the effect of elevation. 
+You have seen multiple ways of calculating biodiversity in the lectures. One of those is to calculate the species richness, often defined as the number of species in a region. Another way might be to calculate the rarity of a species. This is somewhat harder to define, but says how common it is to observe a species. One way of calculating species rarity is by dividing the species occurence in an area by the total amount of area where this species is present.
+In Map of Life, the species richness is estimated by summing the predicted presence of all study species. Rarity maps are similarly summed, but each species presence in a cell is weighted by the total number of positive cells in the study area for that species. The all-taxa richness and rarity layers are averaged over the normalized richness/rarity of all 7 taxonomic groups.
 
 <br />
 
@@ -22,10 +24,10 @@ Now think about the geospatial parameters, how would you go about analysing biod
 |---|---|
 | Spatial extent | ? |
 | Temporal extent | ? |
-| Cartographic unit |  Point data (camera trap observations)  |
-| Dimensions | We'll consider the elevation and NDVI
-| Dimension description | Elevation: ? , temperature: NDVI: calculated from the LANDSAT 8 mission  |
-| Temporal resolution | Static, the observation data is simplified to 2019(!) |
+| Cartographic unit |  ?  |
+| Dimensions | ? |
+| Dimension description |  ?  |
+| Temporal resolution | ? |
 | Spatial resolution | ? |
 | Assumption / Hypothesis | Species richness depends on the amount of energy available. Here we will use NDVI as a proxy for net primary production. Additionally, we assume that richness decreases with temperature, and thus will decrease when elevations are higher |
 
