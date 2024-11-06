@@ -175,7 +175,7 @@ Based on the previous code, by investigating the data and your knowledge from th
 
 <br />
 
-> 📝 **Question 5**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use? <br />
+> 📝 **Question 5**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use to calculate NDVI at a comparable or better resolution as LANDSAT 8? <br />
 > <br />
 > • MODIS <br />
 > • SENTINEL-1 <br />
