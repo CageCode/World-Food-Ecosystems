@@ -1,9 +1,8 @@
-# Welcome to the 3rd practical. 
+# Welcome to the 4th practical. 
 
-In this practical we will be using a combination of Google Earth Engine and R to understand biodiversity patterns. It is essential that you found your way trough the [earlier practicals](../) as these practical sessions intentionally have an increasing complexity. 
+In this practical we will look at the amazing patterns and relationships between our abiotic and biotic world. We will use geodiversity as a composite measure for our abiotic world, which includes the variety of physical and chemical features of the Earth's surface. For our biotic world, we will focus on the richness and rarity of species, encompassing both the diversity and uniqueness of life forms present in an ecosystem.
 
-
-Start by creating a new script in Google Earth Engine: Click on *NEW* at the top-left of GEE and choose *file*, give it an appropriate name like: *prac3_biodiversity*.
+Let's delve into the interactions between these two realms, start by creating a new script in Google Earth Engine: Click on *NEW* at the top-left of GEE and choose *file*, give it an appropriate name like: *prac4_geodiversity*.
 
 <br />
 
