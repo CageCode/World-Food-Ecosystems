@@ -202,9 +202,9 @@ It seems that the geodiversity map corresponds more to the species rarity than t
 > 📝 **Question 5**. Take a look at both the Western USA as well as Europe, why is the species richness in Europe on a comparable latitude way lower than in the Western USA, despite having similar geodiversity values?
 > Hint: Think back of earlier lectures for this course.
 
-> 📝 **Question 6**. Study the geodiversity map of Niger. it is characterized by the very low and low geodiversity classes, probably related to the absence of surface water in combination with large plains, without too much topographical variation. Soil formation, in the absence of vegetation and water, will likely be restricted as well.
+> 📝 **Question 6**. Study the geodiversity map of Niger. This country is characterized by the 'very low' and 'low' geodiversity classes, probably related to the absence of surface water in combination with large plains, without too much topographical variation. Soil formation, in the absence of vegetation and water, will likely be restricted as well. What 2 main geomorphological processes do you currently expect to dominate the landscape formation of Niger?
 > <br />
-> • Karst processes and fluvial processes
+> • Karst processes and fluvial processes <br />
 > • Weathering processes and mass movement <br />
 > • Aeolian processes and weathering processes <br />
 > • Fluvial processes and mass movement processes <br />
