@@ -210,17 +210,12 @@ It seems that the geodiversity map corresponds more to the species rarity than t
 
 <br />
 
-> 📝 **Question 4**. Examine the geodiversity values of Suriname and Ecuador. Which of the following statements is true?
+> 📝 **Question 5**. Examine the geodiversity values of Suriname and Ecuador. Which of the following statements is true?
 > <br />
 > • The Amazonian Lowland in Ecuador and the Wilhelmina Mountains in Suriname have the highest geodiversity classes <br />
 > • The lowlands and mountains in Suriname and Ecuador have relatively high geodiversity <br />
 > • The lowlands and mountains in Suriname and Ecuador have predominantly moderate geodiversity <br />
 > • The mountains in Ecuador and in Suriname have higher geodiversity classes than their lowlands <br />
-
-<br />
-
-> 📝 **Question 5**. Take a look at both the Western USA as well as Europe, why is the species richness in Europe on a comparable latitude way lower than in the Western USA, despite having similar geodiversity values?
-> Hint: Think back of earlier lectures for this course.
 
 <br />
 
@@ -232,6 +227,19 @@ It seems that the geodiversity map corresponds more to the species rarity than t
 > • Weathering processes and mass movement <br />
 > • Aeolian processes and weathering processes <br />
 > • Fluvial processes and mass movement processes <br />
+
+<br />
+
+One remarkable pattern that we observe is the relative low amounts of species endemism (rarity) in Western Europe and Eastern America. This can be partially explained by effects of past climatic conditions. Both these regions (and other large extents of the Nothern hemisphere) experienced extensive glaciation during the last ice ages. On the time scale of biomes and landscapes, this process has been relatively recent (10.000 years ago). Therefore, an area totally covered by glaciers had to develop the natural environment that we know today. This includes processes that take time to allow for biodiversity to flourish, such as soil formation and the development of hydrological networks. In conclusion, processes such as evolution and niche differentiation did not have enough time yet to generate similar levels of species endemism in these areas.
+
+> 🔍 **Review 3**. Take a look at both the Western USA as well as Europe, why is the species rarity in Europe on a comparable latitude way lower than in the Western USA, despite having similar biomes and climates now (both areas experience a warm ocean current) and during the last glacial maximum?
+
+<br />
+<details>
+<summary>Answer Review 3. (click on this to show/hide the answer)</summary>
+This can be explained through the orientation of the mountain ranges in both areas. In the Western USA, the orientation of the Cascades and the Sierra Nevada is North-South, while in Europe, the orientation of the Pyrenees and the Alps is East-West. During the glacial periods, the biomes and related ecosystems consisting of their many species were pushed southward. In the Western USA, these biomes could shift rather easily to a comparable landscape, creating a refugia for species to migrate to. In Europe however, the mountain ranges are blocking the migration of these biomes to more hospitable areas. The home ranges of the corresponding species simply vanished and with them a lot of these species went extinct due to the lack of such refugia.
+</details>
+<br />
 
 ***
 
