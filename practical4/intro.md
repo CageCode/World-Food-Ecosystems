@@ -48,12 +48,15 @@ You have seen multiple ways of calculating biodiversity in the lectures. One of 
 
 Today we will use the biodiversity metrics provided by the [Map of life](https://mol.org/). This website uses the latest approaches and technologies to deliver detailed information on the distribution of species and their change. In Map of Life, the species richness is estimated by summing the predicted presence of all studied species. Rarity maps are similarly summed, but each species presence in a cell is weighted by the total number of positive cells in the study area for that species. The all-taxa richness and rarity layers are averaged over the normalized richness & rarity of all 7 taxonomic groups. 
 
+<br />
+
 <div align="center">
   <img src="MapOfLife.jpg" alt="Map Of Life" >
   <br />
   <em>Figure 1. A random selection of species in the Map of Life database.</em>
 </div>
 
+<br />
 
 Let's examine how biodiversity, measured in terms of richness and rarity, varies across different regions of the world. To begin, we need to load the required data into Google Earth Engine (GEE) by creating new assets. You have loaded data into GEE before, so this will not be new for you, perform these same steps as you did in earlier practicals:
 - Click on the *“Assets”* tab on the top-left panel.
