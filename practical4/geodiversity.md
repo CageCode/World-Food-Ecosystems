@@ -287,4 +287,14 @@ Export.table.toDrive({
 <br />
 <br />
 
-**Now we are ready for the [next step](QGIS.html): extracting the elevation data for each point**
+**Now we are ready for the [next step](relationship.html): investigating the relationships in R**
+
+<nav>
+  <ul>
+    <li><strong>Step 1: Problem Description</strong></li>
+    <li><a href="geodiversity.html">Step 2: Geodiversity</a></li>
+    <li><a href="relationship.html">Step 3: Data Analysis</a></li>
+    <li><a href="../"><b>Back to Overview Page</b></a></li>
+  </ul>
+</nav>
+
