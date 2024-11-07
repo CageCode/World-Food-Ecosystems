@@ -177,7 +177,7 @@ Reflect on what you've learned about computing geodiversity from the lecture and
 > • 5 <br />
 > • 13 <br />
 
-
+<br />
 
 Now that we have the reclassified environmental components, we can calculate the geodiversity map by simply adding them together. Replace the two question marks, *"?"*, in the following code by the two missing reclassified component maps.
 
