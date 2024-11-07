@@ -415,8 +415,8 @@ Based on the previous code, by investigating the data and your knowledge from th
 <nav>
   <ul>
     <li><strong>Step 1: Problem Description</strong></li>
-    <li><a href="QGIS.html">Step 2: Extracting Data</a></li>
-    <li><a href="Rstudio.html">Step 3: Data Analysis</a></li>
+    <li><a href="geodiversity.html">Step 2: Geodiversity</a></li>
+    <li><a href="relationship.html">Step 3: Data Analysis</a></li>
     <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
