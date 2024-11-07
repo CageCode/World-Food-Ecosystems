@@ -33,7 +33,7 @@ Let's import these preprocessed global datasets in order to compute the geodiver
 
 <br />
 
-> 📝 **Question 1**. What are the five components of geodiversity according to Tukiainen, Toivanen1 & Maliniemi1, 2023?
+> 📝 **Question 1**. What are the five components of geodiversity according to Tukiainen, Toivanen & Maliniemi, 2023?
 
 > 📝 **Question 2**. Polman et al. (2024) harmonized four open-access global layers reflecting lithology, soil, terrain, rivers and lakes. Why did they not use a geomorphological map in their assessment?
 
