@@ -25,7 +25,7 @@ colnames(df) <- c("geo","rich","rare","temp","prec")
 
 ### Biodiversity over geodiversity
 
-It is the moment of truth, we have computed geodiversity over the earth and extracted the biodiversity and geodiversity values a
+It is the moment of truth, we have computed geodiversity over the earth and extracted the biodiversity and geodiversity values for 100 randomly placed points. Can we find a linear relationship between biodiversity and geodiversity? Let's explore that question based on species richness and species rarity:
 
 ```R
 # Relationship between geodiversity and species richness
@@ -40,6 +40,15 @@ summary(raregeo)
 plot(rare ~ geo, data=df)
 abline(raregeo)
 ```
+
+<br />
+
+> 📝 **Question **. Looking at the linear moodels between biodiversity and geodiversity, what can you say about the significance of these relationships on an alpha-level of 5%?
+> <br />
+> • There is a significant relationship between geodiversity and species richness but not for species rarity <br />
+> • There is a significant relationship between geodiversity and species rarity but not for species richness <br />
+> • Both models show a significant relationship <br />
+> • None of the models show a significant relationship <br />
 
 
 ```R
