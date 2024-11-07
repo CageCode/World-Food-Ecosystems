@@ -43,6 +43,9 @@ abline(raregeo)
 
 
 ```R
+# First check the plot between temperature and precipitation
+plot(prec ~ temp, data =df)
+
 # Relationship between temperature / precipitation and species richness
 richtemp <- lm(rich ~ temp, data = df)
 summary(richtemp)
@@ -57,6 +60,21 @@ abline(richprec)
 
 <br />
 
+> 🔍 **Review 3**. Look at the plot showing the relationship between precipitation and temperature. Does the distribution of the points in this plot make sense? <br />
+
+<br />
+<details>
+<summary>Answer Review 3. (click on this to show/hide the answer)</summary>
+Yes, the distribution of the point cloud is consistent with the 
+<div align="center">
+  <img src="Workflow_geodiversity.jpg" alt="Workflow geodiversity" >
+  <br />
+  <em>Figure 1. Example workflow to calculate geodiversity as done by Polman et al, 2024.</em>
+</div>
+</details>
+<br />
+
+
 > 📝 **Question **. Look at the plot between precipitation and species richness. Do you think a linear model is fitting for this data?
 > <br />
 > • Yes, there is a clear significant relationship between the two variables. <br />
@@ -64,7 +82,7 @@ abline(richprec)
 > • Yes, the R-squared value shows that the majority of the variation is explained by this model. <br />
 > • No, the slope coefficient (~0.02) is too small to confirm a linear relationship. <br />
 
-
+<br />
 
 Now also investigate the relationship between temperature and precipitation with species rarity. Write this code yourself by copying the code that analyzes the species richness with the climate data and adjusting it to species rarity.
 
