@@ -13,37 +13,24 @@ Let's delve into the interactions between these two realms, start by creating a 
 
 ### Problem setting
 
-You have seen multiple ways of calculating biodiversity in the lectures. One of those is to calculate the species richness, often defined as the number of species in a region. Another way might be to calculate the rarity of a species. This is somewhat harder to define, but says how common it is to observe a species. One way of calculating species rarity is by dividing the species occurence in an area by the total amount of area where this species is present.
-In Map of Life, the species richness is estimated by summing the predicted presence of all study species. Rarity maps are similarly summed, but each species presence in a cell is weighted by the total number of positive cells in the study area for that species. The all-taxa richness and rarity layers are averaged over the normalized richness/rarity of all 7 taxonomic groups.
+
 
 <br />
 
-Now think about the geospatial parameters, how would you go about analysing biodiversity over gradients in Costa Rica? Can you complete the following table and give the answers on the question marks?
+How would you go about analysing biodiversity on this global scale given the information above? Can you complete the following table and give the answers on the question marks?
 
 | Parameter  |  Value |
 |---|---|
 | Spatial extent | ? |
-| Temporal extent | ? |
+| Temporal extent | Static analysis. We are conducting an analysis on current (climatic) data. |
 | Cartographic unit |  ?  |
-| Dimensions | ? |
-| Dimension description |  ?  |
+| Dimensions | Biodiversity, geodiversity, climate |
+| Dimension description |  Biodiversity is expressed in richness & rarity. Geodiversity consists of slope, hydrology, soil and lithology maps. For climate data we will use annual precipitation and mean temperature. |
 | Temporal resolution | ? |
 | Spatial resolution | ? |
-| Assumption / Hypothesis | Species richness depends on the amount of energy available. Here we will use NDVI as a proxy for net primary production. Additionally, we assume that richness decreases with temperature, and thus will decrease when elevations are higher |
+| Assumption / Hypothesis | ? |
 
 <br />
-
-(!) In reality the data was collected intermittently since 2007 but for the purposes of this practical, the data are aggregated and strongly simplified. Dealing with the temporal dimension of this dataset and with the particularities of data cleaning for camera trapping lies beyond the scope of this course. We *assume*, for the purposes of this exercise, the data is suitable for analysis against a landsat image of the year 2019 (see later). 
-
-
-And we'll use following data structures and sources:
-
-| Dataset      | Type | Source     |Access point     |
-| :---        |    :---    |          :---  |         :---  |
-| TEAM-camera data Costa Rica     | vector       | downloadable from canvas, original source: https://www.wildlifeinsights.org/team-network  |
-| NDVI    | ?        | LANDSAT 8    |Google Earth Engine: see below     |
-| ?  | ?        | ?      | ?    |
-
 
 *** 
 
@@ -51,7 +38,34 @@ And we'll use following data structures and sources:
 
 ### Accessing the data
 
-**Species Richness:** <br />
+The data for this practical has already been preprocessed, so you only need to upload it to Google Earth Engine and perform the analysis. You can find the data in the .zip file provided on Canvas for this tutorial. Once you have downloaded the data, moved it to a desired folder and unzipped it there you are good to go.
+
+<br />
+
+### Biodiversity
+
+You have seen multiple ways of calculating biodiversity in the lectures. One of those is to calculate the species richness, often defined as the number of species in a region. Another way might be to calculate the rarity of a species. This is somewhat harder to define, but says how common it is to observe a species. One way of calculating species rarity is by dividing the species occurence in an area by the total amount of area where this species is present. 
+
+Today we will use the biodiversity metrics provided by the [Map of life](https://mol.org/). This website uses the latest approaches and technologies to deliver detailed information on the distribution of species and their change. In Map of Life, the species richness is estimated by summing the predicted presence of all study species. Rarity maps are similarly summed, but each species presence in a cell is weighted by the total number of positive cells in the study area for that species. The all-taxa richness and rarity layers are averaged over the normalized richness/rarity of all 7 taxonomic groups. 
+
+<br />
+
+### Geodiversity
+In the following code, you will compute a geodiversity map of the world using standardized and harmonized environmental datasets. We will create this geodiversity index by combining geological, soil, hydrological, and topographical datasets within grid cells of 10 × 10 km. A geological dataset derived from the Global Lithological Map database [Hartmann & Moosdorf, 2012](https://doi.pangaea.de/10.1594/PANGAEA.788537) is used to compute a lithological index, based on the number of the lithological formations in each grid cell. A soil index for each grid cell based on the number of soil types was derived from the SoilGrids repository [Hengl et al., 2017](https://soilgrids.org/).  For the hydrological index the total river length per grid cell was calculated using the data from [Lehner, Verdin, & Jarvis, 2011](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2008EO100001). The slope index was based on a Digital Elevation Model elevation database [Yamazaki et al., 2017](https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) and shows the standard deviation of the slope for each grid cell. 
+
+Now import 
+
+The Amazonian Lowland in Ecuador and the Wilhelmina Mountains in Surinam have the highest geodiversity classes
+The lowlands and mountains in Surinam and Ecuador have relatively high geodiversity
+The lowlands and mountains in Surinam and Ecuador have predominantly moderate geodiversity
+The mountains in Ecuador and in Surinam have higher geodiversity classes than their lowlands
+
+
+
+
+All indices were reclassified into five precentile break-classes and combined into a summed geodiversity index at 10 × 10 km resolution.
+
+
 We have processed the camera trap data, so that it is compiled into a shape-file that you can download from canvas: download and unzip the file (CAMERAS.zip) in your working directory. 
 
 Then you can load the shapefile into google earth engine so that you can do analysis with/on it: 
