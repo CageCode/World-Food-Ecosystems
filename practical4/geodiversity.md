@@ -182,7 +182,7 @@ Map.addLayer(geodiv, { min: 4, max: 20, palette: ['red', 'orange', 'yellow', 'gr
 
 <br />
 
-> 🔍 **Review 2**. How does the geodiversity correspond to the biodiversity metrics richness and rarity? <br />
+> 🔍 **Review 2**. How does the geodiversity index correspond visually to the biodiversity metrics richness and rarity? <br />
 
 <br />
 <details>
