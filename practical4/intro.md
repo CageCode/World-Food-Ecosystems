@@ -123,49 +123,200 @@ It would therefore be interesting to investigate the connection between patterns
 
 We are going to replicate most of the steps performed in this workflow from the paper in Google Earth Engine! You will compute a geodiversity map of the world using standardized and harmonized environmental datasets. First of all, we need a clear understanding of the components we'll use. We will create this geodiversity index by combining geological, soil, hydrological, and topographical datasets within grid cells of 10 × 10 km. A geological dataset derived from the Global Lithological Map database [Hartmann & Moosdorf, 2012](https://doi.pangaea.de/10.1594/PANGAEA.788537) is used to compute a lithological index, based on the number of the lithological formations in each grid cell. A soil index for each grid cell based on the number of soil types was derived from the SoilGrids repository [Hengl et al., 2017](https://soilgrids.org/).  For the hydrological index the total river length per grid cell was calculated using the data from [Lehner, Verdin, & Jarvis, 2011](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2008EO100001). The slope index was based on a Digital Elevation Model elevation database [Yamazaki et al., 2017](https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) and shows the standard deviation of the slope for each grid cell. 
 
+<br />
+
 Let's import these preprocessed global datasets in order to compute the geodiversity index. Similarly as the as for the biodiversity maps, go to the *Assets* tab in GEE and import the raster (TIF) files of the slope, river, soil & lithology maps one by one. While Google Earth Engine is processing this data, you can already glimpse over the following questions:
+
+<br />
+
+> 📝 **Question 1**. What are the five components of geodiversity according to Tukiainen, Toivanen1 & Maliniemi1, 2023?
+
+> 📝 **Question 2**. Polman et al. (2024) harmonized four open-access global layers reflecting lithology, soil, terrain, rivers and lakes. Why did they not use a geomorphological map in their assessment?
+
+> 📝 **Question 3**. Seijmonsbergen et al. (2018 & see lecture on geodiversity) introduce **time** as a key factor in their study on the geodiversity of the Hawaiian Archipelago. In which component(s) of geodiversity is time a key factor?
+> <br />
+> • In soil and geology only <br />
+> • In geomorphology and soil only <br />
+> • In geology and geomorphology and soil <br />
+> • In all components of geodiversity <br />
+
+***
+
+<br />
+
+### Computing the geodiversity index
+
+Now that you uploaded the four rasters to GEE, make sure to rename them at the top of your screen in the middle panel to avoid confusion between the *"images"*. The names that will be used in the provided code will be *soildiv*, *lithdiv*, *riverdiv* & *slopediv*, to indicate the diversity map of that component respectively. Therefore, use these names if you want the code running smoothly on the provided code.
+
+Last but not least, we need to import the last dataset in your zipfile called *"world_countries_generalized"*. These are polygons of the border for every country on earth that we are going to use later on. This is a shapefile, so when adding this asset, press the *Table upload* > *Shape files* and select the files in the folder. When the dataset is added to GEE, rename this to *countries*.
+
+Before we can use the different components to calculate geodiversity, we need to reclassify the data to ensure that each component is weighted equally. This reclassification is done based on equal data partitioning. The first 20% of the data will be reclassified into the lowest category (value = 1), the next 20% into the second-lowest category (value = 2), and so on, until the top 20% of the data is classified into the highest category (value = 5). By reclassifying the data in this manner, we create a standardized basis for integrating the various datasets into a comprehensive geodiversity index. This ensures that no single component disproportionately influences the final index, allowing for a balanced representation of geological, soil, hydrological, and topographical diversity within the grid cells. Fortunately for us, GEE can calculate the exact breaks for the 20%-percentiles for each raster, do so with the following code (it might take a while to run, as it performs calculations for every raster over the **Entire!** world).
+
+**Note: You are not expected to produce this piece of code or understand the exact function of every line, more so the general idea of what this code does**
+```javascript
+// Create world polygon and add the polygon to the map
+var mergedPolygon = countries.union();
+
+Map.addLayer(mergedPolygon, {color: 'FF0000'}, 'World polygon');
+
+
+// Calculate the 20, 40, 60 and 80th percentile of slope values over the Whole World
+var breaks_slope = slopediv.reduceRegion({
+  reducer: ee.Reducer.percentile([20, 40, 60, 80]),
+  geometry: mergedPolygon,
+  scale: 10000
+});
+
+// Print the percentile breaking values to the Console
+print('Slope breaks:', breaks_slope);
+
+// Get the dictionary keys as a list
+var slope_keys = breaks_slope.keys();
+
+// Reclassify slope map
+var slopeclass = slopediv
+                .where(slopediv.lte(ee.Number(breaks_slope.get(slope_keys.get(0)))), 1)  // Class 1: slopediv values <= 20th percentile
+                .where(slopediv.gt(ee.Number(breaks_slope.get(slope_keys.get(0)))).and(slopediv.lte(ee.Number(breaks_slope.get(slope_keys.get(1))))), 2)  // Class 2: 20th < slopediv values <= 40th percentile
+                .where(slopediv.gt(ee.Number(breaks_slope.get(slope_keys.get(1)))).and(slopediv.lte(ee.Number(breaks_slope.get(slope_keys.get(2))))), 3)  // Class 3: 40th < slopediv values <= 60th percentile
+                .where(slopediv.gt(ee.Number(breaks_slope.get(slope_keys.get(2)))).and(slopediv.lte(ee.Number(breaks_slope.get(slope_keys.get(3))))), 4)  // Class 4: 60th < slopediv values <= 80th percentile
+                .where(slopediv.gt(ee.Number(breaks_slope.get(slope_keys.get(3)))), 5);  // Class 5: slopediv values > 80th percentile
+
+Map.addLayer(slopeclass, {min: 1, max: 5, palette: ['red', 'orange', 'yellow', 'green', 'darkgreen']}, 'Slope map');
+
+
+
+// Calculate the 20, 40, 60 and 80th percentile of soil values over the Whole World
+var breaks_soil = soildiv.reduceRegion({
+  reducer: ee.Reducer.percentile([20, 40, 60, 80]),
+  geometry: mergedPolygon,
+  scale: 10000
+});
+
+// Print the percentile breaking values to the Console
+print('Soil breaks:', breaks_soil);
+
+// Get the dictionary keys as a list
+var soil_keys = breaks_soil.keys();
+
+// Reclassify soil map
+var soilclass = soildiv
+                .where(soildiv.lte(ee.Number(breaks_soil.get(soil_keys.get(0)))), 1)  // Class 1: soildiv values <= 20th percentile
+                .where(soildiv.gt(ee.Number(breaks_soil.get(soil_keys.get(0)))).and(soildiv.lte(ee.Number(breaks_soil.get(soil_keys.get(1))))), 2)  // Class 2: 20th < soildiv values <= 40th percentile
+                .where(soildiv.gt(ee.Number(breaks_soil.get(soil_keys.get(1)))).and(soildiv.lte(ee.Number(breaks_soil.get(soil_keys.get(2))))), 3)  // Class 3: 40th < soildiv values <= 60th percentile
+                .where(soildiv.gt(ee.Number(breaks_soil.get(soil_keys.get(2)))).and(soildiv.lte(ee.Number(breaks_soil.get(soil_keys.get(3))))), 4)  // Class 4: 60th < soildiv values <= 80th percentile
+                .where(soildiv.gt(ee.Number(breaks_soil.get(soil_keys.get(3)))), 5);  // Class 5: soildiv values > 80th percentile
+
+Map.addLayer(soilclass, {min: 1, max: 5, palette: ['red', 'orange', 'yellow', 'green', 'darkgreen']}, 'Soil map');
+
+
+
+// Calculate the 20, 40, 60 and 80th percentile of riverlength values over the Whole World
+var breaks_river = riverdiv.reduceRegion({
+  reducer: ee.Reducer.percentile([20, 40, 60, 80]),
+  geometry: mergedPolygon,
+  scale: 10000
+});
+
+// Print the percentile breaking values to the Console
+print('River breaks:', breaks_river);
+
+// Get the dictionary keys as a list
+var river_keys = breaks_river.keys();
+
+// Reclassify river map
+var riverclass = riverdiv
+                .where(riverdiv.lte(ee.Number(breaks_river.get(river_keys.get(0)))), 1)  // Class 1: riverdiv values <= 20th percentile
+                .where(riverdiv.gt(ee.Number(breaks_river.get(river_keys.get(0)))).and(riverdiv.lte(ee.Number(breaks_river.get(river_keys.get(1))))), 2)  // Class 2: 20th < riverdiv values <= 40th percentile
+                .where(riverdiv.gt(ee.Number(breaks_river.get(river_keys.get(1)))).and(riverdiv.lte(ee.Number(breaks_river.get(river_keys.get(2))))), 3)  // Class 3: 40th < riverdiv values <= 60th percentile
+                .where(riverdiv.gt(ee.Number(breaks_river.get(river_keys.get(2)))).and(riverdiv.lte(ee.Number(breaks_river.get(river_keys.get(3))))), 4)  // Class 4: 60th < riverdiv values <= 80th percentile
+                .where(riverdiv.gt(ee.Number(breaks_river.get(river_keys.get(3)))), 5);  // Class 5: riverdiv values > 80th percentile
+
+Map.addLayer(riverclass, {min: 1, max: 5, palette: ['red', 'orange', 'yellow', 'green', 'darkgreen']}, 'River map');
+
+
+// Calculate the 20, 40, 60 and 80th percentile of lithology values over the Whole World
+var breaks_lith = lithdiv.reduceRegion({
+  reducer: ee.Reducer.percentile([20, 40, 60, 80]),
+  geometry: mergedPolygon,
+  scale: 10000
+});
+
+// Print the percentile breaking values to the Console
+print('Lithology breaks:', breaks_lith);
+
+// Get the dictionary keys as a list
+var lith_keys = breaks_lith.keys();
+
+// Reclassify the lithology map
+var lithclass = lithdiv
+                .where(lithdiv.lte(ee.Number(breaks_lith.get(lith_keys.get(0)))), 1)  // Class 1: lithdiv values <= 20th percentile
+                .where(lithdiv.gt(ee.Number(breaks_lith.get(lith_keys.get(0)))).and(lithdiv.lte(ee.Number(breaks_lith.get(lith_keys.get(1))))), 2)  // Class 2: 20th < lithdiv values <= 40th percentile
+                .where(lithdiv.gt(ee.Number(breaks_lith.get(lith_keys.get(1)))).and(lithdiv.lte(ee.Number(breaks_lith.get(lith_keys.get(2))))), 3)  // Class 3: 40th < lithdiv values <= 60th percentile
+                .where(lithdiv.gt(ee.Number(breaks_lith.get(lith_keys.get(2)))).and(lithdiv.lte(ee.Number(breaks_lith.get(lith_keys.get(3))))), 4)  // Class 4: 60th < lithdiv values <= 80th percentile
+                .where(lithdiv.gt(ee.Number(breaks_lith.get(lith_keys.get(3)))), 5);  // Class 5: lithdiv values > 80th percentile
+
+Map.addLayer(lithclass, {min: 1, max: 5, palette: ['red', 'orange', 'yellow', 'green', 'darkgreen']}, 'Lith map');
+```
+
+<br />
+
+Did it work? Then give your laptop a big hug, it did some crazy work for you just now, you just processed the world four times over in a matter of minutes.. wow. The drawback is, it will do this all the time when you press run, so keep that in mind.
+
+Now that we have the reclassified environmental components, we can calculate the geodiversity map by simply adding them together. Replace the two question marks, *"?"*, in the following code by the two missing reclassified component maps.
+
+
+```javascript
+// Combine all metrics to calculate a geodiversity index
+var geodiv = slopeclass
+  .add(lithclass)
+  .add(?)
+  .add(?);
+
+// Visualize the geodiversity, why is the minimum value 4 and the maximum value 20?
+Map.addLayer(geodiv, { min: 4, max: 20, palette: ['red', 'orange', 'yellow', 'green', 'darkgreen']}, 'Geodiversity map');
+```
+
+<br />
 
 > 🔍 **Review 2**. W <br />
 
 <br />
 <details>
 <summary>Answer Review . (click on this to show/hide the answer)</summary>
-Because many camera traps would then fall within the same rastercell of the NDVI-map. This means there is a mismatch in scale, analyzing this data would give you the same NDVI value for different camera traps.
+
 </details>
 <br />
-A spatial categorization of the geodiversity into classes, generally labelled from very high to very low
-
-```javascript
-
-/// You should have the script ready where you have imported the table (the camera points) and drawn a rectangle around them 
-// let's also visualize the points; 
-
-```
 
 
-
-
-> 📝 **Question **. Seijmonsbergen et al. (2018 & see lecture on geodiversity) introduce **time** as a key factor in their study on the geodiversity of the Hawaiian Archipelago. In which component(s) of geodiversity is time a key factor?
+> 📝 **Question 4**. Which of the following statements are true?
 > <br />
-> • In soil and geology only <br />
-> • In geomorphology and soil only <br />
-> • In geology, geomorphology, hydrology and in soil <br />
-> • In geology and geomorphology and soil <br />
+> • The Amazonian Lowland in Ecuador and the Wilhelmina Mountains in Surinam have the highest geodiversity classes <br />
+> • The lowlands and mountains in Surinam and Ecuador have relatively high geodiversity <br />
+> • The lowlands and mountains in Surinam and Ecuador have predominantly moderate geodiversity <br />
+> • The mountains in Ecuador and in Surinam have higher geodiversity classes than their lowlands <br />
+
+> 📝 **Question 5**. Take a look at both the Western USA as well as Europe, why is the species richness in Europe on a comparable latitude way lower than in the Western USA, despite having similar geodiversity values?
+> Hint: Think back of earlier lectures for this course.
+
+> 📝 **Question 6**. Study the geodiversity map of Niger. it is characterized by the very low and low geodiversity classes, probably related to the absence of surface water in combination with large plains, without too much topographical variation. Soil formation, in the absence of vegetation and water, will likely be restricted as well.
+> <br />
+> • Karst processes and fluvial processes
+> • Weathering processes and mass movement <br />
+> • Aeolian processes and weathering processes <br />
+> • Fluvial processes and mass movement processes <br />
+
+<br />
 
 
-The Amazonian Lowland in Ecuador and the Wilhelmina Mountains in Surinam have the highest geodiversity classes
-The lowlands and mountains in Surinam and Ecuador have relatively high geodiversity
-The lowlands and mountains in Surinam and Ecuador have predominantly moderate geodiversity
-The mountains in Ecuador and in Surinam have higher geodiversity classes than their lowlands
 
 
 
-Study the geodiversity map of Niger. it is characterized by the very low and low geodiversity classes, probably related to the absence of surface water in combination with large plains, without too much topographical variation. Soil formation, in the absence of vegetation and water, will likely be restricted as well.
 
-Karst processes and fluvial processes
-Weathering processes and mass movement
-Aeolian processes and weathering processes
-Fluvial processes and mass movement processes
+
+
+
+
+
 
 
 The Boreal forest, which can also occur in high mountains, is dominated by conifer trees. Go to the map of life https://mol.orgLinks to an external site.
@@ -174,8 +325,6 @@ the area in the USA is drier
 The mountains are higher in the USA
 the soils are volcanic in the USA
 because the mountains in the USA are located Nort-South
-
-All indices were reclassified into five precentile break-classes and combined into a summed geodiversity index at 10 × 10 km resolution.
 
 
 We have processed the camera trap data, so that it is compiled into a shape-file that you can download from canvas: download and unzip the file (CAMERAS.zip) in your working directory. 
