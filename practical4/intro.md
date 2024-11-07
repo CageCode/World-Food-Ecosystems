@@ -46,14 +46,66 @@ The data for this practical has already been preprocessed, so you only need to u
 
 You have seen multiple ways of calculating biodiversity in the lectures. One of those is to calculate the species richness, often defined as the number of species in a region. Another way might be to calculate the rarity of a species. This is somewhat harder to define, but says how common it is to observe a species. One way of calculating species rarity is by dividing the species occurence in an area by the total amount of area where this species is present. 
 
-Today we will use the biodiversity metrics provided by the [Map of life](https://mol.org/). This website uses the latest approaches and technologies to deliver detailed information on the distribution of species and their change. In Map of Life, the species richness is estimated by summing the predicted presence of all study species. Rarity maps are similarly summed, but each species presence in a cell is weighted by the total number of positive cells in the study area for that species. The all-taxa richness and rarity layers are averaged over the normalized richness/rarity of all 7 taxonomic groups. 
+Today we will use the biodiversity metrics provided by the [Map of life](https://mol.org/). This website uses the latest approaches and technologies to deliver detailed information on the distribution of species and their change. In Map of Life, the species richness is estimated by summing the predicted presence of all studied species. Rarity maps are similarly summed, but each species presence in a cell is weighted by the total number of positive cells in the study area for that species. The all-taxa richness and rarity layers are averaged over the normalized richness & rarity of all 7 taxonomic groups. 
+
+Let's examine how biodiversity, measured in terms of richness and rarity, varies across different regions of the world. To begin, we need to load the required data into Google Earth Engine (GEE) by creating new assets. You have loaded data into GEE before, so this will not be new for you, perform these same steps as you did in earlier practicals:
+- Click on the *“Assets”* tab on the top-left panel.
+- Press the *“New”* button to create a new asset.
+- Select *“GeoTIFF”* under Image upload.
+- Select the *"richall"* dataset from the data that you downloaded, perform previous steps again to also upload the *"rareall"*  dataset.
+
+The biodiversity datasets will be visible under the tab *"Tasks"* in the top-right panel of GEE.
+- Click on the newly created assets and tap the *"View asset"* button.
+- Press on *"Import"* in the popup.
+- The datasets will be visible in the middle panel on GEE, give it the appropriate names *"richall"* and *"rareall"* respectively.
+
+Well done! You've successfully loaded the biodiversity data into GEE. If you used the suggested names for the imported data, you can visualize the richness and rarity of all species with the following code. Note that a mask is applied to remove all NoData values from the map, ensuring that the oceans are not colored.
+
+```javascript
+// Define NoData value (0 in this example)
+var nodataValue = 0;
+
+// Create a mask for NoData
+var raremask = rareall.updateMask(rareall.neq(nodataValue));
+var richmask = richall.updateMask(richall.neq(nodataValue));
+
+// visualize biodiversity maps
+Map.addLayer(richmask, { min: 0, max: 100, palette: ['red', 'yellow', 'green']}, 'richness');
+Map.addLayer(raremask, { min: 0, max: 100, palette: ['red', 'yellow', 'green']}, 'rarity');
+
+Map.centerObject(richmask, 2);
+```
+
+<br />
+
+As you can see in the code and if you inspect the map, the values for both richness and rarity range from 0 to 100. This is because the values are normalized: a score of 100 represents the maximum value for richness or rarity, while a score of 0 represents the minimum.
 
 <br />
 
 ### Geodiversity
+> Geodiversity focuses on the resource giving potential of components of the geosphere in terms of their overall resource potential, the temporal variation in resource availability and the variation of resource availability over space.
+
 In the following code, you will compute a geodiversity map of the world using standardized and harmonized environmental datasets. We will create this geodiversity index by combining geological, soil, hydrological, and topographical datasets within grid cells of 10 × 10 km. A geological dataset derived from the Global Lithological Map database [Hartmann & Moosdorf, 2012](https://doi.pangaea.de/10.1594/PANGAEA.788537) is used to compute a lithological index, based on the number of the lithological formations in each grid cell. A soil index for each grid cell based on the number of soil types was derived from the SoilGrids repository [Hengl et al., 2017](https://soilgrids.org/).  For the hydrological index the total river length per grid cell was calculated using the data from [Lehner, Verdin, & Jarvis, 2011](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2008EO100001). The slope index was based on a Digital Elevation Model elevation database [Yamazaki et al., 2017](https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) and shows the standard deviation of the slope for each grid cell. 
 
-Now import 
+Let's import these global datasets in order to compute the geodiversity index. Similarly as the as for the biodiversity maps, go to the *Assets* tab in GEE and import the raster (TIF) files of the slope, river, soil & lithology maps one by one. While Google Earth Engine is processing this data, you can already glimpse over the following questions:
+
+> 🔍 **Review **. W <br />
+
+<br />
+<details>
+<summary>Answer Review . (click on this to show/hide the answer)</summary>
+Because many camera traps would then fall within the same rastercell of the NDVI-map. This means there is a mismatch in scale, analyzing this data would give you the same NDVI value for different camera traps.
+</details>
+<br />
+
+
+> 📝 **Question **. Seijmonsbergen et al. (2018 & see lecture on geodiversity) introduce **time** as a key factor in their study on the geodiversity of the Hawaiian Archipelago. In which component(s) of geodiversity is time a key factor?
+> <br />
+> • In soil and geology only <br />
+> • In geomorphology and soil only <br />
+> • In geology, geomorphology, hydrology and in soil <br />
+> • In geology and geomorphology and soil <br />
+
 
 The Amazonian Lowland in Ecuador and the Wilhelmina Mountains in Surinam have the highest geodiversity classes
 The lowlands and mountains in Surinam and Ecuador have relatively high geodiversity
@@ -61,6 +113,13 @@ The lowlands and mountains in Surinam and Ecuador have predominantly moderate ge
 The mountains in Ecuador and in Surinam have higher geodiversity classes than their lowlands
 
 
+
+Study the geodiversity map of Niger. it is characterized by the very low and low geodiversity classes, probably related to the absence of surface water in combination with large plains, without too much topographical variation. Soil formation, in the absence of vegetation and water, will likely be restricted as well.
+
+Karst processes and fluvial processes
+Weathering processes and mass movement
+Aeolian processes and weathering processes
+Fluvial processes and mass movement processes
 
 
 All indices were reclassified into five precentile break-classes and combined into a summed geodiversity index at 10 × 10 km resolution.
