@@ -166,6 +166,17 @@ Map.addLayer(lithclass, {min: 1, max: 5, palette: ['red', 'orange', 'yellow', 'g
 
 Did it work? Then give your laptop a big hug, it did some crazy work for you just now, you just processed the world four times over in a matter of minutes.. wow. Keep in mind, it will do this everytime when you press run, so every addition to the code will take a while to run.
 
+Reflect on what you've learned about computing geodiversity from the lecture and answer the following question:
+
+> 📝 **Question 4**. Suppose your task is to calculate a geodiversity index for a mountainous area. As part of the geodiversity index, you use a soil map to calculate the number of different soil types per grid cell. The resulting number of soil types per grid cell range from 3 (minimum amount) to 13 (maximum amount) over the area of interest. You decide to reclassify these values using an [**equal interval**](https://doc.arcgis.com/en/microsoft-365/latest/get-started/classification-methods.htm#:~:text=not%20evenly%20distributed.-,Equal%20interval,the%20data%20is%20divided%20automatically.) method into five classes: 1.very low, 2.low, 3.moderate, 4.high and 5.very high geodiversity. What would then be the class interval for this reclassification?
+> <br />
+> • 2 <br />
+> • 3 <br />
+> • 5 <br />
+> • 13 <br />
+
+
+
 Now that we have the reclassified environmental components, we can calculate the geodiversity map by simply adding them together. Replace the two question marks, *"?"*, in the following code by the two missing reclassified component maps.
 
 
