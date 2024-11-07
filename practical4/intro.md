@@ -94,14 +94,38 @@ As you can see in the code and if you inspect the map, the values for both richn
 
 <br />
 
+> 🔍 **Review 1**. At first glance, what stands out to you about and between the richness and rarity maps? <br />
+
+<br />
+<details>
+<summary>Answer Review 1. (click on this to show/hide the answer)</summary>
+There can be many right answers to this question. Some striking patterns include the high amount of species richness in the tropics. Yet, these biomes do not always show high species rarity. Instead, species rarity is more pronounced on islands and in mountainous areas.
+</details>
+<br />
+
+
 ### Geodiversity
+Geodiversity refers to the natural variety of abiotic features within a given area. This includes the diversity of rocks, minerals, water, landforms, and soils as well as the physical processes that shape them. Geodiversity is an integral aspect of the Earth's natural heritage and it can be hypothesized that geodiversity supports biodiversity by providing a variety of physical environments in which different organisms can thrive. The relationship between geodiversity and its role in ecosystems can be summarized to:
+
 > Geodiversity focuses on the resource giving potential of components of the geosphere in terms of their overall resource potential, the temporal variation in resource availability and the variation of resource availability over space.
 
-In the following code, you will compute a geodiversity map of the world using standardized and harmonized environmental datasets. We will create this geodiversity index by combining geological, soil, hydrological, and topographical datasets within grid cells of 10 × 10 km. A geological dataset derived from the Global Lithological Map database [Hartmann & Moosdorf, 2012](https://doi.pangaea.de/10.1594/PANGAEA.788537) is used to compute a lithological index, based on the number of the lithological formations in each grid cell. A soil index for each grid cell based on the number of soil types was derived from the SoilGrids repository [Hengl et al., 2017](https://soilgrids.org/).  For the hydrological index the total river length per grid cell was calculated using the data from [Lehner, Verdin, & Jarvis, 2011](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2008EO100001). The slope index was based on a Digital Elevation Model elevation database [Yamazaki et al., 2017](https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) and shows the standard deviation of the slope for each grid cell. 
+It would therefore be interesting to investigate the connection between patterns in biodiversity and geodiversity. In order to explore this relationship, we first have to create a geodiversity map. During the lecture, you have seen how geodiversity can be calculated from its components and you were presented by the following workflow:
 
-Let's import these global datasets in order to compute the geodiversity index. Similarly as the as for the biodiversity maps, go to the *Assets* tab in GEE and import the raster (TIF) files of the slope, river, soil & lithology maps one by one. While Google Earth Engine is processing this data, you can already glimpse over the following questions:
+<br />
 
-> 🔍 **Review **. W <br />
+<div align="center">
+  <img src="Workflow_geodiversity.jpg" alt="Workflow geodiversity" >
+  <br />
+  <em>Figure 1. Example workflow to calculate geodiversity as done by Polman et al, 2024.</em>
+</div>
+
+<br />
+
+We are going to replicate most of the steps performed in this workflow from the paper in Google Earth Engine! You will compute a geodiversity map of the world using standardized and harmonized environmental datasets. First of all, we need a clear understanding of the components we'll use. We will create this geodiversity index by combining geological, soil, hydrological, and topographical datasets within grid cells of 10 × 10 km. A geological dataset derived from the Global Lithological Map database [Hartmann & Moosdorf, 2012](https://doi.pangaea.de/10.1594/PANGAEA.788537) is used to compute a lithological index, based on the number of the lithological formations in each grid cell. A soil index for each grid cell based on the number of soil types was derived from the SoilGrids repository [Hengl et al., 2017](https://soilgrids.org/).  For the hydrological index the total river length per grid cell was calculated using the data from [Lehner, Verdin, & Jarvis, 2011](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2008EO100001). The slope index was based on a Digital Elevation Model elevation database [Yamazaki et al., 2017](https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/) and shows the standard deviation of the slope for each grid cell. 
+
+Let's import these preprocessed global datasets in order to compute the geodiversity index. Similarly as the as for the biodiversity maps, go to the *Assets* tab in GEE and import the raster (TIF) files of the slope, river, soil & lithology maps one by one. While Google Earth Engine is processing this data, you can already glimpse over the following questions:
+
+> 🔍 **Review 2**. W <br />
 
 <br />
 <details>
@@ -109,6 +133,16 @@ Let's import these global datasets in order to compute the geodiversity index. S
 Because many camera traps would then fall within the same rastercell of the NDVI-map. This means there is a mismatch in scale, analyzing this data would give you the same NDVI value for different camera traps.
 </details>
 <br />
+A spatial categorization of the geodiversity into classes, generally labelled from very high to very low
+
+```javascript
+
+/// You should have the script ready where you have imported the table (the camera points) and drawn a rectangle around them 
+// let's also visualize the points; 
+
+```
+
+
 
 
 > 📝 **Question **. Seijmonsbergen et al. (2018 & see lecture on geodiversity) introduce **time** as a key factor in their study on the geodiversity of the Hawaiian Archipelago. In which component(s) of geodiversity is time a key factor?
@@ -133,6 +167,13 @@ Weathering processes and mass movement
 Aeolian processes and weathering processes
 Fluvial processes and mass movement processes
 
+
+The Boreal forest, which can also occur in high mountains, is dominated by conifer trees. Go to the map of life https://mol.orgLinks to an external site.
+Select patterns, species richness and rarity, and go to the species groep conifers. You can see that conifer diversity is higher on the west coast of the USA than in the mountains of Switzerland. Why is this?
+the area in the USA is drier
+The mountains are higher in the USA
+the soils are volcanic in the USA
+because the mountains in the USA are located Nort-South
 
 All indices were reclassified into five precentile break-classes and combined into a summed geodiversity index at 10 × 10 km resolution.
 
@@ -182,58 +223,6 @@ Because many camera traps would then fall within the same rastercell of the NDVI
 
 We will thus have to make it ourselves based on satellites with a better spatial resolution. One of the options is the LANDSAT 8 mission which collects spectral information in the red and near-infrared spectrum (the bands we need to calculate NDVI) at 30m resolution. All the information on this product is given [here](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2).
 
-
-```javascript
-
-/// You should have the script ready where you have imported the table (the camera points) and drawn a rectangle around them 
-// let's also visualize the points; 
-Map.addLayer(table, {color: 'FF0000'},'qgis shapefile');
-//and center the map around the rectangle we made: 
-Map.centerObject(clip);
-
-//Now we can start calculating NDVI based on the landsat 8 reflectances in the red and near infrared bands (use the link above to find out which bands these are) 
-var landsat = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2");
-print(landsat); // if you want to print this to the console, you'll get an error: indeed the imageCollection is way too big
-//so, let's first select on the region and the dates of interest (only within the clip, and the whole year of 2019)
-var landsat = ee.ImageCollection("LANDSAT/LC08/C02/T1_TOA").filterBounds(clip).filterDate('2019-01-01', '2019-12-31');
-print(landsat); //great this works
-// in the tropics, and in mountaineous areas, clouds can be an issue when calculating NDVI. So let's sort the image collection according to cloud cover, and then take the image with the least clouds
-var bestlandsat = ee.Image(landsat.sort('CLOUD_COVER').first());
-print(bestlandsat);
-
-// now let's visualize this image: 
-// Define the visualization parameters.
-var vizParams = {
-  bands: ['B4', 'B3', 'B2'],
-  min: 0,
-  max: 0.3
-};
-
-// Center the map and display the image.
-Map.addLayer(bestlandsat, vizParams, 'true color composite');
-
-//now let's calucalte ndvi of this image
-// Compute the Normalized Difference Vegetation Index (NDVI): we need to define the nir and red bands: find out which ones these are and replace the X and Y below with the correct band numbers: 
-var nir = bestlandsat.select('BX');
-var red = bestlandsat.select('BY');
-var ndvi = nir.subtract(red).divide(nir.add(red)).rename('NDVI'); // this is (NIR-RED)/(NIR+RED)
-
-
-// Now let's visualize this ndvi map we made:                   
-var ndvizoom = ndvi.clip(clip); //only cut out the region that what we need
-var ndviParams = {min: -1, max: 1, palette: ['blue', 'white', 'green']}; // set visualization parameters
-Map.addLayer(ndvizoom, ndviParams, 'NDVI image'); //plot the NDVI
-
-
-// GREAT! now we can simply extract the values of NDVI for the different points and export it to a csv: 
-var camera_ndvi = ndvizoom.reduceRegions(table, ee.Reducer.mean( ),30); // the '30' here indicates the resolution at which you want to collect the data, i.e. in this case the resolution of the dem , in this case 90m
-Export.table.toDrive({
-  collection: camera_ndvi,
-  description:'camera_ndvi',
-  fileFormat: 'CSV'
-}); //we write the elevation values per camera location to a csv
-// after running this it should appear in your 'tasks' here to the right: click on 'run': after finalization it will appear in your google drive
-```
 
 ***
 
