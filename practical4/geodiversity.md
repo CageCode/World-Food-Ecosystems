@@ -178,12 +178,12 @@ Map.addLayer(geodiv, { min: 4, max: 20, palette: ['red', 'orange', 'yellow', 'gr
 
 <br />
 
-> 🔍 **Review 2**. W <br />
+> 🔍 **Review 2**. How does the geodiversity correspond to the biodiversity metrics richness and rarity? <br />
 
 <br />
 <details>
 <summary>Answer Review . (click on this to show/hide the answer)</summary>
-
+It seems that the geodiversity map corresponds more to the species rarity than the species richness.
 </details>
 <br />
 
@@ -205,106 +205,83 @@ Map.addLayer(geodiv, { min: 4, max: 20, palette: ['red', 'orange', 'yellow', 'gr
 > • Aeolian processes and weathering processes <br />
 > • Fluvial processes and mass movement processes <br />
 
-<br />
-
-
-
-
-
-
-
-
-
-
-
-
-
-The Boreal forest, which can also occur in high mountains, is dominated by conifer trees. Go to the map of life https://mol.orgLinks to an external site.
-Select patterns, species richness and rarity, and go to the species groep conifers. You can see that conifer diversity is higher on the west coast of the USA than in the mountains of Switzerland. Why is this?
-the area in the USA is drier
-The mountains are higher in the USA
-the soils are volcanic in the USA
-because the mountains in the USA are located Nort-South
-
-
-We have processed the camera trap data, so that it is compiled into a shape-file that you can download from canvas: download and unzip the file (CAMERAS.zip) in your working directory. 
-
-Then you can load the shapefile into google earth engine so that you can do analysis with/on it: 
-
-<video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/179978055-1c284a74-4951-41b8-83f5-b790c58c450c.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<br />
-
-Now it needs a few minutes to load (you can check the progress in the right panel 'tasks'). 
-
-Once it is finished, we can load it and visualize it on the map. We will also draw a square around it which will be useful to calculate the NDVI. Loading the camera points and drawing the region of interest around them is shown here: 
-
-
-<video style="width:100%" controls>
-  <source src="https://user-images.githubusercontent.com/89069805/179978970-7b2b90c7-3ac5-402a-ac69-7da81db11365.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-> 📝 **Question 1**. The data we use of the camera traps is basically:
-> <br />
-> • Abundance data<br />
-> • Species richness data, without consideration of abundance <br />
-> • A weighted combination of abundance and species richness <br />
-
 ***
 
 <br />
 
-**NDVI-Map:** <br />
-The camera traps are relatively close together, the NDVI datasets that are readily available in the Google Earth Catalogue have a rough spatial resolution (e.g. the based on [MODIS satellites has a 500m resolution](https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A1). 
+It is nice to observe the patterns between biodiversity and geodiversity, yet it is clear that they do not overlap fully. There are, of course, other relevant factors to consider when investigating biodiversity. One such factor is climate data, which, as you learned in the lecture, has a complex relationship with biodiversity. Let's import the annual precipitation and mean temperature as well. We can use the BioCLIM dataset which you are familier with:
 
-> 🔍 **Review 1**. Why would a readily available NDVI with a resolution of 500m be too rough? <br />
+```javascript
+// Add climate data - annual mean temperature and yearly precipitation
+var dataset = ee.Image('WORLDCLIM/V1/BIO');
+var anntemp = dataset.select('bio01').multiply(0.1);
+var visParamsTemp = {
+  min: -23,
+  max: 30,
+  palette: ['blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
+};
+Map.addLayer(anntemp, visParamsTemp, 'Annual Mean Temperature');
 
-<br />
-<details>
-<summary>Answer Review 1. (click on this to show/hide the answer)</summary>
-Because many camera traps would then fall within the same rastercell of the NDVI-map. This means there is a mismatch in scale, analyzing this data would give you the same NDVI value for different camera traps.
-</details>
-<br />
-
-We will thus have to make it ourselves based on satellites with a better spatial resolution. One of the options is the LANDSAT 8 mission which collects spectral information in the red and near-infrared spectrum (the bands we need to calculate NDVI) at 30m resolution. All the information on this product is given [here](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2).
-
-
-***
-
-<br />
-
-### Starting the quiz
-
-Based on the previous code, by investigating the data and your knowledge from the lectures, please answer the following questions (on Canvas).
-
-<br />
-
-> 📝 **Question 2**. Statement: The Landsat product we use as a proxy for vegetation has only one band: the NDVI.
-> <br />
-> • True <br />
-> • False <br />
+var annprec = dataset.select('bio12');
+var visParamsPrec = {
+  min: 0,
+  max: 11000,
+  palette: ['blue', 'purple', 'cyan', 'green', 'yellow', 'red'],
+};
+Map.addLayer(annprec, visParamsPrec, 'Annual Precipitation');
+```
 
 <br />
 
-> 📝 **Question 3**. How is the NDVI we use calculated? Which bands are used? Provide the formula indicating how it is calculated.
+We are now observing these patterns spatially, but it would be cool if we can investigate this relationship statistically. Therefore we need to analyze data in Rstudio. A neat way to do this is to scatter some random points over the earth and collect the biodiversity, geodiversity and climate data for those points. The following code will generate random points over the earth within the specified *countries* polygon, such that no point will end up in the ocean for instance. Then, we can reduce the data to the points as we did in earlier practicals. Make sure to export all the data to your google drive, download it and import the csv files in Rstudio.
 
-<br />
+```javascript
+// Generate 100 random points on our beautiful planet earth.
+var randomPoints = ee.FeatureCollection.randomPoints(
+    {region: mergedPolygon, points: 100, seed: 0, maxError: 1});
 
+print('Random points from within the defined region', randomPoints);
+Map.addLayer(randomPoints, {color: 'purple'}, 'Random points');
 
-> 📝 **Question 4**. We have now used only one satellite acquisition to represent/calculate NDVI for the whole year. Based on what you know/find about the local climate, can you justify this? <br />
+// GREAT! now we can simply extract the values of geodiversity for the different points and export it to a csv: 
+var points_geo = geodiv.reduceRegions(randomPoints, ee.Reducer.mean( ), 10000); // The lowest resolution of our datasets is 10 sq.km, therefore we reduce the data to this distance
+Export.table.toDrive({
+  collection: points_geo,
+  description:'points_geo',
+  fileFormat: 'CSV'
+}); 
 
-<br />
+// biodiversity exports
+var points_rich = richall.reduceRegions(randomPoints, ee.Reducer.mean( ), 10000); // the '10' here indicates the resolution at which you want to collect the data, i.e. in this case the resolution of the dem , in this case 90m
+Export.table.toDrive({
+  collection: points_rich,
+  description:'points_rich',
+  fileFormat: 'CSV'
+}); 
 
-> 📝 **Question 5**. The cloud cover is still quite high, given the fact that we need to calculate NDVI at a reasonable spatial resolution (note also how close the points are to each other), which other satellite missions for which the data is available on GEE can we use to calculate NDVI at a comparable or better resolution as LANDSAT 8? <br />
-> <br />
-> • MODIS <br />
-> • SENTINEL-1 <br />
-> • SENTINEL-2 <br /> 
-> • All of the other options are correct <br /> 
+var points_rare = rareall.reduceRegions(randomPoints, ee.Reducer.mean( ), 10000); // the '10' here indicates the resolution at which you want to collect the data, i.e. in this case the resolution of the dem , in this case 90m
+Export.table.toDrive({
+  collection: points_rare,
+  description:'points_rare',
+  fileFormat: 'CSV'
+}); 
+
+// also for temperature and precipitation
+var points_temp = anntemp.reduceRegions(randomPoints, ee.Reducer.mean( ), 10000); // the '10' here indicates the resolution at which you want to collect the data, i.e. in this case the resolution of the dem , in this case 90m
+Export.table.toDrive({
+  collection: points_temp,
+  description:'points_temp',
+  fileFormat: 'CSV'
+}); 
+
+var points_prec = annprec.reduceRegions(randomPoints, ee.Reducer.mean( ), 10000); // the '10' here indicates the resolution at which you want to collect the data, i.e. in this case the resolution of the dem , in this case 90m
+Export.table.toDrive({
+  collection: points_prec,
+  description:'points_prec',
+  fileFormat: 'CSV'
+}); 
+```
+
 
 
 <br />
