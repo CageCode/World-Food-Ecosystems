@@ -195,27 +195,38 @@ Map.addLayer(geodiv, { min: 4, max: 20, palette: ['red', 'orange', 'yellow', 'gr
 
 <br />
 
+Take a moment to inspect these maps, you can select/deselect these maps one by one in the *"layers"* tab in Google Earth Engine. Appreciate the full extent of our earth and take a moment to tour the continents, then answer the questions below.
+
+<br />
+
 > 🔍 **Review 2**. How does the geodiversity index correspond visually to the biodiversity metrics richness and rarity? <br />
 
 <br />
 <details>
-<summary>Answer Review . (click on this to show/hide the answer)</summary>
+<summary>Answer Review 2. (click on this to show/hide the answer)</summary>
 It seems that the geodiversity map corresponds more to the species rarity than the species richness.
 </details>
 <br />
 
+<br />
 
-> 📝 **Question 4**. Which of the following statements are true?
+> 📝 **Question 4**. Examine the geodiversity values of Suriname and Ecuador. Which of the following statements is true?
 > <br />
-> • The Amazonian Lowland in Ecuador and the Wilhelmina Mountains in Surinam have the highest geodiversity classes <br />
-> • The lowlands and mountains in Surinam and Ecuador have relatively high geodiversity <br />
-> • The lowlands and mountains in Surinam and Ecuador have predominantly moderate geodiversity <br />
-> • The mountains in Ecuador and in Surinam have higher geodiversity classes than their lowlands <br />
+> • The Amazonian Lowland in Ecuador and the Wilhelmina Mountains in Suriname have the highest geodiversity classes <br />
+> • The lowlands and mountains in Suriname and Ecuador have relatively high geodiversity <br />
+> • The lowlands and mountains in Suriname and Ecuador have predominantly moderate geodiversity <br />
+> • The mountains in Ecuador and in Suriname have higher geodiversity classes than their lowlands <br />
+
+<br />
 
 > 📝 **Question 5**. Take a look at both the Western USA as well as Europe, why is the species richness in Europe on a comparable latitude way lower than in the Western USA, despite having similar geodiversity values?
 > Hint: Think back of earlier lectures for this course.
 
-> 📝 **Question 6**. Study the geodiversity map of Niger. This country is characterized by the 'very low' and 'low' geodiversity classes, probably related to the absence of surface water in combination with large plains, without too much topographical variation. Soil formation, in the absence of vegetation and water, will likely be restricted as well. What 2 main geomorphological processes do you currently expect to dominate the landscape formation of Niger?
+<br />
+
+> 📝 **Question 6**. Study the geodiversity map of Niger. This country is characterized by the 'very low' and 'low' geodiversity classes, probably related to the absence of surface water in combination with large plains, without too much topographical variation. Soil formation, in the absence of vegetation and water, will likely be restricted as well.
+> <br />
+> What 2 main geomorphological processes do you currently expect to dominate the landscape formation of Niger?
 > <br />
 > • Karst processes and fluvial processes <br />
 > • Weathering processes and mass movement <br />
@@ -247,6 +258,17 @@ var visParamsPrec = {
 };
 Map.addLayer(annprec, visParamsPrec, 'Annual Precipitation');
 ```
+
+<br />
+
+> 🔍 **Review 3**. How does the biodiversity parameters correspond visually to the precipitation and temperature gradients? <br />
+
+<br />
+<details>
+<summary>Answer Review . (click on this to show/hide the answer)</summary>
+Colder regions contain lesser amounts of species richness, yet tropical regions appear bountiful. Rarity appear to be less correlated to these gradients.
+</details>
+<br />
 
 <br />
 
