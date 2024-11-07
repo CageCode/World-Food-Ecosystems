@@ -65,10 +65,10 @@ abline(richprec)
 <br />
 <details>
 <summary>Answer Review 3. (click on this to show/hide the answer)</summary>
-Yes, the distribution of the point cloud is consistent with the possible climate that we observe on earth. Look at the picture underneath explaining the different biomes by the combination of precipitation and temperature. The point cloud follows the same kind of 'wavey' outline. High values of precipitation do not really occur at subzero temperatures for instance.
+Yes, the distribution of the point cloud is consistent with the possible climate that we observe on earth. Look at the picture underneath explaining the different biomes by the combination of precipitation and temperature. The point cloud follows the same kind of 'triangular' shape. High values of precipitation do not really occur at low temperatures for instance.
 <br />
 <div align="center">
-  <img src="biomes_climate.jpg" alt="biomes" >
+  <img src="biomes_climate.jpg" alt="biomes" width="300" height="300">
   <br />
   <em>Figure 4. Distribution of biomes over precipitation and temperature gradients.</em>
 </div>
