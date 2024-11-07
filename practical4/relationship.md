@@ -25,7 +25,7 @@ colnames(df) <- c("geo","rich","rare","temp","prec")
 
 ### Biodiversity over geodiversity
 
-
+It is the moment of truth, we have computed geodiversity over the earth and extracted the biodiversity and geodiversity values a
 
 ```R
 # Relationship between geodiversity and species richness
@@ -60,7 +60,7 @@ abline(richprec)
 
 <br />
 
-> 🔍 **Review 3**. Look at the plot showing the relationship between precipitation and temperature. Does the distribution of the points in this plot make sense? <br />
+> 🔍 **Review 3**. Look at the plot showing the relationship between precipitation and temperature. Does the distribution of the points in this plot make sense to you? <br />
 
 <br />
 <details>
@@ -68,7 +68,7 @@ abline(richprec)
 Yes, the distribution of the point cloud is consistent with the possible climate that we observe on earth. Look at the picture underneath explaining the different biomes by the combination of precipitation and temperature. The point cloud follows the same kind of 'triangular' shape. High values of precipitation do not really occur at low temperatures for instance.
 <br />
 <div align="center">
-  <img src="biomes_climate.jpg" alt="biomes" width="300" height="300">
+  <img src="biomes_climate.jpg" alt="biomes" width="500" height="500">
   <br />
   <em>Figure 4. Distribution of biomes over precipitation and temperature gradients.</em>
 </div>
@@ -87,14 +87,14 @@ Yes, the distribution of the point cloud is consistent with the possible climate
 
 Now also investigate the relationship between temperature and precipitation with species rarity. Write this code yourself by copying the code that analyzes the species richness with the climate data and adjusting it to species rarity.
 
-> 📝 **Question **. 
+> 📝 **Question **. How does temperature and precipitation 
 > <br />
-> • In soil and geology only <br />
+> • The point cloud for the plots between rarity and temperature and precipitation is more spread out compared to the plots with richness. <br />
 > • In geomorphology and soil only <br />
 > • In geology and geomorphology and soil <br />
 > • In all components of geodiversity <br />
 
-
+Interestingly, the point clouds for the plots between rarity and temperature and precipitation is more spread out compared to the plots with richness. The relationship 
 ```R
 # With precipitation and temperature
 richgeo_tempprec <- lm(rich ~ geo + temp + prec, data = df)
@@ -105,7 +105,7 @@ raregeo_tempprec <- lm(rare ~ geo + temp + prec, data = df)
 summary(raregeo_tempprec)
 ```
 
-
+> 📝 **Question **. How does temperature and precipitation 
 
 <br />
 <br />
