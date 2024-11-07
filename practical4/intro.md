@@ -59,6 +59,8 @@ The biodiversity datasets will be visible under the tab *"Tasks"* in the top-rig
 - Press on *"Import"* in the popup.
 - The datasets will be visible in the middle panel on GEE, give it the appropriate names *"richall"* and *"rareall"* respectively.
 
+<br />
+
 Well done! You've successfully loaded the biodiversity data into GEE. If you used the suggested names for the imported data, you can visualize the richness and rarity of all species with the following code. Note that a mask is applied to remove all NoData values from the map, ensuring that the oceans are not colored.
 
 ```javascript
