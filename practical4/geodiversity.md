@@ -164,7 +164,7 @@ Map.addLayer(lithclass, {min: 1, max: 5, palette: ['red', 'orange', 'yellow', 'g
 
 <br />
 
-Did it work? Then give your laptop a big hug, it did some crazy work for you just now, you just processed the world four times over in a matter of minutes.. wow. The drawback is, it will do this all the time when you press run, so keep that in mind.
+Did it work? Then give your laptop a big hug, it did some crazy work for you just now, you just processed the world four times over in a matter of minutes.. wow. Keep in mind, it will do this everytime when you press run, so every addition to the code will take a while to run.
 
 Now that we have the reclassified environmental components, we can calculate the geodiversity map by simply adding them together. Replace the two question marks, *"?"*, in the following code by the two missing reclassified component maps.
 
@@ -237,7 +237,7 @@ Map.addLayer(annprec, visParamsPrec, 'Annual Precipitation');
 
 <br />
 
-We are now observing these patterns spatially, but it would be cool if we can investigate this relationship statistically. Therefore we need to analyze data in Rstudio. A neat way to do this is to scatter some random points over the earth and collect the biodiversity, geodiversity and climate data for those points. The following code will generate random points over the earth within the specified *countries* polygon, such that no point will end up in the ocean for instance. Then, we can reduce the data to the points as we did in earlier practicals. Make sure to export all the data to your google drive, download it and import the csv files in Rstudio.
+We are now observing these patterns spatially, but it would be cool if we can investigate this relationship statistically. Therefore we need to analyze data in Rstudio. A neat way to do this is to scatter some random points over the earth and collect the biodiversity, geodiversity and climate data for those points. The following code will generate random points over the earth within the specified *countries* polygon, such that no point will end up in the ocean for instance. Then, we can reduce the data to the points as we did in earlier practicals. 
 
 ```javascript
 // Generate 100 random points on our beautiful planet earth.
@@ -286,7 +286,9 @@ Export.table.toDrive({
 }); 
 ```
 
+<br />
 
+After you run the code, the data is ready to be exported at the tab *"Tasks"*. Make sure to export all the data to your google drive, this may take a while (5-10 minutes), so maybe take a well-earned break. After the data has been exported, download it and import the csv files in Rstudio.
 
 <br />
 <br />
