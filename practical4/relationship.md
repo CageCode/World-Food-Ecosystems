@@ -45,7 +45,7 @@ abline(raregeo)
 
 Look at the plots and the models, does the relationship between geodiversity and biodiversity correspond to what you expected?
 
-> 📝 **Question **. Looking at the linear models between biodiversity and geodiversity, what can you say about the significance of these relationships on an alpha-level of 5%?
+> 📝 **Question 7**. Looking at the linear models between biodiversity and geodiversity, what can you say about the significance of these relationships on an alpha-level of 5%?
 > <br />
 > • There is a significant relationship between geodiversity and species richness but not for species rarity <br />
 > • There is a significant relationship between geodiversity and species rarity but not for species richness <br />
@@ -88,7 +88,7 @@ Yes, the distribution of the point cloud is consistent with the possible climate
 <br />
 
 
-> 📝 **Question **. Look at the plot between precipitation and species richness. Do you think a linear model is fitting for this data?
+> 📝 **Question 8**. Look at the plot between precipitation and species richness. Do you think a linear model is fitting for this data?
 > <br />
 > • Yes, there is a clear significant relationship between the two variables. <br />
 > • No, the relationship between the variables appears to be more logarithmic.  <br />
@@ -99,7 +99,7 @@ Yes, the distribution of the point cloud is consistent with the possible climate
 
 Now also investigate the relationship between temperature and precipitation with species rarity. Write this code yourself by copying the code that analyzes the species richness with the climate data and adjust it to species rarity.
 
-> 📝 **Question **. Looking at the linear models between rarity and temperature / precipitation, what can you say about the significance of these relationships on an alpha-level of 5%?
+> 📝 **Question 9**. Looking at the linear models between rarity and temperature / precipitation, what can you say about the significance of these relationships on an alpha-level of 5%?
 > <br />
 > • There is a significant relationship between rarity and temperature but not for precipitation <br />
 > • There is a significant relationship between rarity and precipitation but not for temperature <br />
@@ -122,7 +122,7 @@ raregeo_tempprec <- lm(rare ~ ? + ? + ?, data = df)
 summary(raregeo_tempprec)
 ```
 
-> 📝 **Question **. What is the change in relationship between geodiversity and species richness & rarity now that you accounted for temperature and precipitation? Compare the results from the simple linear regression with the multiple linear regression and include the slope and the significance (especially of the geodiversity) in your explanation.
+> 📝 **Question 10**. What is the change in relationship between geodiversity and species richness & rarity now that you accounted for temperature and precipitation? Compare the results from the simple linear regression with the multiple linear regression and include the slope and the significance (especially of the geodiversity) in your explanation.
 
 <br />
 <br />
