@@ -117,11 +117,11 @@ $$ Biodiversity = \beta_0 + \beta_1 Geodiversity + \beta_2 Temperature + \beta_3
 Now implement this equation as a linear model in R. Control for temperature and precipitation by adding them as covariates to the multiple linear regression by completing the following code:
 
 ```R
-# With precipitation and temperature
+# Explaining richness by geodiversity, precipitation and temperature
 richgeo_tempprec <- lm(rich ~ ? + ? + ?, data = df)
 summary(richgeo_tempprec)
 
-# With precipitation and temperature
+# WExplaining rarity by geodiversity, precipitation and temperature
 raregeo_tempprec <- lm(rare ~ ? + ? + ?, data = df)
 summary(raregeo_tempprec)
 ```
