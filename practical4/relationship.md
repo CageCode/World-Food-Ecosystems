@@ -43,13 +43,16 @@ abline(raregeo)
 
 <br />
 
-> 📝 **Question **. Looking at the linear moodels between biodiversity and geodiversity, what can you say about the significance of these relationships on an alpha-level of 5%?
+Look at the plots and the models, does the relationship between geodiversity and biodiversity correspond to what you expected?
+
+> 📝 **Question **. Looking at the linear models between biodiversity and geodiversity, what can you say about the significance of these relationships on an alpha-level of 5%?
 > <br />
 > • There is a significant relationship between geodiversity and species richness but not for species rarity <br />
 > • There is a significant relationship between geodiversity and species rarity but not for species richness <br />
 > • Both models show a significant relationship <br />
 > • None of the models show a significant relationship <br />
 
+<br />
 
 ```R
 # First check the plot between temperature and precipitation
@@ -69,11 +72,11 @@ abline(richprec)
 
 <br />
 
-> 🔍 **Review 3**. Look at the plot showing the relationship between precipitation and temperature. Does the distribution of the points in this plot make sense to you? <br />
+> 🔍 **Review 5**. Look at the plot showing the relationship between precipitation and temperature. Does the distribution of the points in this plot make sense to you? <br />
 
 <br />
 <details>
-<summary>Answer Review 3. (click on this to show/hide the answer)</summary>
+<summary>Answer Review 5. (click on this to show/hide the answer)</summary>
 Yes, the distribution of the point cloud is consistent with the possible climate that we observe on earth. Look at the picture underneath explaining the different biomes by the combination of precipitation and temperature. The point cloud follows the same kind of 'triangular' shape. High values of precipitation do not really occur at low temperatures for instance.
 <br />
 <div align="center">
@@ -94,27 +97,32 @@ Yes, the distribution of the point cloud is consistent with the possible climate
 
 <br />
 
-Now also investigate the relationship between temperature and precipitation with species rarity. Write this code yourself by copying the code that analyzes the species richness with the climate data and adjusting it to species rarity.
+Now also investigate the relationship between temperature and precipitation with species rarity. Write this code yourself by copying the code that analyzes the species richness with the climate data and adjust it to species rarity.
 
-> 📝 **Question **. How does temperature and precipitation 
+> 📝 **Question **. Looking at the linear models between rarity and temperature / precipitation, what can you say about the significance of these relationships on an alpha-level of 5%?
 > <br />
-> • The point cloud for the plots between rarity and temperature and precipitation is more spread out compared to the plots with richness. <br />
-> • In geomorphology and soil only <br />
-> • In geology and geomorphology and soil <br />
-> • In all components of geodiversity <br />
+> • There is a significant relationship between rarity and temperature but not for precipitation <br />
+> • There is a significant relationship between rarity and precipitation but not for temperature <br />
+> • Both models show a significant relationship <br />
+> • None of the models show a significant relationship <br />
 
-Interestingly, the point clouds for the plots between rarity and temperature and precipitation is more spread out compared to the plots with richness. The relationship 
+Let's bring it now all together, what has climate data have to do with geodiversity? Well, you could wonder if the species richness and / or rarity differ over geodiversity if you would take precipitation and temperature into account. This means that we want to observe the trend of just 
+Luckily, we are able to do just that with statistics! 
+
+To accurately examine the relationship between the first and second variable while accounting for the influence of a third variable
+This is what we call controlling for a variable. you can include the third variable as a covariate in the model.
+
 ```R
 # With precipitation and temperature
-richgeo_tempprec <- lm(rich ~ geo + temp + prec, data = df)
+richgeo_tempprec <- lm(rich ~ ? + ? + ?, data = df)
 summary(richgeo_tempprec)
 
 # With precipitation and temperature
-raregeo_tempprec <- lm(rare ~ geo + temp + prec, data = df)
+raregeo_tempprec <- lm(rare ~ ? + ? + ?, data = df)
 summary(raregeo_tempprec)
 ```
 
-> 📝 **Question **. How does temperature and precipitation 
+> 📝 **Question **. What is the change in relationship between geodiversity and species richness & rarity now that you accounted for temperature and precipitation? Compare the results from the simple linear regression with the multiple linear regression and include the slope and the significance (especially of the geodiversity) in your explanation.
 
 <br />
 <br />
