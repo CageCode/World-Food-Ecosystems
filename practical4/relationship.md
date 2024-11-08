@@ -112,11 +112,9 @@ Let's bring it now all together, what has climate data have to do with geodivers
 
 To accurately examine the relationship between two variables, while accounting for the influence of a third (or fourth etc.) variable, is what we call controlling for a variable. You can control for a variable by including this variable as a covariate in the model. When we add more explanatory variables to linear regression, we run a multiple linear regression model, which in this case would be:
 
-[ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon ]
+$$ Biodiversity = \beta_0 + \beta_1 Geodiversity + \beta_2 Temperature + \beta_3 Precipitation + \epsilon $$
 
-the first and second variable while accounting for the influence of a third variable
-This is what we call controlling for a variable. you can include the third variable as a covariate in the model.
-
+Now implement this equation as a linear model in R. Control for temperature and precipitation by adding them as covariates to the multiple linear regression by completing the following code:
 
 ```R
 # With precipitation and temperature
@@ -127,6 +125,8 @@ summary(richgeo_tempprec)
 raregeo_tempprec <- lm(rare ~ ? + ? + ?, data = df)
 summary(raregeo_tempprec)
 ```
+
+<br />
 
 > 📝 **Question 10**. What is the change in relationship between geodiversity and species richness & rarity now that you accounted for temperature and precipitation? Compare the results from the simple linear regression with the multiple linear regression and include the slope and the significance (especially of the geodiversity) in your explanation.
 
