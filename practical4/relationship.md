@@ -106,11 +106,17 @@ Now also investigate the relationship between temperature and precipitation with
 > • Both models show a significant relationship <br />
 > • None of the models show a significant relationship <br />
 
-Let's bring it now all together, what has climate data have to do with geodiversity? Well, you could wonder if the species richness and / or rarity differ over geodiversity if you would take precipitation and temperature into account. This means that we want to observe the trend of just 
-Luckily, we are able to do just that with statistics! 
+<br />
 
-To accurately examine the relationship between the first and second variable while accounting for the influence of a third variable
+Let's bring it now all together, what has climate data have to do with geodiversity? Well, you could wonder if the species richness and / or rarity differ over geodiversity if you would take precipitation and temperature into account. This means that we want to observe the relationship of just geodiversity with biodiversity, regardless of how cold/warm or dry/humid it is. Luckily, we are able to do just that with statistics! 
+
+To accurately examine the relationship between two variables, while accounting for the influence of a third (or fourth etc.) variable, is what we call controlling for a variable. You can control for a variable by including this variable as a covariate in the model. When we add more explanatory variables to linear regression, we run a multiple linear regression model, which in this case would be:
+
+[ Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \epsilon ]
+
+the first and second variable while accounting for the influence of a third variable
 This is what we call controlling for a variable. you can include the third variable as a covariate in the model.
+
 
 ```R
 # With precipitation and temperature
