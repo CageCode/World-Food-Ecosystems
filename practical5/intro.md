@@ -34,6 +34,8 @@ The reduction factors, which are successively applied to the potential yields, v
 
 In essence, the GAEZ v3.0 assessment provides a comprehensive and spatially explicit database of crop production potential and related constraint factors.
 
+<br />
+
 #### Agro–Climatic Yields
 
 The constraint-free crop yields calculated in the AEZ biomass model reflect yield potentials concerning temperature, radiation, and moisture regimes prevailing in the respective grid cells. The model requires several crop characteristics, including:
@@ -49,6 +51,8 @@ The constraint-free crop yields calculated in the AEZ biomass model reflect yiel
 
 Agro-climatically attainable yields are calculated at crop/LUT level for three input levels (high, intermediate, and low) and three water supply system types (rain-fed, rain-fed with water conservation, and irrigation).
 
+<br />
+
 #### Climate Yield Constraints
 
 The model not only provides estimates of agro-climatically attainable crop yields but also offers information on the climate-related constraints affecting crop yields. These constraints include:
@@ -58,9 +62,13 @@ The model not only provides estimates of agro-climatically attainable crop yield
 
 Additionally, the model outputs crop water deficits (rain-fed conditions) or crop irrigation water requirements (irrigated conditions).
 
+<br />
+
 #### Crop Calendars
 
 The results of biomass and yield calculation depend on the timing of the crop growth cycle (crop calendar). For each grid cell, the starting and ending dates of each crop/LUT growth cycle are optimized to achieve the best possible crop yields, separately for rain-fed and irrigated conditions. This process also ensures adaptation in simulations with year-by-year historical weather conditions and allows major crop calendar shifts and adaptations under climate changes scenarios.
+
+<br />
 
 #### Agro-Ecological Suitability and Productivity
 
