@@ -180,55 +180,107 @@ We will thus have to make it ourselves based on satellites with a better spatial
 
 
 ```javascript
+var DEM = ee.Image("USGS/GTOPO30");
+var BIO = ee.Image("WORLDCLIM/V1/BIO");
 
-/// You should have the script ready where you have imported the table (the camera points) and drawn a rectangle around them 
-// let's also visualize the points; 
-Map.addLayer(table, {color: 'FF0000'},'qgis shapefile');
-//and center the map around the rectangle we made: 
-Map.centerObject(clip);
+///////// loading variables
+// for medium suitability
+var prangeme = [800,2000]; //Precipitation suitability range for crop in mm
+var trangeme = [200,300]; //temperature suitability range for crop in degrees C*10
+var arangeme = [-100,2000]; //altitude suitability range for crop in m
+var srangeme = [0,20]; //slope suitability range for crop in degrees
 
-//Now we can start calculating NDVI based on the landsat 8 reflectances in the red and near infrared bands (use the link above to find out which bands these are) 
-var landsat = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2");
-print(landsat); // if you want to print this to the console, you'll get an error: indeed the imageCollection is way too big
-//so, let's first select on the region and the dates of interest (only within the clip, and the whole year of 2019)
-var landsat = ee.ImageCollection("LANDSAT/LC08/C02/T1_TOA").filterBounds(clip).filterDate('2019-01-01', '2019-12-31');
-print(landsat); //great this works
-// in the tropics, and in mountaineous areas, clouds can be an issue when calculating NDVI. So let's sort the image collection according to cloud cover, and then take the image with the least clouds
-var bestlandsat = ee.Image(landsat.sort('CLOUD_COVER').first());
-print(bestlandsat);
-
-// now let's visualize this image: 
-// Define the visualization parameters.
-var vizParams = {
-  bands: ['B4', 'B3', 'B2'],
-  min: 0,
-  max: 0.3
+// for high suitability
+var prangehi = [1000,2000]; //Precipitation suitability range for crop in mm
+var trangehi = [200,300]; //temperature suitability range for crop in degrees C*10
+var arangehi = [-100,1000]; //altitude suitability range for crop in m
+var srangehi = [0,5]; //slope suitability range for crop in degrees
+//selecting layers from imported Data
+var prec = BIO.select('bio12')
+var temp = BIO.select('bio01')
+//Modifying layers for use in model
+var slope = ee.Terrain.slope(DEM) // here the slope is calculated from the DEM
+//reclassifying layers for suitability
+var suitabilityme =
+DEM.gte(arangeme[0]).and(DEM.lte(arangeme[1])).multiply(slope.gte(srangeme[0]).and(
+slope.lte(srangeme[1]))).multiply(temp.gte(trangeme[0]).and(temp.lte(trangeme[1])))
+.multiply(prec.gte(prangeme[0]).and(prec.lte(prangeme[1])))
+var suitabilityhi =
+DEM.gte(arangehi[0]).and(DEM.lte(arangehi[1])).multiply(slope.gte(srangehi[0]).and(
+slope.lte(srangehi[1]))).multiply(temp.gte(trangehi[0]).and(temp.lte(trangehi[1])))
+.multiply(prec.gte(prangehi[0]).and(prec.lte(prangehi[1])))
+var suitability = suitabilityme.add(suitabilityhi)
+//Modifying climatic layers for use in model
+var temp = temp.add(0) // this line can be used to modify the temperature
+var prec = prec.add(0) // this line can be used to modify the precipitation
+//reclassifying layers for suitability with new climate
+var suitabilityme2 =
+DEM.gte(arangeme[0]).and(DEM.lte(arangeme[1])).multiply(slope.gte(srangeme[0]).and(
+slope.lte(srangeme[1]))).multiply(temp.gte(trangeme[0]).and(temp.lte(trangeme[1])))
+.multiply(prec.gte(prangeme[0]).and(prec.lte(prangeme[1])))
+var suitabilityhi2 =
+DEM.gte(arangehi[0]).and(DEM.lte(arangehi[1])).multiply(slope.gte(srangehi[0]).and(
+slope.lte(srangehi[1]))).multiply(temp.gte(trangehi[0]).and(temp.lte(trangehi[1])))
+.multiply(prec.gte(prangehi[0]).and(prec.lte(prangehi[1])))
+var suitability2 = suitabilityme2.add(suitabilityhi2)
+//Visualisation of the results
+var suitmasked = suitability.updateMask(suitability.gt(0));
+var suitmasked2 = suitability2.updateMask(suitability2.gt(0));
+var vispar = {min: 1, max: 2, palette: ['FFFF00','00FF00']};
+Map.addLayer(suitmasked,vispar, 'Current Suitability')
+Map.addLayer(suitmasked2,vispar, 'Future Suitability')
+///////// setting up the Legend
+// set position of panel
+var legend = ui.Panel({
+style: {
+position: 'bottom-left',
+padding: '8px 15px'
+}
+});
+// Create legend title
+var legendTitle = ui.Label({
+value: 'Suitability',
+style: {
+fontWeight: 'bold',
+fontSize: '18px',
+margin: '0 0 4px 0',
+padding: '0'
+}
+});
+// Add the title to the panel
+legend.add(legendTitle);
+// Creates and styles 1 row of the legend.
+var makeRow = function(color, name) {
+// Create the label that is actually the colored box.
+var colorBox = ui.Label({
+style: {
+backgroundColor: '#' + color,
+// Use padding to give the box height and width.
+padding: '8px',
+margin: '0 0 4px 0'
+}
+});
+// Create the label filled with the description text.
+var description = ui.Label({
+value: name,
+style: {margin: '0 0 4px 6px'}
+});
+// return the panel
+return ui.Panel({
+widgets: [colorBox, description],
+layout: ui.Panel.Layout.Flow('horizontal')
+});
 };
-
-// Center the map and display the image.
-Map.addLayer(bestlandsat, vizParams, 'true color composite');
-
-//now let's calucalte ndvi of this image
-// Compute the Normalized Difference Vegetation Index (NDVI): we need to define the nir and red bands: find out which ones these are and replace the X and Y below with the correct band numbers: 
-var nir = bestlandsat.select('BX');
-var red = bestlandsat.select('BY');
-var ndvi = nir.subtract(red).divide(nir.add(red)).rename('NDVI'); // this is (NIR-RED)/(NIR+RED)
-
-
-// Now let's visualize this ndvi map we made:                   
-var ndvizoom = ndvi.clip(clip); //only cut out the region that what we need
-var ndviParams = {min: -1, max: 1, palette: ['blue', 'white', 'green']}; // set visualization parameters
-Map.addLayer(ndvizoom, ndviParams, 'NDVI image'); //plot the NDVI
-
-
-// GREAT! now we can simply extract the values of NDVI for the different points and export it to a csv: 
-var camera_ndvi = ndvizoom.reduceRegions(table, ee.Reducer.mean( ),30); // the '30' here indicates the resolution at which you want to collect the data, i.e. in this case the resolution of the dem , in this case 90m
-Export.table.toDrive({
-  collection: camera_ndvi,
-  description:'camera_ndvi',
-  fileFormat: 'CSV'
-}); //we write the elevation values per camera location to a csv
-// after running this it should appear in your 'tasks' here to the right: click on 'run': after finalization it will appear in your google drive
+// Palette with the colors
+var palette =['00FF00','FFFF00'];
+// name of the legend
+var names = ['High Suitability','Medium Suitability'];
+// Add color and and names
+for (var i = 0; i < 2; i++) {
+legend.add(makeRow(palette[i], names[i]));
+}
+// add legend to map (alternatively you can also print the legend to the console)
+Map.add(legend);
 ```
 
 ***
