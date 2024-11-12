@@ -12,6 +12,62 @@ For evaluating rain-fed land productivity, the FAO employs a water-balance model
 
 In contrast, for irrigated land productivity, each crop’s growth cycle length is aligned with periods that have temperatures favorable for growth. The estimated potential agro-climatic yields are then adjusted using various reduction factors that are either directly or indirectly associated with climate (e.g., pests and diseases), soil, and terrain conditions.
 
+### Agro-Ecological Zones by FAO
+
+The Food and Agriculture Organization (FAO) provides a detailed description of Global Agro-Ecological Zones (GAEZ). They develop suitability and potential yield maps for up to 280 crops/land utilization types under varying input and management levels for historical, current, and future climate conditions.
+
+These maps, albeit currently unavailable online (as of November 2021), are grounded on sophisticated suitability models. You can read about the development and the underlying models of these maps on the FAO's official site: [FAO GAEZ Data Portal](http://www.fao.org/nr/gaez/about-data-portal/agricultural-suitability-and-potential-yields/en/).
+
+Rather than using the FAO site directly, we will be utilizing the [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in our Canvas Quiz exercises.
+
+---
+
+In this practical, we will delve into the fascinating world of suitability models to understand how different crops can thrive under varying environmental conditions. By examining suitability and potential yield maps, we will explore how the FAO determines the best locations and conditions for up to 280 different crops/land utilization types. These models take into account factors such as climate conditions, soil moisture, radiation, and temperature to provide a comprehensive view of agricultural productivity. Using the Crop Niche Viewer, we will analyze these suitability models to gain insights into the potential yields and productivity of both rain-fed and irrigated lands.
+
+---
+
+### Analyzing Suitability Models
+
+The reduction factors, which are successively applied to the potential yields, vary with crop type, the environment (in terms of climate, soil, and terrain conditions), and depend on assumptions regarding levels of inputs/management. To ensure that the results of the suitability assessment relate to production achievable on a long-term basis, two key adjustments are made:
+1. Fallow periods are imposed.
+2. Terrain slopes are excluded when inadequate for the assumed level of inputs/management or too susceptible to topsoil erosion.
+
+In essence, the GAEZ v3.0 assessment provides a comprehensive and spatially explicit database of crop production potential and related constraint factors.
+
+#### Agro–Climatic Yields
+
+The constraint-free crop yields calculated in the AEZ biomass model reflect yield potentials concerning temperature, radiation, and moisture regimes prevailing in the respective grid cells. The model requires several crop characteristics, including:
+- Length of growth cycle (days from emergence to full maturity)
+- Length of yield formation period
+- Maximum rate of photosynthesis at prevailing temperatures
+- Leaf area index at maximum growth rate
+- Harvest index
+- Crop adaptability group
+- Sensitivity of crop growth cycle length to heat provision
+- Development stage-specific crop water requirements
+- Coefficients of crop yield response to water stress
+
+Agro-climatically attainable yields are calculated at crop/LUT level for three input levels (high, intermediate, and low) and three water supply system types (rain-fed, rain-fed with water conservation, and irrigation).
+
+#### Climate Yield Constraints
+
+The model not only provides estimates of agro-climatically attainable crop yields but also offers information on the climate-related constraints affecting crop yields. These constraints include:
+- Temperature constraints
+- Moisture constraints
+- Yield constraints due to pests, diseases, and workability
+
+Additionally, the model outputs crop water deficits (rain-fed conditions) or crop irrigation water requirements (irrigated conditions).
+
+#### Crop Calendars
+
+The results of biomass and yield calculation depend on the timing of the crop growth cycle (crop calendar). For each grid cell, the starting and ending dates of each crop/LUT growth cycle are optimized to achieve the best possible crop yields, separately for rain-fed and irrigated conditions. This process also ensures adaptation in simulations with year-by-year historical weather conditions and allows major crop calendar shifts and adaptations under climate changes scenarios.
+
+#### Agro-Ecological Suitability and Productivity
+
+Adequate agricultural exploitation of the climatic potentials and maintenance of land productivity depend significantly on soil fertility and ecologically sustained management of soils. Soil fertility pertains to the soil's ability to retain and supply nutrients and water, enabling crops to fully utilize the climatic resources of a given location. The fertility of soil is determined by both its physical and chemical properties. Understanding these factors and their interrelations is essential for effective utilization of climate, terrain, and crop resources for optimal use and production.
+
+From the basic soil requirements of crops, various soil characteristics have been established related to crop yield, ranging from optimal to marginal conditions.
+
 
 <br />
 
