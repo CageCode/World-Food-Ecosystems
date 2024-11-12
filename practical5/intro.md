@@ -74,8 +74,18 @@ The results of biomass and yield calculation depend on the timing of the crop gr
 
 Adequate agricultural exploitation of the climatic potentials and maintenance of land productivity depend significantly on soil fertility and ecologically sustained management of soils. Soil fertility pertains to the soil's ability to retain and supply nutrients and water, enabling crops to fully utilize the climatic resources of a given location. The fertility of soil is determined by both its physical and chemical properties. Understanding these factors and their interrelations is essential for effective utilization of climate, terrain, and crop resources for optimal use and production.
 
-From the basic soil requirements of crops, various soil characteristics have been established related to crop yield, ranging from optimal to marginal conditions.
+From the basic soil requirements of crops, various soil characteristics have been established related to crop yield, ranging from optimal to marginal conditions. Beyond certain critical ranges, crops cannot yield satisfactorily unless special management measures are implemented. Soil suitability classifications are informed by:
+- Knowledge of crop requirements
+- Prevailing soil conditions
+- Applied soil management practices
 
+In essence, soil suitability procedures assess to what extent soil conditions meet crop requirements under specified input and management circumstances.
+
+Agro-ecological suitability and productivity are presented based on:
+- Four input levels (high, intermediate, low, and mixed)
+- Five water supply system types (rain-fed, rain-fed with water conservation, gravity irrigation, sprinkler irrigation, and drip irrigation)
+
+These classifications are provided at the crop level (covering 49 crops) for baseline climate conditions (1961-1990) as well as future climate scenarios. Additionally, comprehensive crop summary tables by administrative units are available for viewing and download
 
 <br />
 
