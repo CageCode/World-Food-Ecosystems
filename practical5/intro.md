@@ -10,23 +10,13 @@ These maps, are grounded on sophisticated suitability models. You can read about
 
 Rather than using the FAO site directly, we will be utilizing the [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in our Canvas Quiz exercises.
 
+### Agro-Ecological Zones by FAO
 ### Suitability Models: Agricultural Suitability and Potential Yields
 
 For evaluating rain-fed land productivity, the FAO employs a water-balance model to ascertain the beginning and duration of periods with adequate water for crop growth. This model, combined with other climatic factors (such as radiation and temperature), is used in a robust crop growth framework to estimate potential biomass production and yield.
 
 In contrast, for irrigated land productivity, each crop’s growth cycle length is aligned with periods that have temperatures favorable for growth. The estimated potential agro-climatic yields are then adjusted using various reduction factors that are either directly or indirectly associated with climate (e.g., pests and diseases), soil, and terrain conditions.
 
-### Agro-Ecological Zones by FAO
-
-The Food and Agriculture Organization (FAO) provides a detailed description of Global Agro-Ecological Zones (GAEZ). They develop suitability and potential yield maps for up to 280 crops/land utilization types under varying input and management levels for historical, current, and future climate conditions.
-
-These maps, albeit currently unavailable online (as of November 2021), are grounded on sophisticated suitability models. You can read about the development and the underlying models of these maps on the FAO's official site: [FAO GAEZ Data Portal](http://www.fao.org/nr/gaez/about-data-portal/agricultural-suitability-and-potential-yields/en/).
-
-Rather than using the FAO site directly, we will be utilizing the [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in our Canvas Quiz exercises.
-
----
-
-In this practical, we will delve into the fascinating world of suitability models to understand how different crops can thrive under varying environmental conditions. By examining suitability and potential yield maps, we will explore how the FAO determines the best locations and conditions for up to 280 different crops/land utilization types. These models take into account factors such as climate conditions, soil moisture, radiation, and temperature to provide a comprehensive view of agricultural productivity. Using the Crop Niche Viewer, we will analyze these suitability models to gain insights into the potential yields and productivity of both rain-fed and irrigated lands.
 
 ---
 
