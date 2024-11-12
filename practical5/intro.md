@@ -4,6 +4,10 @@ In this practical, we will delve into suitability models to understand how diffe
 
 These maps, are grounded on sophisticated suitability models. You can read about the development and the underlying models of these maps on the FAO's official site: [FAO GAEZ Data Portal](https://gaez.fao.org/pages/theme-details-theme-4).
 
+<br />
+
+
+
 Rather than using the FAO site directly, we will be utilizing the [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in our Canvas Quiz exercises.
 
 ### Suitability Models: Agricultural Suitability and Potential Yields
