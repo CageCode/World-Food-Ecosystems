@@ -75,6 +75,8 @@ Fill in the following settings for the parameters on the left:
 6) Set temperature range during growth cycle: 15-30 degrees Celsius
 7) Click 'Click to map!' (displaying your results might take a few seconds up to half a minute)
 
+<br />
+
 Use the visualized suitability map to answer the following question:
 
 > 📝 **Question 2**. Which region in Nigeria (zoom in on the map if needed) is best suited to grow Sweet Potatoes in the months April, May and June under the conditions you set above? <br />
