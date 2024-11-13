@@ -26,7 +26,7 @@ What's that? A déjà vu? O yes it is, you have seen this table before and now i
 > 📝 **Question 1**. Let's say you want to create a suitability map for grape production in The Netherlands. Which geospatial parameters would be fitting for the analysis? <br />
 > <br />
 > Explain which spatial and temporal extent and resolution would be suitable, which dimensions you would consider and which assumption(s) you would make for this analysis. Please provide your answer in bullet points in less than 100 words. <br />
-<br />
+
 
 ***
 
@@ -40,9 +40,9 @@ Agro-ecalogical zoning (AEZ), as applied in FAO studies, defines zones on the ba
 
 ### Analyzing Suitability Models
 
-The paper by Peter et al., 2020, introduces a suitability mapper in Google Earth Engine, we will be utilizing this [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in this practical.
+Let's see what these suitability maps look like. Luckily for us, the paper by Peter et al., 2020, introduces a suitability mapper in Google Earth Engine. We will be utilizing this [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in this practical. Go to this website and perform the following steps.
 
-We will do a first Crop-Climate Suitability Mapping
+Fill in the following settings for the parameters on the left: 
 
 1) Select region: Nigeria
 2) Choose temporal range: 2019-2020
@@ -57,12 +57,162 @@ Use the visualized suitability map to answer the following question:
 > 📝 **Question 2**. Which region in Nigeria (zoom in on the map if needed) is best suited to grow Sweet Potatoes in the months April, May and June under the conditions you set above? <br />
 <br />
 
+Now change the map a little: Use the same settings 1) to 5) as above, but change 6) Set temperature range during growth cycle to: 20-35 degrees Celsius.
+
+> <br />
+
+> 📝 **Question 3**. Study on your map which region in Nigeria (zoom in on the map if needed) is best suited to grow Sweet Potatoes in the months April, May and June under the new conditions you just set. Is this region different from the region you picked in Question 13 and how can this be explained?
+<br />
 
 
 
+***
 
+### Suitability Maps
 
+Let's build a suitability mapper ourselves! 
+For this suitability mapper, we are going to consider elevation, slope, mean temperature and annual precipitation. First we have to retrieve this data, import this data yourself, for the DEM use the GTOPO30 dataset and for the climate data use the WorldCLIM Bio dataset.
 
+Make sure you give the variables the names DEM and BIO respectively to make sure it will work with the code later on. Fill in the question marks in the following code:
+
+```javascript
+var DEM = ?
+var BIO = ?
+```
+
+<br />
+
+Now that you imported the datasets, select the correct bands for both the temperature and the precipitation. Again, change the question marks to the correct band:
+
+```javascript
+//selecting layers from imported Data
+var prec = BIO.select('?')
+var temp = BIO.select('?')
+
+//Modifying layers for use in model
+var slope = ee.Terrain.slope(DEM) // here the slope is calculated from the DEM
+```
+
+<br />
+
+Once we have that going, 
+```javascript
+///////// initializing suitability parameters
+// for medium suitability
+var prangeme = [800,2000]; //Precipitation suitability range for crop in mm
+var trangeme = [200,300]; //temperature suitability range for crop in degrees C*10
+var arangeme = [-100,2000]; //altitude suitability range for crop in m
+var srangeme = [0,20]; //slope suitability range for crop in degrees
+```
+
+<br />
+
+Now we can copy the following code. This code is somewhat harder to understand, but check it out of you want to try. The first part calculates the high en medium suitability. Then these suitability classes are visualized, and a legend is added at the end for extra insight.
+
+```javascript
+//Modifying layers for use in model
+var slope = ee.Terrain.slope(DEM) // here the slope is calculated from the DEM
+
+//reclassifying layers for suitability
+var suitabilityme =
+DEM.gte(arangeme[0]).and(DEM.lte(arangeme[1])).multiply(slope.gte(srangeme[0]).and(
+slope.lte(srangeme[1]))).multiply(temp.gte(trangeme[0]).and(temp.lte(trangeme[1])))
+.multiply(prec.gte(prangeme[0]).and(prec.lte(prangeme[1])))
+var suitabilityhi =
+DEM.gte(arangehi[0]).and(DEM.lte(arangehi[1])).multiply(slope.gte(srangehi[0]).and(
+slope.lte(srangehi[1]))).multiply(temp.gte(trangehi[0]).and(temp.lte(trangehi[1])))
+.multiply(prec.gte(prangehi[0]).and(prec.lte(prangehi[1])))
+var suitability = suitabilityme.add(suitabilityhi)
+
+//Modifying climatic layers for use in model
+var temp = temp.add(0) // this line can be used to modify the temperature
+var prec = prec.add(0) // this line can be used to modify the precipitation
+
+//reclassifying layers for suitability with new climate
+var suitabilityme2 =
+DEM.gte(arangeme[0]).and(DEM.lte(arangeme[1])).multiply(slope.gte(srangeme[0]).and(
+slope.lte(srangeme[1]))).multiply(temp.gte(trangeme[0]).and(temp.lte(trangeme[1])))
+.multiply(prec.gte(prangeme[0]).and(prec.lte(prangeme[1])))
+var suitabilityhi2 =
+DEM.gte(arangehi[0]).and(DEM.lte(arangehi[1])).multiply(slope.gte(srangehi[0]).and(
+slope.lte(srangehi[1]))).multiply(temp.gte(trangehi[0]).and(temp.lte(trangehi[1])))
+.multiply(prec.gte(prangehi[0]).and(prec.lte(prangehi[1])))
+var suitability2 = suitabilityme2.add(suitabilityhi2)
+
+//Visualisation of the results
+var suitmasked = suitability.updateMask(suitability.gt(0));
+var suitmasked2 = suitability2.updateMask(suitability2.gt(0));
+var vispar = {min: 1, max: 2, palette: ['FFFF00','00FF00']};
+Map.addLayer(suitmasked,vispar, 'Current Suitability')
+Map.addLayer(suitmasked2,vispar, 'Future Suitability')
+
+///////// setting up the Legend
+// set position of panel
+var legend = ui.Panel({
+style: {
+position: 'bottom-left',
+padding: '8px 15px'
+}
+});
+
+// Create legend title
+var legendTitle = ui.Label({
+value: 'Suitability',
+style: {
+fontWeight: 'bold',
+fontSize: '18px',
+margin: '0 0 4px 0',
+padding: '0'
+}
+});
+
+// Add the title to the panel
+legend.add(legendTitle);
+
+// Creates and styles 1 row of the legend.
+var makeRow = function(color, name) {
+// Create the label that is actually the colored box.
+var colorBox = ui.Label({
+style: {
+backgroundColor: '#' + color,
+// Use padding to give the box height and width.
+padding: '8px',
+margin: '0 0 4px 0'
+}
+});
+// Create the label filled with the description text.
+var description = ui.Label({
+value: name,
+style: {margin: '0 0 4px 6px'}
+});
+// return the panel
+return ui.Panel({
+widgets: [colorBox, description],
+layout: ui.Panel.Layout.Flow('horizontal')
+});
+};
+// Palette with the colors
+var palette =['00FF00','FFFF00'];
+// name of the legend
+var names = ['High Suitability','Medium Suitability'];
+// Add color and and names
+for (var i = 0; i < 2; i++) {
+legend.add(makeRow(palette[i], names[i]));
+}
+// add legend to map (alternatively you can also print the legend to the console)
+Map.add(legend);
+```
+
+<br />
+
+Run the code if you copied it, does it visualize the suitability in yellow and green? If yes, good job, then everything went well. 
+
+<br />
+
+> 📝 **Question 4**. Run the model, the model was prepared for Rice Suitability. <br />
+> <br />
+> Study your web map. Which areas are suitable for rice cultivation? <br />
+> Pick the best answer from the answers below: <br />
 
 
 In essence, the GAEZ v3.0 assessment provides a comprehensive and spatially explicit database of crop production potential and related constraint factors.
