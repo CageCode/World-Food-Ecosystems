@@ -297,17 +297,44 @@ Fill in the following table for your chosen crop:
 | Elevation	| e.g. 0 - 2000 m	| eg. 500 - 1000 m |
 | Slope	| eg. 0 - 5 degrees	| eg. 0 - 1 degrees |
 
-Fill in the suitability factors into your Google Earth Engine code and run the model.
+When you found the suitability parameters for your crop, insert the values into your Google Earth Engine code and run the model.
 
 Hint: to include that elevations are below sea level (such as The Netherlands), choose a negative number for you lower elevation range.
 
+> 📝 **Question 10**. Add the name of your crop to the legend title in the code were it says: ```value: 'Suitability'```. For instance ```'Suitability Sunflower'```. Then make a screenshot of your created suitability map (including the legend). Upload this map on Canvas at this question.  <br />
+> Try to Google how to make a screenshot if you do not know how (on windows there is an application called Snippy for instance). Make sure the image can be opened by us (such as a .jpg format). <br /> 
+<br /> 
 
+Let's investigate the distribution of your chosen crop and how vulnerable it is to changes in temperature and precipitation. Apply the following scenarios in your code by changing the ```var temp``` and ```var prec``` just as you did earlier in the practical. Use the scenarios underneath to get a feel for this vulnerability.
 
+| Scenarios | 
+|---|
+| + 2.0 degrees temperature | same precipitation |
+| - 2.0 degrees temperature | same precipitation |
+| same temperature | + 200 mm precipitation |
+| same temperature | - 200 mm precipitation |
+| + 2.0 degrees temperature | + 200 mm precipitation |
+| - 2.0 degrees temperature | - 200 mm precipitation |
+
+> 📝 **Question 11**. Describe in 5-10 sentences the differences between the regional output and your suitability map for your chosen crop and how vulnerable your crop is to climate change (which regions/biomes will become more/less suitable).  <br /> 
 
 
 In essence, the GAEZ v3.0 assessment provides a comprehensive and spatially explicit database of crop production potential and related constraint factors.
 
 <br />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
