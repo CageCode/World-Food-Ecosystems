@@ -4,6 +4,8 @@ In this practical, we will delve into suitability models to understand how diffe
 
 These maps, are grounded on sophisticated suitability models. You can read about the development and the underlying models of these maps on the FAO's official site: [FAO GAEZ Data Portal](https://gaez.fao.org/). 
 
+<br />
+
 ### Geospatial Parameters
 
 What's that? A déjà vu? O yes it is, you have seen this table before and now it's your turn to fill it in. What would be appropriate geospatial parameters regarding suitability mapping? Well, that depends on the research question at hand. As discussed in the first lecture, the choices you make should align with the intended application. The goal is to reduce complexity to generate an answer that is both meaningful and accurate.
@@ -55,8 +57,9 @@ Agro-ecological suitability and productivity are presented based on:
 
 These classifications are provided at the crop level (covering 49 crops) for baseline climate conditions (1961-1990) as well as future climate scenarios. Additionally, comprehensive crop summary tables by administrative units are available for viewing and download
 
-
 ***
+
+<br />
 
 ### Analyzing Suitability Models
 
@@ -84,9 +87,9 @@ Now change the map a little: Use the same settings 1) to 5) as above, but change
 > 📝 **Question 3**. Study on your map which region in Nigeria (zoom in on the map if needed) is best suited to grow Sweet Potatoes in the months April, May and June under the new conditions you just set. Is this region different from the region you picked in Question 13 and how can this be explained?
 <br />
 
-
-
 ***
+
+<br />
 
 ### Suitability Maps
 
