@@ -10,6 +10,28 @@ These maps, are grounded on sophisticated suitability models. You can read about
 
 Rather than using the FAO site directly, we will be utilizing the [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in our Canvas Quiz exercises.
 
+### Geospatial Parameters
+
+What's that? A déjà vu? O yes it is, you have seen this table before and now it's your turn to fill it in. What would be appropriate geospatial parameters regarding suitability mapping? Well, that depends on the research question at hand. As discussed in the first lecture, the choices you make should align with the intended application. The goal is to reduce complexity to generate an answer that is both meaningful and accurate.
+
+| Parameter  |  Value |
+|---|---|
+| Spatial extent | ? |
+| Temporal extent | ? |
+| Cartographic unit |  ?  |
+| Dimensions | ? |
+| Dimension description |  ? |
+| Temporal resolution | ? |
+| Spatial resolution | ? |
+| Assumption / Hypothesis | ? |
+
+> 📝 **Question 1**. Let's say you want to create a suitability map for grape production in The Netherlands. Which geospatial parameters would be fitting for the analysis? <br />
+> <br />
+> Explain which spatial and temporal extent and resolution would be suitable, which dimensions you would consider and which assumption(s) you would make for this analysis. Please provide your answer in bullet points in less than 100 words. <br />
+<br />
+
+
+
 ### Agro-Ecological Zones by FAO
 ### Suitability Models: Agricultural Suitability and Potential Yields
 
