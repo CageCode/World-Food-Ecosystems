@@ -86,7 +86,7 @@ Now change the map a little: Use the same settings 1) to 5) as above, but change
 
 > <br />
 
-> 📝 **Question 3**. Study on your map which region in Nigeria (zoom in on the map if needed) is best suited to grow Sweet Potatoes in the months April, May and June under the new conditions you just set. Is this region different from the region you picked in Question 13 and how can this be explained?
+> 📝 **Question 3**. Study on your map which region in Nigeria (zoom in on the map if needed) is best suited to grow Sweet Potatoes in the months April, May and June under the new conditions you just set. Is this region different from the region you picked in Question 2 and how can this be explained?
 <br />
 
 ***
