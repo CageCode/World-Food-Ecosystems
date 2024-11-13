@@ -2,17 +2,13 @@
 
 In this practical, we will delve into suitability models to understand how different crops can thrive under varying environmental conditions. The Food and Agriculture Organization (FAO) provides a detailed description of Global Agro-Ecological Zones (GAEZ). They develop suitability and potential yield maps for up to 280 crops/land utilization types under varying input and management levels for historical, current, and future climate conditions. These models take into account factors such as climate conditions, soil classes, water availability etc. to provide a comprehensive view of agricultural productivity. 
 
-These maps, are grounded on sophisticated suitability models. You can read about the development and the underlying models of these maps on the FAO's official site: [FAO GAEZ Data Portal](https://gaez.fao.org/pages/theme-details-theme-4).
-
-<br />
-
-
-
-Rather than using the FAO site directly, we will be utilizing the [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in our Canvas Quiz exercises.
+These maps, are grounded on sophisticated suitability models. You can read about the development and the underlying models of these maps on the FAO's official site: [FAO GAEZ Data Portal](https://gaez.fao.org/pages/theme-details-theme-4). 
 
 ### Geospatial Parameters
 
 What's that? A déjà vu? O yes it is, you have seen this table before and now it's your turn to fill it in. What would be appropriate geospatial parameters regarding suitability mapping? Well, that depends on the research question at hand. As discussed in the first lecture, the choices you make should align with the intended application. The goal is to reduce complexity to generate an answer that is both meaningful and accurate.
+
+<br />
 
 | Parameter  |  Value |
 |---|---|
@@ -25,15 +21,22 @@ What's that? A déjà vu? O yes it is, you have seen this table before and now i
 | Spatial resolution | ? |
 | Assumption / Hypothesis | ? |
 
+<br />
+
 > 📝 **Question 1**. Let's say you want to create a suitability map for grape production in The Netherlands. Which geospatial parameters would be fitting for the analysis? <br />
 > <br />
 > Explain which spatial and temporal extent and resolution would be suitable, which dimensions you would consider and which assumption(s) you would make for this analysis. Please provide your answer in bullet points in less than 100 words. <br />
 <br />
 
+***
 
+<br />
 
-### Agro-Ecological Zones by FAO
+### Agro-Ecological Zones
 ### Suitability Models: Agricultural Suitability and Potential Yields
+
+
+The paper by Peter et al., 2020, introduces a suitability mapper in Google Earth Engine, we will be utilizing this [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in this practical.
 
 For evaluating rain-fed land productivity, the FAO employs a water-balance model to ascertain the beginning and duration of periods with adequate water for crop growth. This model, combined with other climatic factors (such as radiation and temperature), is used in a robust crop growth framework to estimate potential biomass production and yield.
 
@@ -99,43 +102,7 @@ Agro-ecological suitability and productivity are presented based on:
 
 These classifications are provided at the crop level (covering 49 crops) for baseline climate conditions (1961-1990) as well as future climate scenarios. Additionally, comprehensive crop summary tables by administrative units are available for viewing and download
 
-<br />
 
-## Step 1: Describing data
-
-<br />
-
-### Problem setting
-
-As introduced in class, we will use camera trap data: these are cameras where each time an animal passes, a picture is taken and AI is used to identify the animal. After some data cleaning and quality checks, the total amount of unique species (species richness) can be calculated for each camera (so each location). The question in this practical will be: for a dataset collected in Costa Rica: which gradients in species richness exist? Based on what we saw in class, we assume here that if there are gradients, they might depend on NDVI. Additionally, because the dataset is acquired on the flanks of a volcano, we will also check the effect of elevation. 
-
-<br />
-
-Now think about the geospatial parameters, how would you go about analysing biodiversity over gradients in Costa Rica? Can you complete the following table and give the answers on the question marks?
-
-| Parameter  |  Value |
-|---|---|
-| Spatial extent | ? |
-| Temporal extent | ? |
-| Cartographic unit |  Point data (camera trap observations)  |
-| Dimensions | We'll consider the elevation and NDVI
-| Dimension description | Elevation: ? , temperature: NDVI: calculated from the LANDSAT 8 mission  |
-| Temporal resolution | Static, the observation data is simplified to 2019(!) |
-| Spatial resolution | ? |
-| Assumption / Hypothesis | Species richness depends on the amount of energy available. Here we will use NDVI as a proxy for net primary production. Additionally, we assume that richness decreases with temperature, and thus will decrease when elevations are higher |
-
-<br />
-
-(!) In reality the data was collected intermittently since 2007 but for the purposes of this practical, the data are aggregated and strongly simplified. Dealing with the temporal dimension of this dataset and with the particularities of data cleaning for camera trapping lies beyond the scope of this course. We *assume*, for the purposes of this exercise, the data is suitable for analysis against a landsat image of the year 2019 (see later). 
-
-
-And we'll use following data structures and sources:
-
-| Dataset      | Type | Source     |Access point     |
-| :---        |    :---    |          :---  |         :---  |
-| TEAM-camera data Costa Rica     | vector       | downloadable from canvas, original source: https://www.wildlifeinsights.org/team-network  |
-| NDVI    | ?        | LANDSAT 8    |Google Earth Engine: see below     |
-| ?  | ?        | ?      | ?    |
 
 
 *** 
