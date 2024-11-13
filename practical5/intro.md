@@ -221,17 +221,14 @@ Run the code if you copied it, does it visualize the suitability in yellow and g
 > Study your web map. Which areas are suitable for rice cultivation? <br />
 > Pick the best answer from the answers below (see Canvas). <br />
 
-
+<br />
 
 > 📝 **Question 5**. Compare suitability map for rice you just made with the average regional output map for rice on The Decolonial Atlas. <br />
 > <br />
 > Why are the rice producing areas  not necessarily the ones that are most suitable? You can select multiple answers. <br />
 > Select ALL the answers that are correct!<br />
 
-
-
-
-
+<br />
 
 The climate is changing, and we are uncertain if we will exceed the 2.0-degree threshold of global warming. In the summit of Glasgow (November 2021), an international agreement to phase down coal and a roadmap to limit global warming to 1.5 degrees was achieved. This warming will also have an effect on the suitability of crops around the globe.
 
@@ -241,19 +238,68 @@ In our code we can change the average temperature so we can get an idea on how t
 
 After you found and changed this line of code, run the code again. How does this simulation reflect climate change? What complexities of climate change did we overlook when implementing this code? 
 
+<br />
+
 > 📝 **Question 6**. By simulating climate change in GEE in this way, we...  <br />
 > <br />
+
+<br />
 
 > 📝 **Question 7**. Modify the code to account for our scenario with climate change. <br />
 > <br />
 > Do you see a generally positive effect or negative effect for rice cultivation? <br />
 
+***
+
+<br />
+
+### Creating your own suitability map
+
+Now that you have some feeling for creating a suitability map, you can now use your skills to make your own! To find information about different crops we can use a multitude of platforms. One of those platforms that provide information about different crops is Feedpedia.
+
+Feedipedia is an open access information system on animal feed resources that provides information on nature, occurrence, chemical composition, nutritional value and safe use of nearly 1400 worldwide livestock feeds. Most of the livestock feeds are also used for human consumption. Use the Feedipedia database at [https://www.feedipedia.org/](https://www.feedipedia.org/). to answer the following questions.
+
+> HINT: Look at the Feeds Data Sheets via the tab 'About Feedipedia'.
+> NOTE: Some crops may not be listed in the form suitable for human consumption, but if you open a derived product the information should be listed there.
+
+Let's start of by investigating this website a little bit:
+
+<br />
+
+> 📝 **Question 8**. What is the optimal maximum average daily temperature for Potato (Solanum tuberosum)? <br />
+<br />
+
+> 📝 **Question 9**. Until which altitude can coffee (Coffea arabica  L.) be grown in the subtropics? <br />
+<br />
 
 
 
+Next you will choose one of the following crops to create a suitability map for:
 
+- Maize
+- Rye (Secale cereale)
+- Sunflower
+- Sugarcane 
+- Coffee (Arabica/Robusta)
+- Potato
+- Date
+  
+Look up the suitability factors for your crop within the Feedipedia database. Try to find factors for high and medium suitability. If you cannot find everything, use google or make an educated guess (some slope factors might be difficult to find).
 
+Important: medium and high suitability ranges must overlap and not exclude! For example: Medium suitability range in elevation for soybean would be 0 - 2000 m and high would be 500-1000 m. Also, remember to fill in temperature values as degrees celcius *10.
 
+Fill in the following table for your chosen crop:
+
+| Factor	| Medium Suitability Range |	High Suitability Range |
+|---|---|---|
+| Annual Average Temperature | | |	
+| Annual Average Precipitation | | |		
+| Elevation	| e.g. 0 - 2000 m	| eg. 500 - 1000 m |
+| Slope	| eg. 0 - 5 degrees	| eg. 0 - 1 degrees |
+
+Fill in the suitability factors into your Google Earth Engine code and run the model.
+
+Hint: to include that elevations are below sea level (such as The Netherlands), choose a negative number for you lower elevation range.
 
 
 
