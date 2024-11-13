@@ -95,7 +95,8 @@ var slope = ee.Terrain.slope(DEM) // here the slope is calculated from the DEM
 
 <br />
 
-Once we have that going, 
+Once we have that going, We can now specify the ranges within our climate data that are suitable for our crop of interest. In this case we are going to model rice. From the FAO website, it becomes clear that a precipitation between 800 and 2000 is prefered, together with a temperature between 20 and 30 degrees Celcius. The altitude should be below 1000 meters in most cases to be suitable.
+
 ```javascript
 ///////// initializing suitability parameters
 // for medium suitability
@@ -103,6 +104,12 @@ var prangeme = [800,2000]; //Precipitation suitability range for crop in mm
 var trangeme = [200,300]; //temperature suitability range for crop in degrees C*10
 var arangeme = [-100,2000]; //altitude suitability range for crop in m
 var srangeme = [0,20]; //slope suitability range for crop in degrees
+
+// for high suitability
+var prangehi = [1000,2000]; //Precipitation suitability range for crop in mm
+var trangehi = [200,300]; //temperature suitability range for crop in degrees C*10
+var arangehi = [-100,1000]; //altitude suitability range for crop in m
+var srangehi = [0,5]; //slope suitability range for crop in degrees
 ```
 
 <br />
@@ -212,7 +219,44 @@ Run the code if you copied it, does it visualize the suitability in yellow and g
 > 📝 **Question 4**. Run the model, the model was prepared for Rice Suitability. <br />
 > <br />
 > Study your web map. Which areas are suitable for rice cultivation? <br />
-> Pick the best answer from the answers below: <br />
+> Pick the best answer from the answers below (see Canvas). <br />
+
+
+
+> 📝 **Question 5**. Compare suitability map for rice you just made with the average regional output map for rice on The Decolonial Atlas. <br />
+> <br />
+> Why are the rice producing areas  not necessarily the ones that are most suitable? You can select multiple answers. <br />
+> Select ALL the answers that are correct!<br />
+
+
+
+
+
+
+The climate is changing, and we are uncertain if we will exceed the 2.0-degree threshold of global warming. In the summit of Glasgow (November 2021), an international agreement to phase down coal and a roadmap to limit global warming to 1.5 degrees was achieved. This warming will also have an effect on the suitability of crops around the globe.
+
+In our code we can change the average temperature so we can get an idea on how this will affect rice cultivation. Find & change in the following line of code the value 0 to 20 (check if you understand why you fill in 20 instead of 2 here):
+
+> var temp = temp.add(0) // this line can be used to modify the temperature
+
+After you found and changed this line of code, run the code again. How does this simulation reflect climate change? What complexities of climate change did we overlook when implementing this code? 
+
+> 📝 **Question 6**. By simulating climate change in GEE in this way, we...  <br />
+> <br />
+
+> 📝 **Question 7**. Modify the code to account for our scenario with climate change. <br />
+> <br />
+> Do you see a generally positive effect or negative effect for rice cultivation? <br />
+
+
+
+
+
+
+
+
+
+
 
 
 In essence, the GAEZ v3.0 assessment provides a comprehensive and spatially explicit database of crop production potential and related constraint factors.
