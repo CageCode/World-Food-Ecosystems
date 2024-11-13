@@ -343,8 +343,8 @@ Let's investigate the distribution of your chosen crop and how vulnerable it is 
 
 <br />
 
-| Scenarios | 
-|---|
+| Scenarios ||
+|---|---|
 | + 2.0 degrees temperature | same precipitation |
 | - 2.0 degrees temperature | same precipitation |
 | same temperature | + 200 mm precipitation |
