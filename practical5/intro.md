@@ -2,7 +2,7 @@
 
 In this practical, we will delve into suitability models to understand how different crops can thrive under varying environmental conditions. The Food and Agriculture Organization (FAO) provides a detailed description of Global Agro-Ecological Zones (GAEZ). They develop suitability and potential yield maps for up to 280 crops/land utilization types under varying input and management levels for historical, current, and future climate conditions. These models take into account factors such as climate conditions, soil classes, water availability etc. to provide a comprehensive view of agricultural productivity. 
 
-These maps, are grounded on sophisticated suitability models. You can read about the development and the underlying models of these maps on the FAO's official site: [FAO GAEZ Data Portal](https://gaez.fao.org/pages/theme-details-theme-4). 
+These maps, are grounded on sophisticated suitability models. You can read about the development and the underlying models of these maps on the FAO's official site: [FAO GAEZ Data Portal]([https://gaez.fao.org/pages/theme-details-theme-4](https://gaez.fao.org/)). 
 
 ### Geospatial Parameters
 
@@ -34,23 +34,44 @@ What's that? A déjà vu? O yes it is, you have seen this table before and now i
 
 ### Agro-Ecological Zones
 
-Agro-ecalogical zoning (AEZ), as applied in FAO studies, defines zones on the basis of combinations of soil, landform and climatic characteristics. The particular parameters used in the definition focus attention on the climatic and edaphic requirements of crops and on the management systems under which the crops are grown. Important factors for this zonation are growing periods, thermal regimes and soil type. For evaluating rain-fed land productivity, the FAO employs a water-balance model to ascertain the beginning and duration of periods with adequate water for crop growth. This model, combined with other climatic factors (such as radiation and temperature), is used in a robust crop growth framework to estimate potential biomass production and yield.
+Agro-ecalogical zoning (AEZ), as applied in FAO studies, defines zones on the basis of combinations of soil, landform and climatic characteristics. The particular parameters used in the definition focus attention on the climatic and edaphic requirements of crops and on the management systems under which the crops are grown. 
 
+***
+
+### Analyzing Suitability Models
 
 The paper by Peter et al., 2020, introduces a suitability mapper in Google Earth Engine, we will be utilizing this [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in this practical.
 
+We will do a first Crop-Climate Suitability Mapping
+
+1) Select region: Nigeria
+2) Choose temporal range: 2019-2020
+3) Choose season duration: 04-01 -  07-01
+4) Select crop from FAO ECOCROP database: SweetPotato and select 'Use FAO ECOCROP parameters'
+5) Set rainfall range during growth cycle: 10-20 millimeters
+6) Set temperature range during growth cycle: 15-30 degrees Celsius
+7) Click 'Click to map!' (displaying your results might take a few seconds up to half a minute)
+
+Use the visualized suitability map to answer the following question:
+
+> 📝 **Question 2**. Which region in Nigeria (zoom in on the map if needed) is best suited to grow Sweet Potatoes in the months April, May and June under the conditions you set above? <br />
+<br />
 
 
-In contrast, for irrigated land productivity, each crop’s growth cycle length is aligned with periods that have temperatures favorable for growth. The estimated potential agro-climatic yields are then adjusted using various reduction factors that are either directly or indirectly associated with climate (e.g., pests and diseases), soil, and terrain conditions.
 
 
----
 
-### Analyzing Suitability Models
+
+
+
 
 In essence, the GAEZ v3.0 assessment provides a comprehensive and spatially explicit database of crop production potential and related constraint factors.
 
 <br />
+
+
+
+(https://gaez.fao.org/pages/theme-details-theme-4)
 
 #### Agro–Climatic Yields
 
