@@ -253,7 +253,7 @@ Run the code if you copied it, does it visualize the suitability in yellow and g
 > Why are the rice producing areas not necessarily the ones that are most suitable? You can select multiple answers. <br />
 > Select ALL the answers that are correct!<br />
 
-Another interesting website to 
+<br />
 <br />
 
 The climate is changing, and we are uncertain if we will exceed the 2.0-degree threshold of global warming. In the summit of Glasgow (November 2021), an international agreement to phase down coal and a roadmap to limit global warming to 1.5 degrees was achieved. This warming will also have an effect on the suitability of crops around the globe.
