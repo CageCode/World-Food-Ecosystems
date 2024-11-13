@@ -298,7 +298,9 @@ Let's start of by investigating this website a little bit:
 > 📝 **Question 9**. Until which altitude can coffee (Coffea arabica  L.) be grown in the subtropics? <br />
 <br />
 
+***
 
+<br />
 
 Next you will choose one of the following crops to create a suitability map for:
 
@@ -309,6 +311,8 @@ Next you will choose one of the following crops to create a suitability map for:
 - Coffee (Arabica/Robusta)
 - Potato
 - Date
+
+<br />
   
 Look up the suitability factors for your crop within the Feedipedia database. Try to find factors for high and medium suitability. If you cannot find everything, use google or make an educated guess (some slope factors might be difficult to find).
 
@@ -316,12 +320,16 @@ Important: medium and high suitability ranges must overlap and not exclude! For 
 
 Fill in the following table for your chosen crop:
 
+<br />
+
 | Factor	| Medium Suitability Range |	High Suitability Range |
 |---|---|---|
 | Annual Average Temperature | | |	
 | Annual Average Precipitation | | |		
 | Elevation	| e.g. 0 - 2000 m	| eg. 500 - 1000 m |
 | Slope	| eg. 0 - 5 degrees	| eg. 0 - 1 degrees |
+
+<br />
 
 When you found the suitability parameters for your crop, insert the values into your Google Earth Engine code and run the model.
 
@@ -333,6 +341,8 @@ Hint: to include that elevations are below sea level (such as The Netherlands), 
 
 Let's investigate the distribution of your chosen crop and how vulnerable it is to changes in temperature and precipitation. Apply the following scenarios in your code by changing the ```var temp``` and ```var prec``` just as you did earlier in the practical. Use the scenarios underneath to get a feel for this vulnerability.
 
+<br />
+
 | Scenarios | 
 |---|
 | + 2.0 degrees temperature | same precipitation |
@@ -342,10 +352,14 @@ Let's investigate the distribution of your chosen crop and how vulnerable it is 
 | + 2.0 degrees temperature | + 200 mm precipitation |
 | - 2.0 degrees temperature | - 200 mm precipitation |
 
+<br />
+
 > 📝 **Question 11**. Describe in 5-10 sentences the differences between the regional output and your suitability map for your chosen crop and how vulnerable your crop is to climate change (which regions/biomes will become more/less suitable).  <br /> 
 
 
 ***
+
+<br />
 
 Now the model that we build is only a relatively simple suitability mapper. The article from Peter et al., 2020, published their Google Earth Engine code. You can find the code they used underneath. If you want, you can copy and paste this into GEE and play around with it yourself :)
 
