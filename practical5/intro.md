@@ -16,7 +16,7 @@ What's that? A déjà vu? O yes it is, you have seen this table before and now i
 |---|---|
 | Spatial extent | ? |
 | Temporal extent | ? |
-| Cartographic unit |  ?  |
+| Cartographic unit | ? |
 | Dimensions | ? |
 | Dimension description |  ? |
 | Temporal resolution | ? |
