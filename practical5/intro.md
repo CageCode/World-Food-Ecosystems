@@ -33,12 +33,13 @@ What's that? A déjà vu? O yes it is, you have seen this table before and now i
 <br />
 
 ### Agro-Ecological Zones
-### Suitability Models: Agricultural Suitability and Potential Yields
+
+Agro-ecalogical zoning (AEZ), as applied in FAO studies, defines zones on the basis of combinations of soil, landform and climatic characteristics. The particular parameters used in the definition focus attention on the climatic and edaphic requirements of crops and on the management systems under which the crops are grown. Important factors for this zonation are growing periods, thermal regimes and soil type. For evaluating rain-fed land productivity, the FAO employs a water-balance model to ascertain the beginning and duration of periods with adequate water for crop growth. This model, combined with other climatic factors (such as radiation and temperature), is used in a robust crop growth framework to estimate potential biomass production and yield.
 
 
 The paper by Peter et al., 2020, introduces a suitability mapper in Google Earth Engine, we will be utilizing this [Crop Niche Viewer](https://cartoscience.users.earthengine.app/view/crop-niche) in this practical.
 
-For evaluating rain-fed land productivity, the FAO employs a water-balance model to ascertain the beginning and duration of periods with adequate water for crop growth. This model, combined with other climatic factors (such as radiation and temperature), is used in a robust crop growth framework to estimate potential biomass production and yield.
+
 
 In contrast, for irrigated land productivity, each crop’s growth cycle length is aligned with periods that have temperatures favorable for growth. The estimated potential agro-climatic yields are then adjusted using various reduction factors that are either directly or indirectly associated with climate (e.g., pests and diseases), soil, and terrain conditions.
 
