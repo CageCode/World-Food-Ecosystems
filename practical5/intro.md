@@ -22,10 +22,6 @@ In contrast, for irrigated land productivity, each crop’s growth cycle length 
 
 ### Analyzing Suitability Models
 
-The reduction factors, which are successively applied to the potential yields, vary with crop type, the environment (in terms of climate, soil, and terrain conditions), and depend on assumptions regarding levels of inputs/management. To ensure that the results of the suitability assessment relate to production achievable on a long-term basis, two key adjustments are made:
-1. Fallow periods are imposed.
-2. Terrain slopes are excluded when inadequate for the assumed level of inputs/management or too susceptible to topsoil erosion.
-
 In essence, the GAEZ v3.0 assessment provides a comprehensive and spatially explicit database of crop production potential and related constraint factors.
 
 <br />
