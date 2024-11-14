@@ -1,7 +1,7 @@
 # Welcome to the 6th practical. 
 
 Today we are going to investigate crop diversity around the world!
-This practical is inspired by the publication of Leff et al. which dates back 20 years (to 2004), which focuses on the diversity in crops around the world. We will base ourselves on their methods, but we will work with very recent global crop datasets at very high spatial resolution and we will consider many more crops than considered by Leff et al. In this practical we will evaluate which areas in the world are characterized by very low/high diversity in crop production and try to assess what this means for food security. 
+This practical is inspired by the publication of Leff et al. which dates back 20 years (to 2004), which focuses on the diversity in crops around the world. We will base ourselves on their methods, but we will work with very recent global crop datasets at very high spatial resolution and we will consider many more crops than considered by Leff et al. We'll analyze this crop data and calculate key indices such as the Shannon diversity index for agriculture (isn't that for biodiversity you say?). Furthermore, you'll investigate the vulnerability of food systems of different countries to climate change. Ready to get started? Let’s dive into the croplands!
 
 This practical session is entirely in R and is intended to also demonstrate the ease with which R can handle spatial data. Start by creating a new script in R-Studio: Click on *New-file* at the top-left of R-studio and choose *R Script*, give it an appropriate name like: *prac6_agriculture*.
 
