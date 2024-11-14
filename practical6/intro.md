@@ -45,7 +45,6 @@ And we'll use following data structures and sources:
 
 
 *** 
-```
 
 <br />
 
