@@ -45,6 +45,7 @@ And we'll use following data structures and sources:
 
 
 *** 
+```
 
 <br />
 
@@ -52,12 +53,226 @@ And we'll use following data structures and sources:
 
 
 
-One of the first things we need to do is install the package needed to handle spatial data :
+One of the first things we need to do is install the packages needed to handle spatial data, keep in mind that we only need to install the packages once, therefore, copy the code below without the '#-comment' to your console and let R-studio install the package before moving to the next package:
 
 ```R
-install.packages("terra")  # for handling spatial data
+# Install the following packages one by one (this step is only necessary once).
+# install.packages("terra")  # for handling spatial data
+# install.packages("sf")
+# install.packages('dplyr', repos = 'https://cloud.r-project.org')
+# install.packages("exactextractr")
+# install.packages("plotly") 
+
+# Load necessary libraries
 library(terra)
+library(sf)
+library(dplyr)
+library(exactextractr)
+library(plotly)
 ```
+
+<br />
+
+2. Now we can point to the directory where we have all the tiff (raster) files containing the pixels where certain crops are grown. These datasets stem from the SPAM 2020 database and includes the global physical area occupied by certain crops. Files with _A at the end denote the total area per pixel occupied by a certain crop (_I and _R denote the irrigated and rainfed areas respectively). In total 46 crops are represented. For documentation see here: https://www.dropbox.com/scl/fi/z468wh0d8abfohol991r5/Readme.txt?rlkey=el1w3zeykz909aadrx2xuck36&e=1&dl=0
+
+```R
+# Specify the directory containing the tiff files
+directory <- "C:/Users/lhjacob/Downloads/spam2020V1r0_global_physical_area"
+```
+
+<br />
+
+3. Now we can list all the files that end with _A (the total area) and .tif: so we list all the tiff files that denote physical area of all cropping systems (irrigated and rainfed): 
+
+
+```R
+# List files ending with _a.tif
+tiff_files <- list.files(directory, pattern = "_A\\.tif$", full.names = TRUE)
+```
+
+<br />
+
+4. Now we read all the tif files into raster files, this we do by applying (lappy) the function rast (which reads raster files) to all the elements in are list, called tiff_files: 
+
+```R
+# Read all the tiff files into a list of raster objects
+# i.e. we apply the function (rast) to all the tifffiles
+raster_list <- lapply(tiff_files, rast)
+
+# You can now work with this list of rasters, e.g., plot one
+plot(raster_list[[1]], main = names(raster_list[[1]]))
+```
+
+<br />
+
+5.	These raster files, encapsuled in the raster_list denotes areas, however, we actually also want to know simply if a pixel contains, or does not contain the specific crop:
+
+```R
+#to convert all the raster files to binary files we need to write our own function
+# Function to convert each raster into a binary raster
+binary_raster <- function(r) {
+  # Apply the condition: 1 if value > 0, otherwise 0
+  r[is.na(r)] <- 0
+  r_binary <- ifel(r > 0, 1, 0)  # `ifel` from terra package
+  return(r_binary)
+}
+
+# Now we can Apply the binary raster function to each raster in the list
+binary_raster_list <- lapply(raster_list, binary_raster)
+
+
+plot(binary_raster_list[[1]], main = "Binary Raster")
+```
+
+<br />
+
+6.	Once we have these binary files we can calculate the ‘richness’ of agricultural crops in all the pixels, simply by adding them:
+
+```R
+#now i want to add all the binary rasters to just get a count of the amount of crops in a certain pixel: 
+raster_stack_bin <- rast(binary_raster_list)
+summed_rasterbin <- sum(raster_stack_bin, na.rm = TRUE)
+plot(summed_rasterbin, main = "Summed bin Raster (NAs Ignored)")
+```
+
+<br />
+
+7.	Similarly I want to get the total area of cropland in a certain pixel:
+
+```R
+#and i add all the raw rasters to get a total area of cropland
+raster_stack <- rast(raster_list)
+summed_raster <- sum(raster_stack, na.rm = TRUE)
+plot(summed_raster, main = "Summed Raw Raster (NAs Ignored)")
+#the summed raster file is now the SUMFik. We need this to calculate the Fi,k as defined by Leff et al, i.e. the relative crop fraction for each of the crops, i.e. the crop area of a certain crop in a pixel compared to the total crop area in that pixel (as denoted by SUMFik ,or summed_raster in our R code). 
+```
+
+<br />
+
+8.	This now allows us to calculate Fi,k for all crops in all pixels:
+
+```R 
+#now we can calculate the relative fraction of all the files
+# we will have to write a Function to divide each raster by the summed raster, handle NAs in the summed raster
+divide_raster <- function(r, summed) {
+  result <- r / summed
+  result[is.na(summed)] <- NA  # Ensure that pixels with NA in summed raster remain NA
+  return(result)
+}
+
+Fik_list <- lapply(raster_list, divide_raster, summed = summed_raster)
+plot(Fik_list[[1]], main = "relative fraction")
+```
+
+<br />
+
+9.	Now we will step away from the Agricultural Commodity Diversity index as defined by Leff, and we will calculate our own diversity index, inspired by the Shannon index for biodiversity:
+
+```R
+#now we can start calculating the shannonsindex
+# Function to calculate Fik * log(Fik) while handling NA values
+calculate_log_fraction <- function(r) {
+  # Replace NA with 0 before calculating log (to avoid -Inf)
+  r[is.na(r)] <- 0
+  # Calculate Fik * log(Fik), handling log(0) as 0
+  result <- ifel(r > 0, r * log(r), 0)  # Use ifel to avoid log(0) issue
+  return(result)
+}
+# Apply the calculation to each raster in Fik_list
+log_fraction_list <- lapply(Fik_list, calculate_log_fraction)
+log_fraction_stack <- rast(log_fraction_list)
+Shannon <- sum(log_fraction_stack, na.rm = TRUE)*-1
+plot(Shannon, main = "shannon index")
+```
+
+<br />
+
+10.	This previous Shannon map now shows the agricultural diversity expressed as a ‘shannon’s index’. Now we can couple this to a countries vulnerability to the effects of climate change on food security. For this, we base ourselves on the gain-new ranking, which ranks countries in terms of their vulnerability to Climate change with a focus on the dimension food. ## https://gain-new.crc.nd.edu/ranking/vulnerability/exposure
+The Food score captures a country’s vulnerability to climate change, and includes metrics of sensitivity, exposure and adaptive capacity. Indicators include: projected change of cereal yields, projected population growth, food import dependency, rural population, agriculture capacity, and child malnutrition. Pag 16 of the link above gives you an idea about the variables available, we will look at overall vulnerability of countries to CC regarding food.
+
+```R  
+food <- read.csv("C:/    ?    /nd_gain_countryindex_2024/resources/vulnerability/food.csv")
+```
+
+<br />
+
+11.	this is a CSV file, but of course, we also want to check the spatiality (we want to link these values to the the crop diversity. To  do this, we will need to import a shapefile of the world, so that we can merge the csv (non-spatial dataset) with the shapefile (a spatial dataset). Later on, this shapefile can then be used to extract the raster values we calculated earlier.
+
+```R 
+#now let's load a shapefile with all the countries
+library(sf)
+shapefile_path <- "C:/Users/lhjacob/Downloads/world-administrative-boundaries/world-administrative-boundaries.shp"  # Replace with your actual shapefile path
+shapefile_data <- st_read(shapefile_path)
+
+#now we have to couple the 'food' variable with the shapefile_data
+head(shapefile_data)
+#we see that the iso3 and ISO3 comes back in both: let's merge them. 
+install.packages('dplyr', repos = 'https://cloud.r-project.org')
+library(dplyr)
+# Merge shapefile_data with food based on iso3 and ISO3
+merged_data <- shapefile_data %>%
+  left_join(food, by = c("iso3" = "ISO3"))
+```
+
+<br />
+
+12.	Finally, now that we have a shapefile with all the vulnerability scores, we can extract the zonal statistics (e.g. the median Shannon index) for each country;
+
+```R
+#now we extract zonal statistics
+library(exactextractr)
+zonal_stats <- exact_extract(Shannon, merged_data, fun = "median")
+merged_data$shannon_median <- zonal_stats
+```
+
+<br />
+
+13.	This final data can now be used for visualization and statistics.
+
+```R 
+#question for quiz: how much of the variation in the  food vulnerability index can be explained by shannon median index. 
+plot(merged_data$X2022, merged_data$shannon_median)
+
+data_to_plot <- merged_data %>%
+  select(name, continent, shannon_median, X2022) %>% na.omit()
+#remove NAs
+
+interactive_plot <- plot_ly(data = data_to_plot,
+                            x = ~shannon_median,        # X-axis
+                            y = ~X2022,                 # Y-axis
+                            type = 'scatter',           # Scatter plot
+                            mode = 'markers',           # Use markers
+                            color = ~continent,
+                            text = ~paste("Name:", name), # Tooltip text
+                            hoverinfo = 'text', # Show tooltip on hover
+                            marker = list (size = 10))        
+interactive_plot <- interactive_plot %>%
+  layout(title = "Interactive Plot of Zonal Stats vs X2022",
+         xaxis = list(title = "Shannon Median"),
+         yaxis = list(title = "X2022"),
+         legend = list(title = list(text = "continent")))
+
+# Show the plot
+interactive_plot
+htmlwidgets::saveWidget(interactive_plot, "interactive_plot.html")
+#questions: which countries have a realtively high vulnerability score and a low shannon index?
+```
+
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
