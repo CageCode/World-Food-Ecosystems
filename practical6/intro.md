@@ -78,16 +78,15 @@ We can now point to the directory that contains all the TIFF (raster) files for 
 
 ```R
 # Set the working directory
-setwd(
+setwd("?/WFE_prac6")
 
 # Specify the directory containing the tiff files
-directory <- "C:/Users/lhjacob/Downloads/spam2020V1r0_global_physical_area"
+directory <- "spam2020V1r0_global_physical_area"
 ```
 
 <br />
 
-3. Now we can list all the files that end with _A (the total area) and .tif: so we list all the tiff files that denote physical area of all cropping systems (irrigated and rainfed): 
-
+Following this, we can list all the files that end with *_A* (an extension indicating the total area) and *.tif*. These TIFF files represent the physical area of all cropping systems, both irrigated and rainfed. In R it is possible to use the function *list.files()* to list all the files of a directory:
 
 ```R
 # List files ending with _a.tif
