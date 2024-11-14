@@ -72,7 +72,7 @@ library(plotly)
 
 <br />
 
-2. Now we can point to the directory where we have all the tiff (raster) files containing the pixels where certain crops are grown. These datasets stem from the SPAM 2020 database and includes the global physical area occupied by certain crops. Files with _A at the end denote the total area per pixel occupied by a certain crop (_I and _R denote the irrigated and rainfed areas respectively). In total 46 crops are represented. For documentation see here: https://www.dropbox.com/scl/fi/z468wh0d8abfohol991r5/Readme.txt?rlkey=el1w3zeykz909aadrx2xuck36&e=1&dl=0
+2. Now we can point to the directory where we have all the tiff (raster) files containing the pixels where certain crops are grown. These datasets stem from the SPAM 2020 database and includes the global physical area occupied by certain crops. Files with _A at the end denote the total area per pixel occupied by a certain crop (_I and _R denote the irrigated and rainfed areas respectively). In total 46 crops are represented. For documentation see [here](https://www.dropbox.com/scl/fi/z468wh0d8abfohol991r5/Readme.txt?rlkey=el1w3zeykz909aadrx2xuck36&e=1&dl=0)
 
 ```R
 # Specify the directory containing the tiff files
