@@ -131,6 +131,8 @@ plot(binary_raster_list[[1]], main = "Binary Raster")
 
 6.	Once we have these binary files we can calculate the ‘richness’ of agricultural crops in all the pixels, simply by adding them:
 
+$H = -\sum_{i=1}^{n} p_i \log(p_i)$
+
 ```R
 #now i want to add all the binary rasters to just get a count of the amount of crops in a certain pixel: 
 raster_stack_bin <- rast(binary_raster_list)
