@@ -21,4 +21,4 @@ In preparation for the course, please install following software:
 
 - [Practical 5](https://cagecode.github.io/World-Food-Ecosystems/practical5/intro.html)
 
-- [Practical 6](https://cagecode.github.io/World-Food-Ecosystems/practical6/intro.html-)
+- [Practical 6](https://cagecode.github.io/World-Food-Ecosystems/practical6/intro.html)
