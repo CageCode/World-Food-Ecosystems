@@ -1,9 +1,9 @@
-# Welcome to the 3rd practical. 
+# Welcome to the 6th practical. 
 
-In this practical we will be using a combination of Google Earth Engine and R to understand biodiversity patterns. It is essential that you found your way trough the [earlier practicals](../) as these practical sessions intentionally have an increasing complexity. 
+Today we are going to investigate crop diversity around the world!
+This practical is inspired by the publication of Leff et al. which dates back 20 years (to 2004), which focuses on the diversity in crops around the world. We will base ourselves on their methods, but we will work with very recent global crop datasets at very high spatial resolution and we will consider many more crops than considered by Leff et al. In this practical we will evaluate which areas in the world are characterized by very low/high diversity in crop production and try to assess what this means for food security. 
 
-
-Start by creating a new script in Google Earth Engine: Click on *NEW* at the top-left of GEE and choose *file*, give it an appropriate name like: *prac3_biodiversity*.
+Start by creating a new script in R-Studio: Click on *New-file* at the top-left of R-studio and choose *R Script*, give it an appropriate name like: *prac6_agriculture*.
 
 <br />
 
