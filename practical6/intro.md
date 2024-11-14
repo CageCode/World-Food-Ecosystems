@@ -48,9 +48,7 @@ And we'll use following data structures and sources:
 
 <br />
 
-### Accessing the data
-
-
+### Ready R
 
 One of the first things we need to do is install the packages needed to handle spatial data, keep in mind that we only need to install the packages once, therefore, copy the code below without the '#-comment' to your console and let R-studio install the package before moving to the next package:
 
@@ -72,9 +70,16 @@ library(plotly)
 
 <br />
 
-2. Now we can point to the directory where we have all the tiff (raster) files containing the pixels where certain crops are grown. These datasets stem from the SPAM 2020 database and includes the global physical area occupied by certain crops. Files with _A at the end denote the total area per pixel occupied by a certain crop (_I and _R denote the irrigated and rainfed areas respectively). In total 46 crops are represented. For documentation see [here](https://www.dropbox.com/scl/fi/z468wh0d8abfohol991r5/Readme.txt?rlkey=el1w3zeykz909aadrx2xuck36&e=1&dl=0)
+### Crop Area
+
+Make sure you downloaded the files for this practical and unzipped them in your World Food Ecosystem folder (you don't secretly just dump these files randomly in your Downloads or Documents folder do you? 🧐). One of the folders in the *"WFE_prac6"* directory is called *"spam2010V1r0_global_physical_area"*, this dataset comes from the SPAM 2020 database and show the global physical area occupied by various crops. Check the contents of the directory, the documentation of the dataset can be found [here](https://www.dropbox.com/scl/fi/z468wh0d8abfohol991r5/Readme.txt?rlkey=el1w3zeykz909aadrx2xuck36&e=1&dl=0). Each file represents the total area per pixel occupied by a specific crop, with a total of 46 crops included.
+
+We can now point to the directory that contains all the TIFF (raster) files for different crops. First set your working directory to your own path:
 
 ```R
+# Set the working directory
+setwd(
+
 # Specify the directory containing the tiff files
 directory <- "C:/Users/lhjacob/Downloads/spam2020V1r0_global_physical_area"
 ```
