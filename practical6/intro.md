@@ -74,7 +74,7 @@ library(plotly)
 
 Make sure you downloaded the files for this practical and unzipped them in your World Food Ecosystem folder (you don't secretly just dump these files randomly in your Downloads or Documents folder do you? 🧐). One of the folders in the *"WFE_prac6"* directory is called *"spam2010V1r0_global_physical_area"*, this dataset comes from the SPAM 2020 database and show the global physical area occupied by various crops. Check the contents of the directory, the documentation of the dataset can be found [here](https://www.dropbox.com/scl/fi/z468wh0d8abfohol991r5/Readme.txt?rlkey=el1w3zeykz909aadrx2xuck36&e=1&dl=0). Each file represents the total area per pixel occupied by a specific crop, with a total of 46 crops included.
 
-We can now point to the directory that contains all the TIFF (raster) files for different crops. First set your working directory to your own path:
+In R, we can point to the directory that contains all the TIFF (raster) files for different crops. First set your working directory to your own path:
 
 ```R
 # Set the working directory
@@ -83,6 +83,22 @@ setwd("?/WFE_prac6")
 # Specify the directory containing the tiff files
 directory <- "spam2020V1r0_global_physical_area"
 ```
+
+> 🔍 **Review 1**. What type of crops does the SPAM 2020 database contain? <br />
+> <br />
+> • Cereals <br />
+> • Seeds <br />
+> • Fruits <br />
+> • Vegetables <br />
+> • All of the above <br />
+
+
+<br />
+<details>
+<summary>Answer Review 1. (click on this to show/hide the answer)</summary>
+All of the above. There are 46 crops ranging from Bananas to Yams.
+</details>
+<br />
 
 <br />
 
@@ -95,11 +111,12 @@ tiff_files <- list.files(directory, pattern = "_A\\.tif$", full.names = TRUE)
 
 <br />
 
-4. Now we read all the tif files into raster files, this we do by applying (lappy) the function rast (which reads raster files) to all the elements in are list, called tiff_files: 
+Now we read all the tif files into raster files, this we do by applying (lappy) the function rast (which reads raster files) to all the elements in are list, called tiff_files. 
+In R, the lapply function is used to apply a function to each element of a list. The lapply function is particularly useful for performing repetitive operations on the elements of a list without needing to write explicit loops.
 
 ```R
 # Read all the tiff files into a list of raster objects
-# i.e. we apply the function (rast) to all the tifffiles
+# i.e. we apply the function (rast) to all the tiff files
 raster_list <- lapply(tiff_files, rast)
 
 # You can now work with this list of rasters, e.g., plot one
@@ -108,7 +125,7 @@ plot(raster_list[[1]], main = names(raster_list[[1]]))
 
 <br />
 
-5.	These raster files, encapsuled in the raster_list denotes areas, however, we actually also want to know simply if a pixel contains, or does not contain the specific crop:
+These raster files, encapsuled in the raster_list denotes areas, however, we actually also want to know simply if a pixel contains, or does not contain the specific crop:
 
 ```R
 #to convert all the raster files to binary files we need to write our own function
@@ -123,11 +140,14 @@ binary_raster <- function(r) {
 # Now we can Apply the binary raster function to each raster in the list
 binary_raster_list <- lapply(raster_list, binary_raster)
 
-
 plot(binary_raster_list[[1]], main = "Binary Raster")
 ```
 
+***
+
 <br />
+
+### Crop Area
 
 6.	Once we have these binary files we can calculate the ‘richness’ of agricultural crops in all the pixels, simply by adding them:
 
