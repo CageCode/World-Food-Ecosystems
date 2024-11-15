@@ -125,7 +125,17 @@ plot(raster_list[[1]], main = names(raster_list[[1]]))
 
 <br />
 
-These raster files, encapsuled in the raster_list denotes areas, however, we actually also want to know simply if a pixel contains, or does not contain the specific crop:
+> 📝 **Question 1**. Use the documentation (check the link earlier at Crop Area) and investigate the *raster_list* in R, then plot the Pigeon Pea from the TIFF files. In which country is the Pigeon Pea mostly cultivated?
+> <br />
+> • China <br />
+> • India <br />
+> • USA <br />
+> • Nigeria <br />
+> • Egypt <br />
+
+<br />
+
+These raster files, encapsuled in the *raster_list* denotes the crop area in every grid cell. However, we might also simply want to know whether a pixel contains the cultivation of a specific crop or not. The following code checks whether or not there is any area cultivated per cell.
 
 ```R
 #to convert all the raster files to binary files we need to write our own function
