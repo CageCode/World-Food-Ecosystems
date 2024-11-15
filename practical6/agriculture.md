@@ -66,7 +66,7 @@ plot(Fik_list[[?]], main = "relative fraction")
 
 It is time to step away from the Agricultural Commodity Diversity index as defined by Leff. Instead, we will calculate our own diversity index, inspired by the Shannon index for biodiversity. Remember the formula for the Shannon Index? It calculates the diversity of species in a particular community:
 
-$H = -\sum_{i=1}^{n}  p_i  \log(p_i)$
+$`H = -\sum_{i=1}^{n}  p_i  \log(p_i)`$
 
 where:
 - H: Shannon index
