@@ -21,27 +21,16 @@ Now think about the geospatial parameters, how would you go about analysing biod
 
 | Parameter  |  Value |
 |---|---|
-| Spatial extent | ? |
-| Temporal extent | ? |
-| Cartographic unit |  ?  |
+| Spatial extent | Global |
+| Temporal extent | This is a static analysis, however, the vulnerability of climate change is projected to a few decades into the future |
+| Cartographic unit |  Raster & and Shapefile  |
 | Dimensions |  ?  |
 | Dimension description |   ?  |
-| Temporal resolution |  ?  |
-| Spatial resolution | ? |
+| Temporal resolution | Crop data is updated to 2020, the yields are yearly estimates. |
+| Spatial resolution | Crop data is aggregated to 10 sq.km. |
 | Assumption / Hypothesis |  ?  |
 
 <br />
-
-(!) In reality the data was collected intermittently since 2007 but for the purposes of this practical, the data are aggregated and strongly simplified. Dealing with the temporal dimension of this dataset and with the particularities of data cleaning for camera trapping lies beyond the scope of this course. We *assume*, for the purposes of this exercise, the data is suitable for analysis against a landsat image of the year 2019 (see later). 
-
-
-And we'll use following data structures and sources:
-
-| Dataset      | Type | Source     |Access point     |
-| :---        |    :---    |          :---  |         :---  |
-| TEAM-camera data Costa Rica     | vector       | downloadable from canvas, original source: https://www.wildlifeinsights.org/team-network  |
-| NDVI    | ?        | LANDSAT 8    |Google Earth Engine: see below     |
-| ?  | ?        | ?      | ?    |
 
 
 *** 
@@ -140,7 +129,7 @@ plot(raster_list[[1]], main = names(raster_list[[1]]))
 These raster files, encapsuled in the *raster_list* denotes the crop area in every grid cell. However, we might also simply want to know whether a pixel contains the cultivation of a specific crop or not. The following code checks whether or not there is any area cultivated per cell.
 
 ```R
-#to convert all the raster files to binary files we need to write our own function
+# To convert all the raster files to binary files we need to write our own function
 # Function to convert each raster into a binary raster
 binary_raster <- function(r) {
   # Apply the condition: 1 if value > 0, otherwise 0
@@ -151,6 +140,17 @@ binary_raster <- function(r) {
 
 # Now we can Apply the binary raster function to each raster in the list
 binary_raster_list <- lapply(raster_list, binary_raster)
+```
+
+<br />
+
+Instead of only plotting the raster, it would be nice to see an outline of the world as well. Within the folder you downloaded is a shapefile of all countries on earth. 
+
+```R
+# Let's load a shapefile with all the countries
+
+shapefile_path <- "world-administrative-boundaries/world-administrative-boundaries.shp"
+shapefile_data <- st_read(shapefile_path)
 
 
 raster_df <- as.data.frame(raster_list[[4]], xy = TRUE, na.rm = TRUE)
@@ -234,29 +234,22 @@ plot(Shannon, main = "shannon index")
 
 <br />
 
-10.	This previous Shannon map now shows the agricultural diversity expressed as a ‘shannon’s index’. Now we can couple this to a countries vulnerability to the effects of climate change on food security. For this, we base ourselves on the gain-new ranking, which ranks countries in terms of their vulnerability to Climate change with a focus on the dimension food. ## https://gain-new.crc.nd.edu/ranking/vulnerability/exposure
+10.	This previous Shannon map now shows the agricultural diversity expressed as a ‘shannon’s index’. Now we can couple this to a countries vulnerability to the effects of climate change on food security. For this, we base ourselves on the gain-new ranking, which [ranks countries](https://gain-new.crc.nd.edu/ranking/vulnerability/exposure) in terms of their vulnerability to Climate change with a focus on the dimension food. 
 The Food score captures a country’s vulnerability to climate change, and includes metrics of sensitivity, exposure and adaptive capacity. Indicators include: projected change of cereal yields, projected population growth, food import dependency, rural population, agriculture capacity, and child malnutrition. Pag 16 of the link above gives you an idea about the variables available, we will look at overall vulnerability of countries to CC regarding food.
 
 ```R  
-food <- read.csv("C:/    ?    /nd_gain_countryindex_2024/resources/vulnerability/food.csv")
+food <- read.csv("nd_gain_countryindex_2024/resources/vulnerability/food.csv")
 ```
 
 <br />
 
-11.	this is a CSV file, but of course, we also want to check the spatiality (we want to link these values to the the crop diversity. To  do this, we will need to import a shapefile of the world, so that we can merge the csv (non-spatial dataset) with the shapefile (a spatial dataset). Later on, this shapefile can then be used to extract the raster values we calculated earlier.
+11.	this is a CSV file, but of course, we also want to check the spatiality (we want to link these values to the the crop diversity. To do this, we will need to import a shapefile of the world, so that we can merge the csv (non-spatial dataset) with the shapefile (a spatial dataset). Later on, this shapefile can then be used to extract the raster values we calculated earlier.
 
 ```R 
-#now let's load a shapefile with all the countries
-library(sf)
-shapefile_path <- "C:/Users/lhjacob/Downloads/world-administrative-boundaries/world-administrative-boundaries.shp"  # Replace with your actual shapefile path
-shapefile_data <- st_read(shapefile_path)
-
 #now we have to couple the 'food' variable with the shapefile_data
 head(shapefile_data)
-#we see that the iso3 and ISO3 comes back in both: let's merge them. 
-install.packages('dplyr', repos = 'https://cloud.r-project.org')
-library(dplyr)
-# Merge shapefile_data with food based on iso3 and ISO3
+
+# We see that the iso3 and ISO3 comes back in both: let's merge them. 
 merged_data <- shapefile_data %>%
   left_join(food, by = c("iso3" = "ISO3"))
 ```
