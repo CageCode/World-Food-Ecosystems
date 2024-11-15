@@ -244,7 +244,22 @@ plot(Fik_list[[4]], main = "relative fraction")
 
 <br />
 
-9.	Now we will step away from the Agricultural Commodity Diversity index as defined by Leff, and we will calculate our own diversity index, inspired by the Shannon index for biodiversity:
+It is time to step away from the Agricultural Commodity Diversity index as defined by Leff. Instead, we will calculate our own diversity index, inspired by the Shannon index for biodiversity. Remember the formula for the Shannon Index? It calculates the diversity of species in a particular community:
+
+$H = -\sum_{i=1}^{n} p_i \log(p_i)$
+
+where:
+H: Shannon index
+Σ: Greek symbol for “sum”
+ln: Natural log
+pi: The proportion of community i
+
+<br />
+
+The lower the value of H, the lower the diversity and vica versa. Whereas a value of H = 0 indicates a community that only has one species. In the lectures you learned that *pi* is the proportion a certain species and H representing the diversity in species. In this case we are going to apply the formula to calculate agricultural diversity, in which *pi* is the proportion of a certain crop. Originally Claude Shannon created the index to represent entropy in the field of information theory. Nowadays it is widely used by biologist to indicate biodiversity. This is a fine example of the benefit of interdisciplinary collaboration, in which the knowledge of one discipline can very well create innovative approaches in another!
+
+Now calculate the Shannon Index for our crop dataset:
+
 
 ```R
 #now we can start calculating the shannons index
@@ -266,10 +281,7 @@ plot(Shannon, main = "shannon index")
 <br />
 
 This Shannon map now shows the agricultural diversity expressed as a ‘Shannon’s index’. Now we can couple this to a countries vulnerability to the effects of climate change on food security. For this, we base ourselves on the gain-new ranking, which [ranks countries](https://gain-new.crc.nd.edu/ranking/vulnerability/food) in terms of their vulnerability to climate change with a focus on the dimension of food. 
-The Food score captures a country’s vulnerability to climate change, and includes metrics of sensitivity, exposure and adaptive capacity. Indicators include: projected change of cereal yields, projected population growth, food import dependency, rural population, agriculture capacity, and child malnutrition. Pag 16 of the link above gives you an idea about the variables available, we will look at overall vulnerability of countries to CC regarding food.
-
-
-$H = -\sum_{i=1}^{n} p_i \log(p_i)$
+The Food score captures a country’s vulnerability to climate change, and includes metrics of sensitivity, exposure and adaptive capacity. Indicators include: projected change of cereal yields, projected population growth, food import dependency, rural population, agriculture capacity, and child malnutrition. Pag 16 of the ND-gain Technical Report gives you an idea about the variables available, we will look at overall vulnerability of countries to climate change regarding food.
 
 ```R  
 food <- read.csv("nd_gain_countryindex_2024/resources/vulnerability/food.csv")
