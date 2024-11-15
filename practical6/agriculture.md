@@ -38,7 +38,7 @@ ggplot() +
 <br />
 
 <div align="center">
-  <img src="landscape.jpg" alt="agricultural area" >
+  <img src="landscape.jpeg" alt="agricultural area" >
   <br />
   <em>Figure 1. Agricultural landscapes in a oversaturated droneshot.</em>
 </div>
