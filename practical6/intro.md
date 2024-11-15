@@ -119,7 +119,7 @@ plot(raster_list[[1]], main = names(raster_list[[1]]))
 
 <br />
 
-> 📝 **Question 1**. Instead of beans, plot the Pigeon Pea from the TIFF files. In which country is the Pigeon Pea mostly cultivated? <br />
+> 📝 **Question 1**. Instead of Beans, plot the Pigeon Pea from the TIFF files. In which country is the Pigeon Pea mostly cultivated? <br />
 > Hint: Use the documentation (check the link earlier at Crop Area) and investigate the *raster_list* in R. <br />
 > <br />
 > • China <br />
@@ -148,17 +148,17 @@ binary_raster_list <- lapply(raster_list, binary_raster)
 
 <br />
 
-Instead of only plotting the raster, it would be nice to see an outline of the world as well. Within the folder you downloaded is a shapefile of all countries on earth. 
+Rather than just plotting the raster, it would be helpful to include an outline of the world. The folder you downloaded contains a shapefile with the boundaries of all countries on Earth. Import this shapefile into R with the following code:
 
 ```R
 # Let's load a shapefile with all the countries
-
 shapefile_path <- "world-administrative-boundaries/world-administrative-boundaries.shp"
 shapefile_data <- st_read(shapefile_path)
 
-
+# Transform the beans raster to a data.frame in order to plot it together with the shapefile
 raster_df <- as.data.frame(raster_list[[4]], xy = TRUE, na.rm = TRUE)
 
+# Plot both the raster and the country outlines
 ggplot() +
      geom_raster(data = raster_df, aes(x = x, y = y, fill = spam2020_v1r0_global_A_CASS_A)) +
      geom_sf(data = shapefile_data, fill = NA, color = "black") +
@@ -169,6 +169,13 @@ ggplot() +
           fill = "Raster Value")
 ```
 
+> 📝 **Question 2**. Instead of Beans, plot Wheat from the TIFF files with the country overlay. Which of the following statement is true?
+> <br />
+> • A lot of wheat is produced in the North of Brazil. <br />
+> • Wheat in Argentina is mostly produced in the South. <br />
+> • There is almost no wheat production in China.  <br />
+> • The South-East of India barely produces any wheat. <br />
+
 ***
 
 <br />
@@ -177,7 +184,6 @@ ggplot() +
 
 6.	Once we have these binary files we can calculate the ‘richness’ of agricultural crops in all the pixels, simply by adding them:
 
-$H = -\sum_{i=1}^{n} p_i \log(p_i)$
 
 ```R
 #now i want to add all the binary rasters to just get a count of the amount of crops in a certain pixel: 
@@ -240,6 +246,9 @@ plot(Shannon, main = "shannon index")
 
 10.	This previous Shannon map now shows the agricultural diversity expressed as a ‘shannon’s index’. Now we can couple this to a countries vulnerability to the effects of climate change on food security. For this, we base ourselves on the gain-new ranking, which [ranks countries](https://gain-new.crc.nd.edu/ranking/vulnerability/exposure) in terms of their vulnerability to Climate change with a focus on the dimension food. 
 The Food score captures a country’s vulnerability to climate change, and includes metrics of sensitivity, exposure and adaptive capacity. Indicators include: projected change of cereal yields, projected population growth, food import dependency, rural population, agriculture capacity, and child malnutrition. Pag 16 of the link above gives you an idea about the variables available, we will look at overall vulnerability of countries to CC regarding food.
+
+
+$H = -\sum_{i=1}^{n} p_i \log(p_i)$
 
 ```R  
 food <- read.csv("nd_gain_countryindex_2024/resources/vulnerability/food.csv")
