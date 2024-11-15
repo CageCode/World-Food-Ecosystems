@@ -113,8 +113,9 @@ In R, the lapply function is used to apply a function to each element of a list.
 # i.e. we apply the function (rast) to all the tiff files
 raster_list <- lapply(tiff_files, rast)
 
-# You can now work with this list of rasters, e.g., plot one
-plot(raster_list[[1]], main = names(raster_list[[1]]))
+# You can now work with this list of rasters, e.g. plot bean
+# cultivation (which is the 4th raster in raster_list)
+plot(raster_list[[4]], main = names(raster_list[[4]]))
 ```
 
 <br />
@@ -134,6 +135,7 @@ These raster files, encapsuled in the *raster_list* denotes the crop area in eve
 
 ```R
 # To convert all the raster files to binary files we need to write our own function
+
 # Function to convert each raster into a binary raster
 binary_raster <- function(r) {
   # Apply the condition: 1 if value > 0, otherwise 0
@@ -180,13 +182,12 @@ ggplot() +
 
 <br />
 
-### Crop Area
+### Agricultural Richness
 
-6.	Once we have these binary files we can calculate the ‘richness’ of agricultural crops in all the pixels, simply by adding them:
-
+Given the binary files that we calculated earlier, the 'richness' of agricultural crops can be determined by simply adding all binary rasters together:
 
 ```R
-#now i want to add all the binary rasters to just get a count of the amount of crops in a certain pixel: 
+# add all the binary rasters to just get a count of the amount of crops in a certain pixel: 
 raster_stack_bin <- rast(binary_raster_list)
 summed_rasterbin <- sum(raster_stack_bin, na.rm = TRUE)
 plot(summed_rasterbin, main = "Summed bin Raster (NAs Ignored)")
@@ -194,19 +195,26 @@ plot(summed_rasterbin, main = "Summed bin Raster (NAs Ignored)")
 
 <br />
 
-7.	Similarly I want to get the total area of cropland in a certain pixel:
+> 📝 **Question 3**. Given this map, what is the maximum amount of different crops cultivated in a grid cell? <br />
+<br />
+
+Similarly, we can also calculate the total area of cropland in each pixel. Instead of adding the binary files, we just sum the original rasters that contains the crop area for each crop.
 
 ```R
-#and i add all the raw rasters to get a total area of cropland
+# add all the raw rasters to get a total area of cropland
 raster_stack <- rast(raster_list)
 summed_raster <- sum(raster_stack, na.rm = TRUE)
 plot(summed_raster, main = "Summed Raw Raster (NAs Ignored)")
+
 #the summed raster file is now the SUMFik. We need this to calculate the Fi,k as defined by Leff et al, i.e. the relative crop fraction for each of the crops, i.e. the crop area of a certain crop in a pixel compared to the total crop area in that pixel (as denoted by SUMFik ,or summed_raster in our R code). 
 ```
 
+> 📝 **Question 4**. Given this map, what is the maximum amount of different crops cultivated in a grid cell? <br />
 <br />
 
-8.	This now allows us to calculate Fi,k for all crops in all pixels:
+<br />
+
+This now allows us to calculate Fi,k for all crops in all pixels:
 
 ```R 
 #now we can calculate the relative fraction of all the files
@@ -218,8 +226,11 @@ divide_raster <- function(r, summed) {
 }
 
 Fik_list <- lapply(raster_list, divide_raster, summed = summed_raster)
-plot(Fik_list[[1]], main = "relative fraction")
+plot(Fik_list[[4]], main = "relative fraction")
 ```
+
+> 📝 **Question 5**. Given this map, what is the maximum amount of different crops cultivated in a grid cell? <br />
+<br />
 
 <br />
 
@@ -368,13 +379,12 @@ We will thus have to make it ourselves based on satellites with a better spatial
 <br />
 <br />
 
-**Now we are ready for the [next step](QGIS.html): extracting the elevation data for each point**
+**Continue with the next step, in which you will calculate agricultural richness and diversity**
 
 <nav>
   <ul>
-    <li><strong>Step 1: Problem Description</strong></li>
-    <li><a href="QGIS.html">Step 2: Extracting Data</a></li>
-    <li><a href="Rstudio.html">Step 3: Data Analysis</a></li>
+    <li><strong>Step 1: Crop Area</strong></li>
+    <li><a href="agriculture.html">Step 2: Agricultural Diversity</a></li>
     <li><a href="../"><b>Back to Overview Page</b></a></li>
   </ul>
 </nav>
