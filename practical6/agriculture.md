@@ -35,6 +35,16 @@ ggplot() +
 #the summed raster file is now the SUMFik. We need this to calculate the Fi,k as defined by Leff et al, i.e. the relative crop fraction for each of the crops.
 ```
 
+<br />
+
+<div align="center">
+  <img src="landscape.jpg" alt="agricultural area" >
+  <br />
+  <em>Figure 1. Agricultural landscapes in a oversaturated droneshot.</em>
+</div>
+
+<br />
+
 > 📝 **Question 4**. Leff et al (2004) talks about "...major crop belts throughout the world." Given the figure you made above, which areas would you indicate as major crop belts? Select all the answers that show a high amount of crop area. <br />
 <br />
 
@@ -69,7 +79,7 @@ It is time to step away from the Agricultural Commodity Diversity index as defin
 <div align="center">
   <img src="ShannonIndex.jpg" alt="Shannon Index" >
   <br />
-  <em>Figure 1. Formula for the Shannon Index</em>
+  <em>Figure 2. Formula for the Shannon Index</em>
 </div>
 
 where:
