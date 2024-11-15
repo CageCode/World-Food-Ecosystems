@@ -172,6 +172,10 @@ Open it and inspect the plot, can you find the Netherlands?
 > 📝 **Question 8**. Which countries have a relatively high Food Vulnerability score and a low Shannon Index? Explain if there is a connection to the climate of those countries. <br />
 <br />
 
+> 📝 **Question 9**. In your own words, describe what the relationship is between agricultural diversity and food vulnerability due to climate change, thus answering today's research question. <br />
+
+<br />
+
 <br />
 
 
