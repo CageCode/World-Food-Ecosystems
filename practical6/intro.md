@@ -26,7 +26,7 @@ What would be suitable geospatial parameters for such analysis? In this case, we
 |---|---|
 | Spatial extent | Global |
 | Temporal extent | This is a static analysis, however, the vulnerability of climate change is projected to a few decades into the future |
-| Cartographic unit |  Raster & and Shapefile  |
+| Cartographic unit |  Raster & Shapefile  |
 | Dimensions |  ?  |
 | Dimension description |   ?  |
 | Temporal resolution | Crop data is updated to 2020, the yields are yearly estimates. |
