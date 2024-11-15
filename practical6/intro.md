@@ -249,10 +249,10 @@ It is time to step away from the Agricultural Commodity Diversity index as defin
 $H = -\sum_{i=1}^{n} p_i \log(p_i)$
 
 where:
-H: Shannon index
-Σ: Greek symbol for “sum”
-ln: Natural log
-pi: The proportion of community i
+- H: Shannon index
+- Σ: Greek symbol for “sum”
+- ln: Natural log
+- pi: The proportion of community i
 
 <br />
 
