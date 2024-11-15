@@ -120,7 +120,7 @@ plot(raster_list[[4]], main = names(raster_list[[4]]))
 
 <br />
 
-> 📝 **Question 1**. Instead of Beans, plot the Pigeon Pea from the TIFF files. In which country is the Pigeon Pea mostly cultivated? <br />
+> 📝 **Question 1**. Instead of Cassava, plot the Pigeon Pea from the TIFF files. In which country is the Pigeon Pea mostly cultivated? <br />
 > Hint: Use the documentation (check the link earlier at Crop Area) and investigate the *raster_list* in R. <br />
 > <br />
 > • China <br />
@@ -157,7 +157,7 @@ Rather than just plotting the raster, it would be helpful to include an outline 
 shapefile_path <- "world-administrative-boundaries/world-administrative-boundaries.shp"
 shapefile_data <- st_read(shapefile_path)
 
-# Transform the beans raster to a data.frame in order to plot it together with the shapefile
+# Transform the cassava raster to a data.frame in order to plot it together with the shapefile
 raster_df <- as.data.frame(raster_list[[4]], xy = TRUE, na.rm = TRUE)
 
 # Plot both the raster and the country outlines
@@ -167,11 +167,11 @@ ggplot() +
      coord_sf(xlim = c(-180, 180), ylim = c(-90, 90)) +
      scale_fill_viridis_c() +
      theme_minimal() +
-     labs(title = "Binary raster of beans",
+     labs(title = "Binary raster of cassava",
           fill = "Raster Value")
 ```
 
-> 📝 **Question 2**. Instead of Beans, plot Wheat from the TIFF files with the country overlay. Which of the following statement is true?
+> 📝 **Question 2**. Instead of Cassava, plot Wheat from the TIFF files with the country overlay. Which of the following statement is true?
 > <br />
 > • A lot of wheat is produced in the North of Brazil. <br />
 > • Wheat in Argentina is mostly produced in the South. <br />
@@ -213,18 +213,18 @@ ggplot() +
     coord_sf(xlim = c(-180, 180), ylim = c(-90, 90)) +
     scale_fill_viridis_c(limits = c(0, 10000)) +
     theme_minimal() +
-    labs(title = "Overlay of Raster and Shapefile",
-         fill = "Raster Value")
+    labs(title = "Total crop area per cell in hectares",
+         fill = "Crop area in ha")
 
-#the summed raster file is now the SUMFik. We need this to calculate the Fi,k as defined by Leff et al, i.e. the relative crop fraction for each of the crops, i.e. the crop area of a certain crop in a pixel compared to the total crop area in that pixel (as denoted by SUMFik ,or summed_raster in our R code). 
+#the summed raster file is now the SUMFik. We need this to calculate the Fi,k as defined by Leff et al, i.e. the relative crop fraction for each of the crops.
 ```
 
-> 📝 **Question 4**. Given this map, what is the maximum amount of different crops cultivated in a grid cell? <br />
+> 📝 **Question 4**. Leff et al (2004) talks about "...major crop belts throughout the world." Given the figure you made above, which areas would you indicate as major crop belts? Select all the answers that show a high amount of crop area. <br />
 <br />
 
 <br />
 
-This now allows us to calculate Fi,k for all crops in all pixels:
+Now that we have the total crop area, we can calculate the relative crop fraction for each of the crops. In the paper by Leff et al. (2004) this is being indicated as *Fi,k*. i.e. the crop area of a certain crop in a pixel compared to the total crop area in that pixel (the latter is denoted by SUMFik, or summed_raster in our R code). Let's calculate Fi,k for all crops in all pixels:
 
 ```R 
 #now we can calculate the relative fraction of all the files
@@ -247,7 +247,7 @@ plot(Fik_list[[4]], main = "relative fraction")
 9.	Now we will step away from the Agricultural Commodity Diversity index as defined by Leff, and we will calculate our own diversity index, inspired by the Shannon index for biodiversity:
 
 ```R
-#now we can start calculating the shannonsindex
+#now we can start calculating the shannons index
 # Function to calculate Fik * log(Fik) while handling NA values
 calculate_log_fraction <- function(r) {
   # Replace NA with 0 before calculating log (to avoid -Inf)
@@ -265,7 +265,7 @@ plot(Shannon, main = "shannon index")
 
 <br />
 
-10.	This previous Shannon map now shows the agricultural diversity expressed as a ‘shannon’s index’. Now we can couple this to a countries vulnerability to the effects of climate change on food security. For this, we base ourselves on the gain-new ranking, which [ranks countries](https://gain-new.crc.nd.edu/ranking/vulnerability/exposure) in terms of their vulnerability to Climate change with a focus on the dimension food. 
+This Shannon map now shows the agricultural diversity expressed as a ‘Shannon’s index’. Now we can couple this to a countries vulnerability to the effects of climate change on food security. For this, we base ourselves on the gain-new ranking, which [ranks countries](https://gain-new.crc.nd.edu/ranking/vulnerability/food) in terms of their vulnerability to climate change with a focus on the dimension of food. 
 The Food score captures a country’s vulnerability to climate change, and includes metrics of sensitivity, exposure and adaptive capacity. Indicators include: projected change of cereal yields, projected population growth, food import dependency, rural population, agriculture capacity, and child malnutrition. Pag 16 of the link above gives you an idea about the variables available, we will look at overall vulnerability of countries to CC regarding food.
 
 
