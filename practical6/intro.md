@@ -56,6 +56,7 @@ One of the first things we need to do is install the packages needed to handle s
 # Install the following packages one by one (this step is only necessary once).
 # install.packages("terra")  # for handling spatial data
 # install.packages("sf")
+# install.packages("ggplot2")
 # install.packages('dplyr', repos = 'https://cloud.r-project.org')
 # install.packages("exactextractr")
 # install.packages("plotly") 
@@ -63,6 +64,7 @@ One of the first things we need to do is install the packages needed to handle s
 # Load necessary libraries
 library(terra)
 library(sf)
+library(ggplot2)
 library(dplyr)
 library(exactextractr)
 library(plotly)
@@ -150,7 +152,17 @@ binary_raster <- function(r) {
 # Now we can Apply the binary raster function to each raster in the list
 binary_raster_list <- lapply(raster_list, binary_raster)
 
-plot(binary_raster_list[[1]], main = "Binary Raster")
+
+raster_df <- as.data.frame(raster_list[[4]], xy = TRUE, na.rm = TRUE)
+
+ggplot() +
+     geom_raster(data = raster_df, aes(x = x, y = y, fill = spam2020_v1r0_global_A_CASS_A)) +
+     geom_sf(data = shapefile_data, fill = NA, color = "black") +
+     coord_sf(xlim = c(-180, 180), ylim = c(-90, 90)) +
+     scale_fill_viridis_c() +
+     theme_minimal() +
+     labs(title = "Binary raster of beans",
+          fill = "Raster Value")
 ```
 
 ***
