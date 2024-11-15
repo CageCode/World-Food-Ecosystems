@@ -236,17 +236,21 @@ divide_raster <- function(r, summed) {
 }
 
 Fik_list <- lapply(raster_list, divide_raster, summed = summed_raster)
-plot(Fik_list[[4]], main = "relative fraction")
+plot(Fik_list[[?]], main = "relative fraction")
 ```
 
-> 📝 **Question 5**. Given this map, what is the maximum amount of different crops cultivated in a grid cell? <br />
-<br />
+> 📝 **Question 5**. Where is the highest relative fraction of Cassava being grown? <br />
+> <br />
+> • India <br />
+> • Indonesia. <br />
+> • Amazonia  <br />
+> • Central Africa <br />
 
 <br />
 
 It is time to step away from the Agricultural Commodity Diversity index as defined by Leff. Instead, we will calculate our own diversity index, inspired by the Shannon index for biodiversity. Remember the formula for the Shannon Index? It calculates the diversity of species in a particular community:
 
-$H = -\sum_{i=1}^{n} p_i \log(p_i)$
+$H = -\sum_{i=1}^{n}  p_i  \log(p_i)$
 
 where:
 - H: Shannon index
@@ -262,7 +266,7 @@ Now calculate the Shannon Index for our crop dataset:
 
 
 ```R
-#now we can start calculating the shannons index
+# Now we can start calculating the shannons index
 # Function to calculate Fik * log(Fik) while handling NA values
 calculate_log_fraction <- function(r) {
   # Replace NA with 0 before calculating log (to avoid -Inf)
@@ -281,7 +285,7 @@ plot(Shannon, main = "shannon index")
 <br />
 
 This Shannon map now shows the agricultural diversity expressed as a ‘Shannon’s index’. Now we can couple this to a countries vulnerability to the effects of climate change on food security. For this, we base ourselves on the gain-new ranking, which [ranks countries](https://gain-new.crc.nd.edu/ranking/vulnerability/food) in terms of their vulnerability to climate change with a focus on the dimension of food. 
-The Food score captures a country’s vulnerability to climate change, and includes metrics of sensitivity, exposure and adaptive capacity. Indicators include: projected change of cereal yields, projected population growth, food import dependency, rural population, agriculture capacity, and child malnutrition. Pag 16 of the ND-gain Technical Report gives you an idea about the variables available, we will look at overall vulnerability of countries to climate change regarding food.
+The Food score captures a country’s vulnerability to climate change, and includes metrics of sensitivity, exposure and adaptive capacity. Indicators include: projected change of cereal yields, projected population growth, food import dependency, rural population, agriculture capacity, and child malnutrition. Page 16 of the ND-gain Technical Report gives you an idea about the variables available, we will look at overall vulnerability of countries to climate change regarding food.
 
 ```R  
 food <- read.csv("nd_gain_countryindex_2024/resources/vulnerability/food.csv")
@@ -289,7 +293,10 @@ food <- read.csv("nd_gain_countryindex_2024/resources/vulnerability/food.csv")
 
 <br />
 
-11.	this is a CSV file, but of course, we also want to check the spatiality (we want to link these values to the the crop diversity. To do this, we will need to import a shapefile of the world, so that we can merge the csv (non-spatial dataset) with the shapefile (a spatial dataset). Later on, this shapefile can then be used to extract the raster values we calculated earlier.
+> 📝 **Question 6**. Why is the projected change in cereal yield included in the food vulnerability score? <br />
+<br />
+
+This is a CSV file, but of course, we also want to check the spatiality (we want to link these values to the the crop diversity. To do this, we will need to import a shapefile of the world, so that we can merge the csv (non-spatial dataset) with the shapefile (a spatial dataset). Later on, this shapefile can then be used to extract the raster values we calculated earlier.
 
 ```R 
 #now we have to couple the 'food' variable with the shapefile_data
@@ -302,7 +309,7 @@ merged_data <- shapefile_data %>%
 
 <br />
 
-12.	Finally, now that we have a shapefile with all the vulnerability scores, we can extract the zonal statistics (e.g. the median Shannon index) for each country;
+Finally, now that we have a shapefile with all the vulnerability scores, we can extract the zonal statistics (e.g. the median Shannon index) for each country;
 
 ```R
 #now we extract zonal statistics
@@ -313,12 +320,10 @@ merged_data$shannon_median <- zonal_stats
 
 <br />
 
-13.	This final data can now be used for visualization and statistics.
+This final data can now be used for visualization and statistics.
 
-In this case we are not interested in a regression analysis, because we are not predicting 
 
 ```R 
-#question for quiz: how much of the variation in the  food vulnerability index can be explained by shannon median index. 
 plot(merged_data$X2022, merged_data$shannon_median)
 
 data_to_plot <- merged_data %>%
@@ -343,63 +348,20 @@ interactive_plot <- interactive_plot %>%
 # Show the plot
 interactive_plot
 htmlwidgets::saveWidget(interactive_plot, "interactive_plot.html")
-#questions: which countries have a realtively high vulnerability score and a low shannon index?
 ```
 
 <br />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-> 📝 **Question 1**. The data we use of the camera traps is basically:
-> <br />
-> • Abundance data<br />
-> • Species richness data, without consideration of abundance <br />
-> • A weighted combination of abundance and species richness <br />
-
-***
+> 📝 **Question 7**. How much of the variation in the food vulnerability index can be explained by Shannon median index? <br />
 
 <br />
 
-**NDVI-Map:** <br />
-The camera traps are relatively close together, the NDVI datasets that are readily available in the Google Earth Catalogue have a rough spatial resolution (e.g. the based on [MODIS satellites has a 500m resolution](https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A1). 
-
-> 🔍 **Review 1**. Why would a readily available NDVI with a resolution of 500m be too rough? <br />
-
-<br />
-<details>
-<summary>Answer Review 1. (click on this to show/hide the answer)</summary>
-Because many camera traps would then fall within the same rastercell of the NDVI-map. This means there is a mismatch in scale, analyzing this data would give you the same NDVI value for different camera traps.
-</details>
+> 📝 **Question 8**. Which countries have a relatively high Food Vulnerability score and a low Shannon Index? Explain if there is a connection to the climate of those countries. <br />
 <br />
 
-We will thus have to make it ourselves based on satellites with a better spatial resolution. One of the options is the LANDSAT 8 mission which collects spectral information in the red and near-infrared spectrum (the bands we need to calculate NDVI) at 30m resolution. All the information on this product is given [here](https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2).
-
-
-```R
-
-```
-
-
-
-
-
 <br />
-<br />
+
+
 
 **Continue with the next step, in which you will calculate agricultural richness and diversity**
 
