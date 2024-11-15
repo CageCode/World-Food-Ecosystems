@@ -105,7 +105,7 @@ tiff_files <- list.files(directory, pattern = "_A\\.tif$", full.names = TRUE)
 
 <br />
 
-Now we read all the tif files into raster files, this we do by applying (lappy) the function rast (which reads raster files) to all the elements in are list, called tiff_files. 
+Now we read all the tif files into raster files, this we do by applying (*lapply*) the function *rast* (which reads raster files) to all the elements in are list, called tiff_files. 
 In R, the lapply function is used to apply a function to each element of a list. The lapply function is particularly useful for performing repetitive operations on the elements of a list without needing to write explicit loops.
 
 ```R
@@ -113,7 +113,7 @@ In R, the lapply function is used to apply a function to each element of a list.
 # i.e. we apply the function (rast) to all the tiff files
 raster_list <- lapply(tiff_files, rast)
 
-# You can now work with this list of rasters, e.g. plot bean
+# You can now work with this list of rasters, e.g. plot cassava
 # cultivation (which is the 4th raster in raster_list)
 plot(raster_list[[4]], main = names(raster_list[[4]]))
 ```
