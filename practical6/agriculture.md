@@ -144,27 +144,20 @@ plot(merged_data$X2022, merged_data$shannon_median)
 
 data_to_plot <- merged_data %>%
   select(name, continent, shannon_median, X2022) %>% na.omit()
-#remove NAs
 
-interactive_plot <- plot_ly(data = data_to_plot,
-                            x = ~shannon_median,        # X-axis
-                            y = ~X2022,                 # Y-axis
-                            type = 'scatter',           # Scatter plot
-                            mode = 'markers',           # Use markers
-                            color = ~continent,
-                            text = ~paste("Name:", name), # Tooltip text
-                            hoverinfo = 'text', # Show tooltip on hover
-                            marker = list (size = 10))        
-interactive_plot <- interactive_plot %>%
-  layout(title = "Interactive Plot of Zonal Stats vs X2022",
-         xaxis = list(title = "Shannon Median"),
-         yaxis = list(title = "X2022"),
-         legend = list(title = list(text = "continent")))
+# Create interactive plot
+interactive_plot <- data_to_plot %>%
+  ggplot( aes(X2022, shannon_median, color=continent, text=name)) +
+  geom_point() +
+  theme_bw()
 
-# Show the plot
-interactive_plot
+# Show the interactive plot
+interactive_plot<-ggplotly(interactive_plot)
 htmlwidgets::saveWidget(interactive_plot, "interactive_plot.html")
 ```
+
+The plot will be saved as an interactive plot as a html webpage in your working directory. Go to your working directory and find the file there!
+Open it and inspect the plot, can you find the Netherlands?
 
 <br />
 
