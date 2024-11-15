@@ -13,11 +13,14 @@ This practical session is entirely in R and is intended to also demonstrate the 
 
 ### Problem setting
 
-As introduced in class, we will use camera trap data: these are cameras where each time an animal passes, a picture is taken and AI is used to identify the animal. After some data cleaning and quality checks, the total amount of unique species (species richness) can be calculated for each camera (so each location). The question in this practical will be: for a dataset collected in Costa Rica: which gradients in species richness exist? Based on what we saw in class, we assume here that if there are gradients, they might depend on NDVI. Additionally, because the dataset is acquired on the flanks of a volcano, we will also check the effect of elevation. 
+As various regions around the world experience the increasing effects of climate change, the stability of food production systems is at risk. Among the multifaceted impacts of climate change, two pressing concerns in the agricultural domain are the vulnerability of crops to extreme climate events and changing disease vectors that cause crop failures.
+One buffer against such effects could be agricultural diversity, i.e. the amount of different crops cultivated in a certain area. Such diverse cropping systems can potentially buffer against the impacts of climate extremes by spreading risk across different species and varieties, which may respond differently to adverse conditions. Conversely, regions with limited crop diversity might face heightened vulnerability due to their reliance on a narrow range of crops, which could be decimated by specific climate threats.
+One could wonder how the agricultural diversity differs around the world. 
 
 <br />
 
-Now think about the geospatial parameters, how would you go about analysing biodiversity over gradients in Costa Rica? Can you complete the following table and give the answers on the question marks?
+What would be suitable geospatial parameters for such analysis? In this case, we are interested in the vulnerability on a country level. Thus we need global maps of agricultural output, in this case we will use agricultural maps from the Spatial Production Allocation Model [SPAM](https://mapspam.info/), which contains various crop data aggregated to a 10 sq.km. resolution. 
+
 
 | Parameter  |  Value |
 |---|---|
@@ -116,7 +119,8 @@ plot(raster_list[[1]], main = names(raster_list[[1]]))
 
 <br />
 
-> 📝 **Question 1**. Use the documentation (check the link earlier at Crop Area) and investigate the *raster_list* in R, then plot the Pigeon Pea from the TIFF files. In which country is the Pigeon Pea mostly cultivated?
+> 📝 **Question 1**. Instead of beans, plot the Pigeon Pea from the TIFF files. In which country is the Pigeon Pea mostly cultivated? <br />
+> Hint: Use the documentation (check the link earlier at Crop Area) and investigate the *raster_list* in R. <br />
 > <br />
 > • China <br />
 > • India <br />
@@ -268,6 +272,8 @@ merged_data$shannon_median <- zonal_stats
 <br />
 
 13.	This final data can now be used for visualization and statistics.
+
+In this case we are not interested in a regression analysis, because we are not predicting 
 
 ```R 
 #question for quiz: how much of the variation in the  food vulnerability index can be explained by shannon median index. 
