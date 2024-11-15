@@ -179,7 +179,7 @@ htmlwidgets::saveWidget(interactive_plot, "interactive_plot.html")
 
 
 
-**Continue with the next step, in which you will calculate agricultural richness and diversity**
+**You made it to the end of all six practicals, Well Done!**
 
 <nav>
   <ul>
