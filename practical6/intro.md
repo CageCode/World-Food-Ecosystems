@@ -204,7 +204,17 @@ Similarly, we can also calculate the total area of cropland in each pixel. Inste
 # add all the raw rasters to get a total area of cropland
 raster_stack <- rast(raster_list)
 summed_raster <- sum(raster_stack, na.rm = TRUE)
-plot(summed_raster, main = "Summed Raw Raster (NAs Ignored)")
+
+croparea_df <- as.data.frame(summed_raster, xy = TRUE, na.rm = TRUE)
+
+ggplot() +
+    geom_raster(data = croparea_df, aes(x = x, y = y, fill = sum)) +
+    geom_sf(data = shapefile_data, fill = NA, color = "black") +
+    coord_sf(xlim = c(-180, 180), ylim = c(-90, 90)) +
+    scale_fill_viridis_c(limits = c(0, 10000)) +
+    theme_minimal() +
+    labs(title = "Overlay of Raster and Shapefile",
+         fill = "Raster Value")
 
 #the summed raster file is now the SUMFik. We need this to calculate the Fi,k as defined by Leff et al, i.e. the relative crop fraction for each of the crops, i.e. the crop area of a certain crop in a pixel compared to the total crop area in that pixel (as denoted by SUMFik ,or summed_raster in our R code). 
 ```
